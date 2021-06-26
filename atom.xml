@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kazamaycのblog</title>
+  
+  
+  <link href="https://kazamayc.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://kazamayc.github.io/"/>
+  <updated>2021-06-26T06:14:53.891Z</updated>
+  <id>https://kazamayc.github.io/</id>
+  
+  <author>
+    <name>风间映川</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[桜の日記] 樱花抄</title>
+    <link href="https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"/>
+    <id>https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/</id>
+    <published>9999-05-20T16:13:14.000Z</published>
+    <updated>2021-06-26T06:14:53.891Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/06/16/KGNaVnAbWr1gPOk.png&quot; alt=&quot;image-20210616004655959&quot;&gt;&lt;/p&gt;
+&lt;p&gt;学习周报：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="日记" scheme="https://kazamayc.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] 南京大学PA学习</title>
+    <link href="https://kazamayc.github.io/2021/06/10/%C2%96%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2021/06/10/%C2%96%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-06-10T11:24:07.000Z</published>
+    <updated>2021-06-25T14:44:21.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;PA0-世界诞生的前夜&quot;&gt;&lt;a href=&quot;#PA0-世界诞生的前夜&quot; class=&quot;headerlink&quot; title=&quot;PA0-世界诞生的前夜&quot;&gt;&lt;/a&gt;PA0-世界诞生的前夜&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[write up] buuoj学习</title>
+    <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-06-02T10:24:46.000Z</published>
+    <updated>2021-06-16T07:22:50.288Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;第五空间2019-决赛-PWN5&quot;&gt;&lt;a href=&quot;#第五空间2019-决赛-PWN5&quot; class=&quot;headerlink&quot; title=&quot;[第五空间2019 决赛]PWN5&quot;&gt;&lt;/a&gt;[第五空间2019 决赛]PWN5&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[工具使用] pwn的工具使用</title>
+    <link href="https://kazamayc.github.io/2021/06/01/pwn%E7%9A%84%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    <id>https://kazamayc.github.io/2021/06/01/pwn%E7%9A%84%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</id>
+    <published>2021-06-01T03:36:28.000Z</published>
+    <updated>2021-06-10T14:14:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;pwndbg&quot;&gt;&lt;a href=&quot;#pwndbg&quot; class=&quot;headerlink&quot; title=&quot;pwndbg&quot;&gt;&lt;/a&gt;pwndbg&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[write up] ctfwiki学习</title>
+    <link href="https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-05-28T00:56:36.000Z</published>
+    <updated>2021-05-28T07:23:26.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-Basic-ROP&quot;&gt;&lt;a href=&quot;#0x00-Basic-ROP&quot; class=&quot;headerlink&quot; title=&quot;0x00 Basic ROP&quot;&gt;&lt;/a&gt;0x00 Basic</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[学习笔记] pwn</title>
+    <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
+    <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
+    <published>2021-05-27T12:41:55.000Z</published>
+    <updated>2021-06-02T11:21:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux系统调用表</title>
+    <link href="https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/"/>
+    <id>https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/</id>
+    <published>2021-05-23T10:43:18.000Z</published>
+    <updated>2021-05-23T10:49:30.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;x86平台32位Linux系统调用号&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[文章学习] Makefile</title>
+    <link href="https://kazamayc.github.io/2021/05/15/Makefile/"/>
+    <id>https://kazamayc.github.io/2021/05/15/Makefile/</id>
+    <published>2021-05-15T14:27:26.000Z</published>
+    <updated>2021-05-16T06:07:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;学习链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[文章学习] 手把手教你(x)我(√)构建解释器</title>
+    <link href="https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/"/>
+    <id>https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/</id>
+    <published>2021-05-11T09:19:27.000Z</published>
+    <updated>2021-05-13T10:18:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[读书笔记] 程序员的自我修养</title>
+    <link href="https://kazamayc.github.io/2021/03/08/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
+    <id>https://kazamayc.github.io/2021/03/08/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</id>
+    <published>2021-03-07T16:55:35.000Z</published>
+    <updated>2021-05-19T04:29:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-序&quot;&gt;&lt;a href=&quot;#0x00-序&quot; class=&quot;headerlink&quot; title=&quot;0x00 序&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2021年3月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B43%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] csapp_lab</title>
+    <link href="https://kazamayc.github.io/2021/02/05/csapp-lab/"/>
+    <id>https://kazamayc.github.io/2021/02/05/csapp-lab/</id>
+    <published>2021-02-04T16:36:28.000Z</published>
+    <updated>2021-05-18T13:18:28.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x01-bomb-lab&quot;&gt;&lt;a href=&quot;#0x01-bomb-lab&quot; class=&quot;headerlink&quot; title=&quot;0x01 bomb lab&quot;&gt;&lt;/a&gt;0x01 bomb</summary>
+        
+      
+    
+    
+    
+    <category term="2021年2月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B42%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[读书笔记] csapp</title>
+    <link href="https://kazamayc.github.io/2021/01/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-csapp/"/>
+    <id>https://kazamayc.github.io/2021/01/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-csapp/</id>
+    <published>2021-01-31T08:02:01.000Z</published>
+    <updated>2021-06-08T12:46:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-概述&quot;&gt;&lt;a href=&quot;#0x00-概述&quot; class=&quot;headerlink&quot; title=&quot;0x00 概述&quot;&gt;&lt;/a&gt;0x00 概述&lt;/h1&gt;&lt;p&gt;暂时没想到写啥(x&lt;/p&gt;
+&lt;h1 id=&quot;0x01-计算机系统漫游&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年2月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B42%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[视频笔记] 滴水逆向-c++-and-win32</title>
+    <link href="https://kazamayc.github.io/2020/12/17/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c++-and-win32/"/>
+    <id>https://kazamayc.github.io/2020/12/17/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c++-and-win32/</id>
+    <published>2020-12-17T04:16:03.000Z</published>
+    <updated>2021-04-09T16:43:36.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;c&quot;&gt;&lt;a href=&quot;#c&quot; class=&quot;headerlink&quot; title=&quot;c++&quot;&gt;&lt;/a&gt;c++&lt;/h1&gt;&lt;h2 id=&quot;0x00-代码规范&quot;&gt;&lt;a href=&quot;#0x00-代码规范&quot; class=&quot;headerlink&quot; title=&quot;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] PE解析</title>
+    <link href="https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/"/>
+    <id>https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/</id>
+    <published>2020-12-06T03:06:42.000Z</published>
+    <updated>2021-04-09T16:45:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;本文使用的头文件有&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[视频笔记] 滴水逆向-链接</title>
+    <link href="https://kazamayc.github.io/2020/10/27/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E9%93%BE%E6%8E%A5/"/>
+    <id>https://kazamayc.github.io/2020/10/27/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E9%93%BE%E6%8E%A5/</id>
+    <published>2020-10-27T07:59:00.000Z</published>
+    <updated>2021-04-09T16:42:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;静态链接&quot;&gt;&lt;a href=&quot;#静态链接&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2020年10月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B410%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[视频笔记] 滴水逆向_硬编码</title>
+    <link href="https://kazamayc.github.io/2020/10/06/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E7%A1%AC%E7%BC%96%E7%A0%81/"/>
+    <id>https://kazamayc.github.io/2020/10/06/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E7%A1%AC%E7%BC%96%E7%A0%81/</id>
+    <published>2020-10-06T15:18:38.000Z</published>
+    <updated>2021-04-09T16:42:12.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-硬编码&quot;&gt;&lt;a href=&quot;#0x00-硬编码&quot; class=&quot;headerlink&quot; title=&quot;0x00 硬编码&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2020年10月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B410%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[视频笔记] 滴水逆向_PE</title>
+    <link href="https://kazamayc.github.io/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/"/>
+    <id>https://kazamayc.github.io/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/</id>
+    <published>2020-09-21T02:32:54.000Z</published>
+    <updated>2021-06-25T15:15:45.027Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;有关C的小玩意&quot;&gt;&lt;a href=&quot;#有关C的小玩意&quot; class=&quot;headerlink&quot; title=&quot;有关C的小玩意&quot;&gt;&lt;/a&gt;有关C的小玩意&lt;/h1&gt;&lt;h2 id=&quot;编译&quot;&gt;&lt;a href=&quot;#编译&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2020年9月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B49%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[视频笔记] 滴水逆向_汇编指令</title>
+    <link href="https://kazamayc.github.io/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/"/>
+    <id>https://kazamayc.github.io/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</id>
+    <published>2020-09-19T08:30:52.000Z</published>
+    <updated>2021-04-09T16:42:48.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;寄存器&quot;&gt;&lt;a href=&quot;#寄存器&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2020年9月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B49%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[视频笔记] 滴水逆向_基础</title>
+    <link href="https://kazamayc.github.io/2020/09/18/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c%E5%9F%BA%E7%A1%80/"/>
+    <id>https://kazamayc.github.io/2020/09/18/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c%E5%9F%BA%E7%A1%80/</id>
+    <published>2020-09-18T01:46:34.000Z</published>
+    <updated>2021-04-09T16:47:18.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2020年9月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B49%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] c语言and汇编</title>
+    <link href="https://kazamayc.github.io/2020/09/01/c%E8%AF%AD%E8%A8%80and%E6%B1%87%E7%BC%96/"/>
+    <id>https://kazamayc.github.io/2020/09/01/c%E8%AF%AD%E8%A8%80and%E6%B1%87%E7%BC%96/</id>
+    <published>2020-09-01T02:18:19.000Z</published>
+    <updated>2021-04-09T16:45:04.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2020年9月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B49%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,462 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向_汇编指令 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="寄存器   32位寄存器 16位寄存器 8位寄存器 主要用途 编号    EAX AX AL 累加器 0   ECX CX CL 计数 1   EDX DX DL I&#x2F;O指针 2   EBX BX BL DS段的数据指针 3   ESP SP AH 堆栈指针 4   EBP BP CH SS段的数据指针 5   ESI SI DH 字符串操作的源指针；SS段的数据指针 6   EDI DI BH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[视频笔记] 滴水逆向_汇编指令">
+<meta property="og:url" content="https://kazamayc.github.io/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:site_name" content="Kazamaycのblog">
+<meta property="og:description" content="寄存器   32位寄存器 16位寄存器 8位寄存器 主要用途 编号    EAX AX AL 累加器 0   ECX CX CL 计数 1   EDX DX DL I&#x2F;O指针 2   EBX BX BL DS段的数据指针 3   ESP SP AH 堆栈指针 4   EBP BP CH SS段的数据指针 5   ESI SI DH 字符串操作的源指针；SS段的数据指针 6   EDI DI BH">
+<meta property="og:locale">
+<meta property="og:image" content="https://kazamayc.github.io/img/load.jpg">
+<meta property="article:published_time" content="2020-09-19T08:30:52.000Z">
+<meta property="article:modified_time" content="2021-04-09T16:42:48.000Z">
+<meta property="article:author" content="风间映川">
+<meta property="article:tag" content="风间映川">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kazamayc.github.io/img/load.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[视频笔记] 滴水逆向_汇编指令',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-10 00:42:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">25</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/load.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[视频笔记] 滴水逆向_汇编指令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-09-19T08:30:52.000Z" title="Created 2020-09-19 16:30:52">2020-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-04-09T16:42:48.000Z" title="Updated 2021-04-10 00:42:48">2021-04-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2020%E5%B9%B49%E6%9C%88/">2020年9月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[视频笔记] 滴水逆向_汇编指令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><table>
+<thead>
+<tr>
+<th>32位寄存器</th>
+<th>16位寄存器</th>
+<th>8位寄存器</th>
+<th>主要用途</th>
+<th>编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EAX</td>
+<td>AX</td>
+<td>AL</td>
+<td>累加器</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ECX</td>
+<td>CX</td>
+<td>CL</td>
+<td>计数</td>
+<td>1</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>DX</td>
+<td>DL</td>
+<td>I/O指针</td>
+<td>2</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>BX</td>
+<td>BL</td>
+<td>DS段的数据指针</td>
+<td>3</td>
+</tr>
+<tr>
+<td>ESP</td>
+<td>SP</td>
+<td>AH</td>
+<td>堆栈指针</td>
+<td>4</td>
+</tr>
+<tr>
+<td>EBP</td>
+<td>BP</td>
+<td>CH</td>
+<td>SS段的数据指针</td>
+<td>5</td>
+</tr>
+<tr>
+<td>ESI</td>
+<td>SI</td>
+<td>DH</td>
+<td>字符串操作的源指针；SS段的数据指针</td>
+<td>6</td>
+</tr>
+<tr>
+<td>EDI</td>
+<td>DI</td>
+<td>BH</td>
+<td>字符串操作的目标指针；ES段的数据指针</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<br>
+
+<h1 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h1><p>汇编指令由操作码和操作数组成</p>
+<p>例：</p>
+<p><code>mov eax,1</code></p>
+<p>mov是操作码，1是源操作数，eax是目标操作数</p>
+<ul>
+<li>源操作数和目标操作数不能同时为内存单元。</li>
+<li>操作数宽度必须一样</li>
+</ul>
+<p><code>pushad</code>把8个通用寄存器的值存到堆栈里去，用<code>popad</code>弹出。</p>
+<p><code>push，pop</code>不能压入或弹出8位寄存器或者内存。</p>
+<p><code>jmp</code>指令，修改eip的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmp short 		//跳转的值离原来的值小与128字节，就用short</span><br></pre></td></tr></table></figure>
+
+<p><code>call</code>指令，修改eip的值，并会把下一行指令的地址压入栈。<br><strong>call的本质就是jmp 地址，push 下一条指令的地址</strong></p>
+<p><code>retn</code>指令，弹出栈中的地址并跳转。<br><strong>retn的本质就是pop eip。</strong></p>
+<p><code>cmp</code>指令：比较两个操作数，<strong>相当于sub指令，但是相减的结构不存，只根据相减的结果改变标志位，当两个操作数相等时，ZF位1。</strong><br>一般用于比较两个数是否相等。</p>
+<p><code>test</code>指令：两个数进行与操作，改变标志位。<br>一般用于判断寄存器是否等于0。</p>
+<p><code>lea eax, dword ptr ds:[12ffc4]</code><br>取地址，eax的值为12ffc4，而不是地址中存储的值。</p>
+<p><code>adc</code>带进位加法，adc ax,bx的意思是a=ax+bx+cf</p>
+<p><code>sbb</code>带进位减法</p>
+<p><code>xchg</code>交换，交换两个寄存器或内存的值。</p>
+<p><code>movs</code>移动数据</p>
+<p><code>movsb</code>的意思是mov byte，移动esi中地址数据到edi中，同时esi,edi都加1；</p>
+<p><code>movsw</code>的意思是mov word，移动esi中地址数据到edi中，同时esi,edi都加2；</p>
+<p><code>movsd</code>的意思是mov dword，移动esi中地址数据到edi中，同时esi,edi都加4。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov esi,0x19FF74</span><br><span class="line">mov edi,0x19FF90</span><br><span class="line">movs byte ptr es:[edi],byte ptr ds:[esi]	//movsb其实就是这个的简写</span><br></pre></td></tr></table></figure>
+
+<p>受df标志位影响，如果df标志位为1，则从加变成减。</p>
+<p><code>stos</code>，将AL/AX/EAX的值存储到[EDI]指定的内存单元</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stos byte ptr es:[edi]		//简写为stosb，edi加1；</span><br><span class="line">stos word ptr es:[edi]		//简写为stosw，edi加2；</span><br><span class="line">stos dword ptr es:[edi]		//简写为stosd，edi加4；</span><br></pre></td></tr></table></figure>
+
+<p>受df标志位影响，如果df标志位为1，则从加变成减。</p>
+<p><code>rep</code>指令，按计数寄存器（ecx）中指定的次数重复执行字符串指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ecx,10</span><br><span class="line">rep movsd		//重复16次</span><br><span class="line">rep stosd		//重复16次</span><br></pre></td></tr></table></figure>
+
+<p><code>movsx</code>指令：用于有符号类型转换，先<strong>符号</strong>扩展，再移动。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov al,0xff</span><br><span class="line">movsx cx,al			;cx的值为ffff</span><br><span class="line">mov al,0x1f</span><br><span class="line">movsx cx,al			;cx的值为001f</span><br></pre></td></tr></table></figure>
+
+<p>符号扩展的意思是用符号位填充少的宽度。</p>
+<p><code>movzx</code>指令：用于无符号类型转换，先零扩展，再移动。<br>零扩展的意思是用0填充少的宽度。</p>
+<p><code>sete</code>用于设置bool值，可以参照jcc</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov eax,dword ptr [ebp+8]</span><br><span class="line">xor ecx,ecx</span><br><span class="line">cmp eax,dword ptr [ebp+0ch]</span><br><span class="line">sete cl</span><br></pre></td></tr></table></figure>
+
+<p>效果cl=zf，如果[ebp+8]=[ebp+0ch]则eax为1</p>
+<p><code>offset</code>可以看成一个地址</p>
+<h2 id="jcc"><a href="#jcc" class="headerlink" title="jcc"></a>jcc</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JE，JZ</td>
+<td>结果为0时跳转</td>
+<td>ZF = 1</td>
+</tr>
+<tr>
+<td>JNE，JNZ</td>
+<td>结果不为0时跳转</td>
+<td>ZF = 0</td>
+</tr>
+<tr>
+<td>JS</td>
+<td>结果为负则跳转</td>
+<td>SF = 1</td>
+</tr>
+<tr>
+<td>JNS</td>
+<td>结果为非负则跳转</td>
+<td>SF = 0</td>
+</tr>
+<tr>
+<td>JP，JPE</td>
+<td>结果中1的个数为偶数则跳转</td>
+<td>PF = 1</td>
+</tr>
+<tr>
+<td>JNP，JPO</td>
+<td>结果中1的个数为奇数则跳转</td>
+<td>PF = 0</td>
+</tr>
+<tr>
+<td>JO</td>
+<td>结果溢出则跳转</td>
+<td>OF = 1</td>
+</tr>
+<tr>
+<td>JNO</td>
+<td>结果没有溢出则跳转</td>
+<td>OF = 0</td>
+</tr>
+<tr>
+<td>JB，JNAE</td>
+<td>小于则跳转</td>
+<td>CF = 1</td>
+</tr>
+<tr>
+<td>JNB，JAE</td>
+<td>大于等于则跳转（无符号数）</td>
+<td>CF = 0</td>
+</tr>
+<tr>
+<td>JBE，JNA</td>
+<td>小于等于则跳转（无符号数）</td>
+<td>CF=1 or ZF=1</td>
+</tr>
+<tr>
+<td>JNBE，JA</td>
+<td>大于则跳转（无符号数）</td>
+<td>CF = 0 and ZF=0</td>
+</tr>
+<tr>
+<td>JL，JNGE</td>
+<td>小于则跳转（有符号数）</td>
+<td>SF!=OF</td>
+</tr>
+<tr>
+<td>JNL，JGE</td>
+<td>大于则跳转（有符号数）</td>
+<td>SF=OF</td>
+</tr>
+<tr>
+<td>JLE，JNG</td>
+<td>小于等于则跳转（有符号数）</td>
+<td>ZF=1 or SF!=OF</td>
+</tr>
+<tr>
+<td>JNLE，JG</td>
+<td>大于则跳转（有符号数）</td>
+<td>ZF=0 and SF=OF</td>
+</tr>
+</tbody></table>
+<h2 id="标志位"><a href="#标志位" class="headerlink" title="标志位"></a>标志位</h2><p><strong>mov不改变标志位</strong></p>
+<p><strong>是无符号运算还是有符号运算由我们说了算</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>CF</td>
+<td>进位标志</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PF</td>
+<td>奇偶标志</td>
+</tr>
+<tr>
+<td>4</td>
+<td>AF</td>
+<td>辅助进位标志</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ZF</td>
+<td>零标志</td>
+</tr>
+<tr>
+<td>7</td>
+<td>SF</td>
+<td>符号标志</td>
+</tr>
+<tr>
+<td>8</td>
+<td>TF</td>
+<td>单步标志</td>
+</tr>
+<tr>
+<td>9</td>
+<td>IF</td>
+<td>中断使能标志</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DF</td>
+<td>方向标志</td>
+</tr>
+<tr>
+<td>11</td>
+<td>OF</td>
+<td>溢出标志</td>
+</tr>
+</tbody></table>
+<ol>
+<li>进位标志CF（carry flag）：如果运算结果的最高位产生一个进位或错位，那么其值为1，否则值为0。（无符号数）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,0xEF</span><br><span class="line">ADD AL,2</span><br><span class="line">//CF值为0</span><br><span class="line">MOV AL,0xFE</span><br><span class="line">ADD AL,2</span><br><span class="line">//CF值为1</span><br><span class="line">MOV AL,0xF0</span><br><span class="line">SUB AL,0xFF</span><br><span class="line">//CF值为1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="2">
+<li>奇偶标志PF（Parity Flag）：奇偶标志PF用于反映运算结果中1的个数的奇偶性。如果1的个数为偶数，PF值为1，否则值为0。<strong>（最低有效字节，只看最后八位）</strong>不管32位16位还是8位的数，都只看最后八位有多少1。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,3</span><br><span class="line">ADD AL,3</span><br><span class="line">//3+3=6,0110,PF值为2</span><br><span class="line">ADD AL,2</span><br><span class="line">//6+2=8,1000,PF值为1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="3">
+<li>辅助进位标志AF（Auxiliary Carry Flag）：</li>
+</ol>
+<p>在发生下列情况时，辅助进位标志AF的值被置为1，否则其值为0。</p>
+<ul>
+<li>在字操作时，发生低字节向高字节进位或借位时</li>
+<li>在字节操作时，发生低4位向高4位进位或借位时</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MOV EAX, 0x55EEFFFF</span><br><span class="line">ADD EAX, 2</span><br><span class="line">//AF的值为2</span><br><span class="line">MOV AX, 5EFE</span><br><span class="line">ADD AX, 2</span><br><span class="line">//AF的值为2</span><br><span class="line">MOV AL, 4E</span><br><span class="line">ADD AL, 2</span><br><span class="line">//AF的值为2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="4">
+<li>零标志ZF（Zero Flag），零标志ZF用来反映运算结果是否为0。如果运算结果为0，则其值为1，否则其值为0。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XOR EAX, EAX</span><br><span class="line">//EAX清0,ZF值为1</span><br><span class="line">MOV EAX, 2</span><br><span class="line">SUB EAX, 2</span><br><span class="line">//ZF值为1</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果使用<code>MOV EAX,0</code>是不改变寄存器的</strong></p>
+<hr>
+<ol start="5">
+<li>符号标志SF（Sign Flag）,符号标志SF用来反映运算结果的符号位，它与运算结果的最高位相同。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MOV AL,7F</span><br><span class="line">ADD AL,2</span><br><span class="line">//7F = 0111 1111</span><br><span class="line">//7f+2 = 81</span><br><span class="line">//81 = 1000 0001</span><br><span class="line">//SF的值为1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="6">
+<li>溢出标志OF（Overflow Flag），溢出标志OF用于反映<strong>有符号数</strong>加减运算所得结果是否溢出。如果运算结果超过当前运算位数所能表达的范围，则称为溢出，OF值为1。否则OF的值为0。</li>
+</ol>
+<p>和CF类似，不过这个是有符号数，取决于最高位。最高位由1变成0或者由0变成1，都会改变OF的值。</p>
+<p>正+正=正 如果等于负数，则溢出</p>
+<p>负+负=负 如果等于正数，则溢出</p>
+<p>负+正不会溢出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mov al,80</span><br><span class="line">sub al,40</span><br><span class="line">//		1000 0000</span><br><span class="line">//	+	1100 0000</span><br><span class="line">//___________________</span><br><span class="line">//		0100 0000</span><br><span class="line">//OF值为1</span><br><span class="line">//减法其实也是加法，只不过加的是有符号数负数。</span><br></pre></td></tr></table></figure>
+
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="算数移位（有符号）"><a href="#算数移位（有符号）" class="headerlink" title="算数移位（有符号）"></a>算数移位（有符号）</h3><p>SAL：算术左移</p>
+<p>SAR：算数右移</p>
+<p>格式：<code>SAL/SAR Reg/Mem, CL/Imm</code></p>
+<p>会把移出的数据放到cf里</p>
+<p>SAL左移的时候会补0，SAR右移补符号位。</p>
+<h3 id="逻辑移位（无符号）"><a href="#逻辑移位（无符号）" class="headerlink" title="逻辑移位（无符号）"></a>逻辑移位（无符号）</h3><p>SHL左<strong>（有符号无符号的左移都用这个）</strong></p>
+<p>SHR右</p>
+<p>只补0，移出的位放到CF里</p>
+<h3 id="循环移位"><a href="#循环移位" class="headerlink" title="循环移位"></a>循环移位</h3><p>ROL左</p>
+<p>ROR右</p>
+<p>把移出的位放到要补的地方，移出的位放到CF里</p>
+<h3 id="带进位的循环移位"><a href="#带进位的循环移位" class="headerlink" title="带进位的循环移位"></a>带进位的循环移位</h3><p>RCL左</p>
+<p>RCR右</p>
+<p>把CF里放的值补上，移出的位放到CF里</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/">https://kazamayc.github.io/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/load.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/"><img class="prev-cover" src="/img/load.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">[视频笔记] 滴水逆向_PE</div></div></a></div><div class="next-post pull-right"><a href="/2020/09/18/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c%E5%9F%BA%E7%A1%80/"><img class="next-cover" src="/img/load.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">[视频笔记] 滴水逆向_基础</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">汇编指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jcc"><span class="toc-number">2.1.</span> <span class="toc-text">jcc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%BF%97%E4%BD%8D"><span class="toc-number">2.2.</span> <span class="toc-text">标志位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">2.3.</span> <span class="toc-text">位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E7%A7%BB%E4%BD%8D%EF%BC%88%E6%9C%89%E7%AC%A6%E5%8F%B7%EF%BC%89"><span class="toc-number">2.3.1.</span> <span class="toc-text">算数移位（有符号）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E7%A7%BB%E4%BD%8D%EF%BC%88%E6%97%A0%E7%AC%A6%E5%8F%B7%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">逻辑移位（无符号）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A7%BB%E4%BD%8D"><span class="toc-number">2.3.3.</span> <span class="toc-text">循环移位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E8%BF%9B%E4%BD%8D%E7%9A%84%E5%BE%AA%E7%8E%AF%E7%A7%BB%E4%BD%8D"><span class="toc-number">2.3.4.</span> <span class="toc-text">带进位的循环移位</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 风间映川</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="然然可爱捏,乃琳可爱捏,向晚可爱捏,贝拉可爱捏,珈乐可爱捏,QAQ,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

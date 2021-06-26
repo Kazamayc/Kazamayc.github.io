@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向_PE | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="有关C的小玩意编译编译的过程：预处理 编译 汇编 链接 #define（什么都能替换）在预处理进行替换 1#define true 1&#x2F;&#x2F;把1替换成true  typedef（只能替换类型）在编译时进行替换 1typedef unsigned char BYTE;  例子： 123456789101112131415int max(int a, int b)&amp;#123;    return a&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[视频笔记] 滴水逆向_PE">
+<meta property="og:url" content="https://kazamayc.github.io/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/index.html">
+<meta property="og:site_name" content="Kazamaycのblog">
+<meta property="og:description" content="有关C的小玩意编译编译的过程：预处理 编译 汇编 链接 #define（什么都能替换）在预处理进行替换 1#define true 1&#x2F;&#x2F;把1替换成true  typedef（只能替换类型）在编译时进行替换 1typedef unsigned char BYTE;  例子： 123456789101112131415int max(int a, int b)&amp;#123;    return a&amp;g">
+<meta property="og:locale">
+<meta property="og:image" content="https://kazamayc.github.io/img/load.jpg">
+<meta property="article:published_time" content="2020-09-21T02:32:54.000Z">
+<meta property="article:modified_time" content="2021-06-25T15:15:45.027Z">
+<meta property="article:author" content="风间映川">
+<meta property="article:tag" content="风间映川">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kazamayc.github.io/img/load.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[视频笔记] 滴水逆向_PE',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-06-25 23:15:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">25</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/load.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[视频笔记] 滴水逆向_PE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-09-21T02:32:54.000Z" title="Created 2020-09-21 10:32:54">2020-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-06-25T15:15:45.027Z" title="Updated 2021-06-25 23:15:45">2021-06-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2020%E5%B9%B49%E6%9C%88/">2020年9月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>17min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[视频笔记] 滴水逆向_PE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="有关C的小玩意"><a href="#有关C的小玩意" class="headerlink" title="有关C的小玩意"></a>有关C的小玩意</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译的过程：预处理 编译 汇编 链接</p>
+<p>#define（什么都能替换）在预处理进行替换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> true 1<span class="comment">//把1替换成true</span></span></span><br></pre></td></tr></table></figure>
+
+<p>typedef（只能替换类型）在编译时进行替换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> BYTE;</span><br></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="built_in">max</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    std::cout &lt;&lt; a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这两个实现的效果是一样的</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(A,B) ((A) &gt; (B)?(A):(B))</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="built_in">MAX</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    std::cout &lt;&lt; a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ol>
+<li>宏名标识符与左圆括号之间不允许有空白符，应紧接在一起。</li>
+<li>宏与函数的区别：函数分配额外的堆栈空间，而宏只是替换。</li>
+<li>为了避免出错，宏定义中给形参加上括号。</li>
+<li>末尾不需要分号</li>
+<li>define可以替代多行的代码，记得后面加\</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MALLOC(n,type)\</span></span><br><span class="line"><span class="meta">((n+ty\</span></span><br><span class="line"><span class="meta">pe))</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="堆（分配内存）"><a href="#堆（分配内存）" class="headerlink" title="堆（分配内存）"></a>堆（分配内存）</h2><p>说这个之前要先想想之前说过的程序运行时，会把程序分成的几个区域，分为<code>代码区</code>，<code>堆栈</code>，<code>堆</code>，<code>全局变量</code>，<code>常量区</code>。</p>
+<p>首先要明确几点：</p>
+<ol>
+<li>在程序运行结束之后，所有内存空间都会被释放。</li>
+<li>全局变量在程序运行时就会一直存在，直到程序结束被释放</li>
+<li>堆栈在函数结束的时候被释放</li>
+<li>堆由程序员自己定义，自己释放。如果没被自己释放，程序退出时也会被释放。</li>
+</ol>
+<p>简单说一下堆如果不释放会有什么危害，一个服务器或者大型程序几乎是很长时间不关闭的，如果此时堆用完不被释放，内存会被以及无用的数据占满，你的内存占有率就会越来越高，这就是内存泄漏。</p>
+<p>一次内存泄漏似乎不会有大的影响，但内存泄漏堆积后的后果就是内存溢出。</p>
+<p>malloc函数可以在堆中分配内存。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">malloc</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">   <span class="keyword">size_t</span> size</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到malloc的函数类型是void*，因为你不知道要传给你是什么类型。</p>
+<p>例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在堆中申请分配内存，分配128个int</span></span><br><span class="line"><span class="keyword">int</span>* ptr;</span><br><span class="line">ptr = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>)*<span class="number">128</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//要对申请的空间大小进行校验，判断是否申请成功</span></span><br><span class="line"><span class="keyword">if</span>(ptr == <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化分配的内存空间</span></span><br><span class="line"><span class="comment">//memset:sets buffers to specified character.</span></span><br><span class="line"><span class="built_in">memset</span>(ptr,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>)*<span class="number">128</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">*ptr = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//释放空间</span></span><br><span class="line"><span class="built_in">free</span>(ptr);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将指针设置为NULL</span></span><br><span class="line">ptr = <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>建议看<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/malloc?view=vs-2019">msdn链接</a></p>
+<br>
+
+<h1 id="分节"><a href="#分节" class="headerlink" title="分节"></a>分节</h1><p>在内存中运行的程序和在硬盘中的程序数据几乎是一样的，只有起始位置不一样（在内存中的起始位置是可以变的），一段数据，然后中间断开补上0，然后再一段数据。我们把PE的这种特征称为分节。</p>
+<p>我们首先要明白几个概念：</p>
+<h2 id="虚拟内存VA（简述）"><a href="#虚拟内存VA（简述）" class="headerlink" title="虚拟内存VA（简述）"></a>虚拟内存VA（简述）</h2><p>任何一个exe都有一个自己的独立的4GB内存空间，哪怕计算机的内存只有1GB，exe也有4GB。之所以是4GB，是因为32位计算机的寻址范围只有4GB。</p>
+<p>其中低2GB给应用程序使用，高2GB给操作系统内核使用。</p>
+<p>访问低2G的内存，写个入口函数main就可以；访问高2G的内存需要驱动。</p>
+<h2 id="硬盘对齐和内存对齐"><a href="#硬盘对齐和内存对齐" class="headerlink" title="硬盘对齐和内存对齐"></a>硬盘对齐和内存对齐</h2><p>所有的对齐是为了增加读写的速度，找起来更快。</p>
+<p>举个很形象的例子，假如说一本书，一页只有一个字，我们还是要给它一张纸，而不是只给它一个字的空间，这样可以增加读写的速度。</p>
+<p>硬盘对齐：200h</p>
+<p>内存对齐：1000h</p>
+<p>老的编译器会进行这种操作，因为当时的硬盘空间小。</p>
+<p><img src="https://i.loli.net/2020/09/23/XIDPWUlTSNEH9jw.png"></p>
+<p>本来在内存中（图右）的数据在硬盘中（图左）存储会节省掉0的空间。</p>
+<p>现在的硬盘变便宜，硬盘和内存对齐都变成一样。可以节省运算，可以用空间换时间。（由编译器决定）</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>然后小小的总结一下分节的作用：</p>
+<ol>
+<li>节省硬盘空间（由编译器决定，也可能用空间换时间）</li>
+<li>一个应用程序多开（节省内存）。</li>
+</ol>
+<p>第二个作用是这样的。</p>
+<p>我们可以把分节想成这样：</p>
+<p>假设：一个程序分出不同的节，分为只读的和可读可写的节。（例如qq）</p>
+<p><img src="https://i.loli.net/2020/09/23/jmy4qzsELw63x9N.png" alt="image-20200923192237901"></p>
+<p>我们想上多个qq。因为只读的节不会改变，所以只需要添加可读可写的节即可。</p>
+<p><img src="https://i.loli.net/2020/09/23/kniXOTYGPDx32vf.png" alt="image-20200923191759340"></p>
+<br>
+
+<h1 id="PE"><a href="#PE" class="headerlink" title="PE"></a>PE</h1><p>PE文件是windows系统中遵循PE结构的文件，比如以.exe .dll为后缀名的文件以及系统驱动文件。</p>
+<p>exe,sys,dll是操作系统上可执行文件，txt，docx，xls是由exe打开的，自己是没办法运行的。例如txt是由notepad.exe执行的，docx由word运行。</p>
+<p>PE文件大体分为两部分，头(包括DOS头，PE文件头，块表)与主体(块)。</p>
+<h2 id="基础概念："><a href="#基础概念：" class="headerlink" title="基础概念："></a>基础概念：</h2><p><strong>虚拟地址(VA)：</strong> 在一个程序运行起来的时候，会被加载到内存中，并且每个进程都有自己的4GB，这个4GB当中的某个位置叫做<strong>虚拟地址</strong>，由物理地址映射过来的，4GB的空间，并没有全部被用到。</p>
+<p><strong>基地址( Imagebase ):</strong>    磁盘中的文件加载到内存当中的时候可以加载到任意位置，而这个位置就是程序的<strong>基址</strong>。EXE默认的加载基址是400000h,DLL文件默认基址是10000000h。需要注意的是基地址不是程序的入口点。</p>
+<p><strong>相对虚拟地址(RVA):<strong>为了避免PE文件中有确定的内存地址，引入了相对虚拟地址的概念。RVA是在内存中相对与载入地址（</strong>基地址</strong>）的偏移量，所以你可以发现前三个概念的关系 ： <strong>虚拟地址(VA)=  基地址+ 相对虚拟地址(RVA)</strong></p>
+<p><strong>文件偏移地址(FOA)：</strong>当PE文件储存在某个磁盘当中的时候，某个数据的位置相对于文件头的偏移量。</p>
+<p><strong>入口点(OEP)：</strong>首先明确一个概念就是OEP是一个RVA，,然后使用 <strong>OEP</strong> + <strong>Imagebase</strong> == <strong>入口点的VA</strong>，通常情况下，OEP指向的不是<strong>main</strong>函数。</p>
+<p><strong>RVA转化为FOA：</strong></p>
+<p>判断内存中的区块的对齐大小（SectionAlignment）和文件中的区块的对齐大小（FileAlignment）是否相等，如果相等，RVA=FOA；</p>
+<p>如果不相等，但是RVA的值小于所有头的尺寸大小（SizeOfHeaders），则RVA=FOA；</p>
+<p>如果都不可以，则判断在哪个节中，RVA减掉VirtualAddress（当前节的 RVA 地址），然后再加上PointerToRawData（当前节的FOA地址）</p>
+<h1 id="PE头解析"><a href="#PE头解析" class="headerlink" title="PE头解析"></a>PE头解析</h1><p>DOS头跟标准PE头的大小是确定的，option PE头是不确定的。</p>
+<p>DOS头是64位，标准PE头是20位，option PE头32位系统中是224位（E0），64位系统中是240位（F0）</p>
+<h2 id="DOS头"><a href="#DOS头" class="headerlink" title="DOS头"></a>DOS头</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">IMAGE_DOS_HEADER STRUCT</span><br><span class="line">&#123;</span><br><span class="line">+<span class="number">0</span>h 	WORD    e_magic   <span class="comment">//MZ(4Dh 5Ah)     DOS可执行文件标记</span></span><br><span class="line">+<span class="number">2</span>h     WORD    e_cblp</span><br><span class="line">+<span class="number">4</span>h 	WORD    e_cp</span><br><span class="line">+<span class="number">6</span>h 	WORD    e_crlc</span><br><span class="line">+<span class="number">8</span>h 	WORD    e_cparhdr</span><br><span class="line">+<span class="number">0</span>ah    WORD    e_minalloc</span><br><span class="line">+<span class="number">0</span>ch    WORD    e_maxalloc</span><br><span class="line">+<span class="number">0</span>eh    WORD    e_ss</span><br><span class="line">+<span class="number">10</span>h    WORD    e_sp</span><br><span class="line">+<span class="number">12</span>h    WORD    e_csum</span><br><span class="line">+<span class="number">14</span>h    WORD    e_ip</span><br><span class="line">+<span class="number">16</span>h    WORD    e_cs</span><br><span class="line">+<span class="number">18</span>h    WORD    e_lfarlc</span><br><span class="line">+<span class="number">1</span>ah    WORD    e_ovno</span><br><span class="line">+<span class="number">1</span>ch    WORD    e_res[<span class="number">4</span>]</span><br><span class="line">+<span class="number">24</span>h    WORD    e_oemid</span><br><span class="line">+<span class="number">26</span>h    WORD    e_oeminfo</span><br><span class="line">+<span class="number">29</span>h    WORD    e_res2[<span class="number">10</span>]</span><br><span class="line">+<span class="number">3</span>ch    DWORD   e_lfanew  <span class="comment">//RVA     指向PE文件头</span></span><br><span class="line">&#125; IMAGE_DOS_HEADER ENDS</span><br></pre></td></tr></table></figure>
+
+<p>DOS头是16位计算机用的，在32位计算机中有两个作用：</p>
+<ol>
+<li>在解析exe文件时，首先解析前两个字节看看是不是MZ</li>
+<li>最后四个字节指向PE文件头（如果在内存中的值是E8 00 00 00，因为小端序值是E8，然后从文件开始（不是从DOS头结束），数E8个字节就是PE头的位置），DOS和PE的中间内容是编译器留的空间，可以自由发挥。</li>
+</ol>
+<h2 id="PE文件头"><a href="#PE文件头" class="headerlink" title="PE文件头"></a>PE文件头</h2><p><strong>IMAGE_NT_HEADERS STRUCT 结构体</strong>包含了标准PE头和可选PE头</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IMAGE_NT_HEADERS STRUCT</span><br><span class="line">&#123;</span><br><span class="line">+<span class="number">0</span>h       DWORD    Signature	<span class="comment">//50450000h(PE00)</span></span><br><span class="line">+<span class="number">4</span>h       IMAGE_FILE_HEADER    FileHeader</span><br><span class="line">+<span class="number">18</span>h      IMAGE_OPTIONAL_HEADER32   OptionalHeader</span><br><span class="line">&#125; IMAGE_NT_HEADERS ENDS</span><br></pre></td></tr></table></figure>
+
+<p><strong>IMAGE_FILE_HEADER 结构体</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">structIMAGE_FILE_HEADER</span><br><span class="line">&#123;</span><br><span class="line">WORD Machine;<span class="comment">//运行平台(程序运行的CPU型号，在哪个CPU上可以运行)</span></span><br><span class="line">WORD NumberOfSections;<span class="comment">//节表的个数(PE中分了几个节)</span></span><br><span class="line">DWORD TimeDataStamp;<span class="comment">//文件创建时间，是从1970年至今的秒数</span></span><br><span class="line">DWORD PointerToSymbolicTable;<span class="comment">//指向符号表的指针</span></span><br><span class="line">DWORD NumberOfSymbols;<span class="comment">//符号表的数目</span></span><br><span class="line">WORD SizeOfOptionalHeader;<span class="comment">//IMAGE_NT_HEADERS结构中OptionHeader成员的大小，对于win32平台这个值通常是0x00e0，win64是0x00f0</span></span><br><span class="line">WORD Characteristics;<span class="comment">//文件的属性值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>IMAGE_OPTIONAL_HEADER 结构体</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">typedefstruct_IMAGE_OPTIONAL_HEADER</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Standard fields.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">+<span class="number">18</span>h    WORD    Magic;<span class="comment">// 标志字, ROM 映像（0107h）,普通可执行文件32位（010Bh）,普通可执行文件64位（020Bh）</span></span><br><span class="line">+<span class="number">1</span>Ah    BYTE    MajorLinkerVersion;<span class="comment">// 链接程序的主版本号</span></span><br><span class="line">+<span class="number">1B</span>h    BYTE    MinorLinkerVersion;<span class="comment">// 链接程序的次版本号</span></span><br><span class="line">+<span class="number">1</span>Ch    DWORD   SizeOfCode;<span class="comment">// 所有代码节的总大小，必须是FileAlignment的整数倍，编译器填写的，没用</span></span><br><span class="line">+<span class="number">20</span>h    DWORD   SizeOfInitializedData;<span class="comment">// 已初始化数据的总大小，必须是FileAlignment的整数倍，编译器填写的，没用</span></span><br><span class="line">+<span class="number">24</span>h    DWORD   SizeOfUninitializedData;<span class="comment">// 未初始化数据（没赋初始值）的总大小，必须是FileAlignment的整数倍，编译器填写的，没用</span></span><br><span class="line">+<span class="number">28</span>h    DWORD   AddressOfEntryPoint;<span class="comment">// 程序执行入口RVA（OEP）</span></span><br><span class="line">+<span class="number">2</span>Ch    DWORD   BaseOfCode;<span class="comment">// 代码的区块的起始RVA，编译器填写的，没用</span></span><br><span class="line">+<span class="number">30</span>h    DWORD   BaseOfData;<span class="comment">// 数据的区块的起始RVA，编译器填写的，没用</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// NT additional fields.    以下是属于NT结构增加的领域。</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">+<span class="number">34</span>h    DWORD   ImageBase;<span class="comment">// 程序的首选装载地址</span></span><br><span class="line">+<span class="number">38</span>h    DWORD   SectionAlignment;<span class="comment">// 内存中的区块的对齐大小</span></span><br><span class="line">+<span class="number">3</span>Ch    DWORD   FileAlignment;<span class="comment">// 文件中的区块的对齐大小</span></span><br><span class="line">+<span class="number">40</span>h    WORD    MajorOperatingSystemVersion;<span class="comment">// 要求操作系统最低版本号的主版本号</span></span><br><span class="line">+<span class="number">42</span>h    WORD    MinorOperatingSystemVersion;<span class="comment">// 要求操作系统最低版本号的副版本号</span></span><br><span class="line">+<span class="number">44</span>h    WORD    MajorImageVersion;<span class="comment">// 可运行于操作系统的主版本号</span></span><br><span class="line">+<span class="number">46</span>h    WORD    MinorImageVersion;<span class="comment">// 可运行于操作系统的次版本号</span></span><br><span class="line">+<span class="number">48</span>h    WORD    MajorSubsystemVersion;<span class="comment">// 要求最低子系统版本的主版本号</span></span><br><span class="line">+<span class="number">4</span>Ah    WORD    MinorSubsystemVersion;<span class="comment">// 要求最低子系统版本的次版本号</span></span><br><span class="line">+<span class="number">4</span>Ch    DWORD   Win32VersionValue;<span class="comment">// 莫须有字段，不被病毒利用的话一般为0</span></span><br><span class="line">+<span class="number">50</span>h    DWORD   SizeOfImage;<span class="comment">// ImageBuffer装入内存后的总尺寸，可以比实际的尺寸大，但必须是SectionAlignment的整数倍</span></span><br><span class="line">+<span class="number">54</span>h    DWORD   SizeOfHeaders;<span class="comment">// 所有头（DOS NT） + 区块表（节表）的尺寸大小，必须是FileAlignment的整数倍</span></span><br><span class="line">+<span class="number">58</span>h    DWORD   CheckSum;<span class="comment">// ImageBuffer的校检和，一些系统文件会有要求，用来判断文件是否被修改。我们正常写的程序大部分都是0</span></span><br><span class="line">+<span class="number">5</span>Ch    WORD    Subsystem;<span class="comment">// 可执行文件期望的子系统</span></span><br><span class="line">+<span class="number">5</span>Eh    WORD    DllCharacteristics;<span class="comment">// DllMain()函数何时被调用，默认为 0</span></span><br><span class="line">+<span class="number">60</span>h    DWORD   SizeOfStackReserve;<span class="comment">// 初始化时的栈大小</span></span><br><span class="line">+<span class="number">64</span>h    DWORD   SizeOfStackCommit;<span class="comment">// 初始化时实际提交的栈大小</span></span><br><span class="line">+<span class="number">68</span>h    DWORD   SizeOfHeapReserve;<span class="comment">// 初始化时保留的堆大小</span></span><br><span class="line">+<span class="number">6</span>Ch    DWORD   SizeOfHeapCommit;<span class="comment">// 初始化时实际提交的堆大小</span></span><br><span class="line">+<span class="number">70</span>h    DWORD   LoaderFlags;<span class="comment">// 与调试有关，默认为 0</span></span><br><span class="line">+<span class="number">74</span>h    DWORD   NumberOfRvaAndSizes;<span class="comment">// 下边数据目录的项数，这个字段自Windows NT 发布以来一直是16</span></span><br><span class="line">+<span class="number">78</span>h    IMAGE_DATA_DIRECTORY DataDirectory[IMAGE_NUMBEROF_DIRECTORY_ENTRIES];<span class="comment">// 数据目录表</span></span><br><span class="line">&#125; IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;</span><br></pre></td></tr></table></figure>
+
+<p><strong>程序的执行入口在AddressOfEntryPoint（OEP）+ ImageBase</strong></p>
+<p><img src="https://i.loli.net/2020/09/25/ImKsLvRAM4ey8xG.png" alt="image-20200925204629746"></p>
+<p>ImageBuffer的内存位置由ImageBase决定。OEP有可能在代码区偏远的地方，而不一定是在代码节的开头。（如果不记得或者有疑惑建议去od和winhex看看）</p>
+<h2 id="节表"><a href="#节表" class="headerlink" title="节表"></a>节表</h2><p>PE文件中节的属性被定义在节表中。40字节。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_SECTION_HEADER</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">       BYTE Name[IMAGE_SIZEOF_SHORT_NAME]; 	<span class="comment">// 节表名称,如&quot;.text&quot;</span></span><br><span class="line">       <span class="comment">//IMAGE_SIZEOF_SHORT_NAME=8</span></span><br><span class="line">        <span class="class"><span class="keyword">union</span></span></span><br><span class="line"><span class="class">         &#123;</span></span><br><span class="line">                DWORD PhysicalAddress;      <span class="comment">// 节区的物理地址</span></span><br><span class="line">                DWORD VirtualSize;          <span class="comment">// 节区的真实长度（说真实长度是因为未初始化的值不会在文件中显示，但是内存可以计算出没有初始化的值，真实长度包含未初始化的值）。这两个值是一个联合结构，可以使用其中的任何一个，一般是取后一个。可以被修改</span></span><br><span class="line">        &#125; Misc;</span><br><span class="line">        DWORD VirtualAddress;               <span class="comment">// 节区的 RVA 地址</span></span><br><span class="line">        DWORD SizeOfRawData;                <span class="comment">// 在文件中对齐后的尺寸</span></span><br><span class="line">        DWORD PointerToRawData;             <span class="comment">// 节区在文件中的偏移量(离0有多远)(FOA)</span></span><br><span class="line">        DWORD PointerToRelocations;         <span class="comment">// 在OBJ文件中使用（exe无意义），重定位的偏移</span></span><br><span class="line">        DWORD PointerToLinenumbers;         <span class="comment">// 行号表的偏移（供调试使用）</span></span><br><span class="line">        WORD NumberOfRelocations;           <span class="comment">// 在OBJ文件中使用（exe无意义），重定位数目</span></span><br><span class="line">        WORD NumberOfLinenumbers;           <span class="comment">// 行号表中行号的数目（供调试使用）</span></span><br><span class="line">        DWORD Characteristics;              <span class="comment">// 节属性如可读，可写，可执行等</span></span><br><span class="line">&#125; IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;</span><br></pre></td></tr></table></figure>
+
+<p><code>Name</code>并不遵守必须以”\0”结尾的规律，如果不是以”\0”结尾，系统会截取8个字节的长度进行处理。</p>
+<p>Misc可能会比VirtualAddress要大，例如<code>char a[1000];</code>，你声明了但是没有初始化，在文件中计算机不会分配空间，但是在内存中拉伸开就会分配1000。</p>
+<h1 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IMAGE_DATA_DIRECTORY STRUCT</span><br><span class="line">&#123;</span><br><span class="line">		DWORD VirtualAddress;         		<span class="comment">// 数据的起始RVA</span></span><br><span class="line">		DWORD Size;							<span class="comment">// 数据块的长度</span></span><br><span class="line">&#125;</span><br><span class="line">IMAGE_DATA_DIRECTORY ENDS</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="导出表"><a href="#导出表" class="headerlink" title="导出表"></a>导出表</h2><p>数据目录的第一个结构就是导出表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_EXPORT_DIRECTORY</span> &#123;</span>			</span><br><span class="line">+<span class="number">0</span>    	DWORD   Characteristics;			<span class="comment">// 未使用</span></span><br><span class="line">+<span class="number">4</span>    	DWORD   TimeDateStamp;				<span class="comment">// 时间戳</span></span><br><span class="line">+<span class="number">8</span>    	WORD    MajorVersion;				<span class="comment">// 未使用</span></span><br><span class="line">+<span class="number">10</span>    	WORD    MinorVersion;				<span class="comment">// 未使用</span></span><br><span class="line">+<span class="number">12</span>    	DWORD   Name;						<span class="comment">// 指向该导出表文件名字符串</span></span><br><span class="line">+<span class="number">16</span>    	DWORD   Base;						<span class="comment">// 导出函数起始序号</span></span><br><span class="line">+<span class="number">20</span>    	DWORD   NumberOfFunctions;			<span class="comment">// 所有导出函数的个数</span></span><br><span class="line">+<span class="number">24</span>    	DWORD   NumberOfNames;				<span class="comment">// 以函数名字导出的函数个数</span></span><br><span class="line">+<span class="number">28</span>    	DWORD   AddressOfFunctions;     	<span class="comment">// 导出函数地址表RVA</span></span><br><span class="line">+<span class="number">32</span>    	DWORD   AddressOfNames;         	<span class="comment">// 导出函数名称表RVA</span></span><br><span class="line">+<span class="number">36</span>    	DWORD   AddressOfNameOrdinals;  	<span class="comment">// 导出函数序号表RVA</span></span><br><span class="line">&#125; IMAGE_EXPORT_DIRECTORY, *PIMAGE_EXPORT_DIRECTORY;</span><br></pre></td></tr></table></figure>
+
+<p>AddressOfFunctions表里有可能有0，NumberOfFunctions未必是导出函数的个数。</p>
+<p>如果用序号来导出，例如2 3 5 7 8，它会认为你有8-2+1=7个函数，AddressOfFunctions就会补上0</p>
+<p>序号导出用不到序号表AddressOfNameOrdinals，可以直接找。<strong>序号表是为了找函数名称</strong>。如果函数名称写的是noname（隐藏名字），则就算有序号，函数序号也不会出现在函数表中。</p>
+<p><img src="https://i.loli.net/2020/11/03/M5CyaRx63Wmcg8e.png" alt="image-20201103164406434"></p>
+<p>通过函数名找到函数地址：如图所示</p>
+<p>通过序号找到函数地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int value = 序号-base;</span><br><span class="line">函数地址 = AddressOfFunctions[序号-base]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>导出表是利用”函数地址表”排的序：</strong></p>
+<p><img src="https://i.loli.net/2020/11/30/pljM6d2rFSNHcnO.png" alt="image-20201130203727246"></p>
+<p><img src="https://i.loli.net/2020/11/30/tfxeZPuhNc3r8Y4.png"></p>
+<ul>
+<li><p>第一个函数地址100f，它的索引是0，然后计算机就去序号表找0，如果找到了，就说明是用函数名称导出的。计算机找到了序号表索引为2的值是0，然后在函数名称表找到索引第二个名称Plus；</p>
+</li>
+<li><p>第三个函数地址0，计算机会直接跳过这个无效地址，不过它在内存地址中是真实存在的；</p>
+</li>
+<li><p>第四个函数地址100a，它的索引是3，计算机去序号表找不到3，所以这个是用序号导出的。索引是3，加上base的值2，导出序号就是5。</p>
+</li>
+</ul>
+<h2 id="重定位表"><a href="#重定位表" class="headerlink" title="重定位表"></a>重定位表</h2><p>建议看看此<a target="_blank" rel="noopener" href="https://www.cnblogs.com/predator-wang/p/4962775.html">链接</a>，写得比我要清楚</p>
+<p>数据目录的第六个结构是重定位表</p>
+<ol>
+<li>一般情况下，EXE都是可以按照ImageBase的地址进行加载的，因为Exe拥有自己独立的4GB的虚拟内存空间。但DLL不是，DLL是当有EXE使用它，才会加载到相关EXE的进程空间的。</li>
+<li>为了提高搜索的速度，模块间的地址也是要对齐的，模块地址对齐为10000H，也就是64K。</li>
+</ol>
+<p>编译时生成的地址都是ImageBase+RVA，但是全局变量或者字符串会直接给一个地址，假设在程序加载的时候，没有按照预定的400000载入指定位置，但是全局变量和字符串等等，地址是不会改变的，然后就会出错，所以需要重定位表来记录要修正的地方。</p>
+<p>如果程序能够按照预定的ImageBase来加载的话，那么就不需要重定位表。所以exe很少有重定位表，而DLL大多都有重定位表。因为首先把exe加载到内存中，不会被占位，而dll很多，可能会出错。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_BASE_RELOCATION</span> &#123;</span></span><br><span class="line">    	DWORD   VirtualAddress;</span><br><span class="line">    	DWORD   SizeOfBlock;</span><br><span class="line">&#125; IMAGE_BASE_RELOCATION;</span><br><span class="line"><span class="keyword">typedef</span> IMAGE_BASE_RELOCATION, * PIMAGE_BASE_RELOCATION;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/12/01/hLU7Z6xGHFitlwB.png"></p>
+<p>SizeOfBlock指的是当前块一共有多少字节</p>
+<p>有多少块是不确定的，除去开头两个，后面的数据宽度都是2个字节</p>
+<p>RVA=VirtualAddress+后面双字地址</p>
+<p><strong>在比较靠近的重定位表项中，32位指针的高位地址总是相同的，如果把这些相近表项的高位地址统一表示，那么就可以省略一部分的空间。</strong></p>
+<p><strong>计算机会把每一页里需要修改的数据放在一个块里。当按照一个内存页来分割时，在一个页面中寻址需要的指针位数是12位（一页等于4096字节，等于2的12次方），而两字节有16位，用12位即可表示当前页全部地址，多所以出的四位（多出四位的主要原因是因为对齐）用于描述是否需要重定向，如果值为0011则进行重定向。因为还有一种情况不需要重定向，那就是对齐</strong></p>
+<p><strong>但凡涉及到直接寻址的指令都需要进行重定位处理</strong></p>
+<p>把内存中需要重定位的数据按页的大小0x1000分为若干个块，而这个VirtualAddress就是每个块的起始RVA。如一个重定位项是33f2，去掉高位的3，得到3f2，再加上这个重定位块的VirtualAddress,00011000，就得到000113f2。只知道块的RVA当然还不行，我们要知道每一个需要重定位数据的具体地址。在程序没有被真正加载（得到真实的起始地址）之前，就用ImageBase作为基址（这时的ImageBase是00400000），相加得到004113f2。</p>
+<p><strong>我的理解：</strong></p>
+<p>如果一个dll装载程序的过程中，位置被其他dll占了，则需要修改imagebase，以及修改重定位表。因为一些全局变量的值需要使用重定位表修改，否则dll无法正常使用。</p>
+<p>修复方式：</p>
+<p>新imagebase-本来需要装载的imagebase</p>
+<p>然后重定位表的RVA加上差值即可。</p>
+<br>
+
+<h2 id="导入表"><a href="#导入表" class="headerlink" title="导入表"></a>导入表</h2><p>数据目录的第二个结构是导入表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_IMPORT_DESCRIPTOR</span> &#123;</span></span><br><span class="line">+<span class="number">0</span>  <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">        DWORD   Characteristics;</span><br><span class="line">        DWORD   OriginalFirstThunk;         <span class="comment">//RVA 指向IMAGE_THUNK_DATA结构的数组INT(Import Name Table)</span></span><br><span class="line">    &#125;;</span><br><span class="line">+<span class="number">4</span>    	DWORD   TimeDateStamp;              <span class="comment">//时间戳</span></span><br><span class="line">+<span class="number">8</span>    	DWORD   ForwarderChain;</span><br><span class="line">+<span class="number">12</span>    	DWORD   Name;						<span class="comment">//RVA,指向dll名字，该名字已0结尾</span></span><br><span class="line">+<span class="number">16</span>    	DWORD   FirstThunk;                 <span class="comment">//RVA,指向IMAGE_THUNK_DATA结构的数组IAT(Import Address Table)</span></span><br><span class="line">&#125; IMAGE_IMPORT_DESCRIPTOR;</span><br><span class="line"><span class="keyword">typedef</span> IMAGE_IMPORT_DESCRIPTOR UNALIGNED *PIMAGE_IMPORT_DESCRIPTOR;</span><br></pre></td></tr></table></figure>
+
+<p>IMAGE_THUNK_DATA：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_THUNK_DATA32</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">        PBYTE  ForwarderString;</span><br><span class="line">        PDWORD Function;</span><br><span class="line">        DWORD Ordinal;						<span class="comment">//序号</span></span><br><span class="line">        PIMAGE_IMPORT_BY_NAME  AddressOfData;	<span class="comment">//指向IMAGE_IMPORT_BY_NAME</span></span><br><span class="line">    &#125; u1;</span><br><span class="line">&#125; IMAGE_THUNK_DATA32;</span><br></pre></td></tr></table></figure>
+
+<p>IMAGE_THUNK_DATA判断最高位是否为1，如果是，除去最高位的值就是函数的导出序号。如果不是，那么这个值是一个RVA，指向IMAGE_IMPORT_BY_NAME。然后通过调用<code>GetProcAddr(m,函数的名字或者导出序号);</code>获取地址。</p>
+<p>PIMAGE_IMPORT_BY_NAME：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_IMPORT_BY_NAME</span> &#123;</span></span><br><span class="line">	    WORD    Hint;						<span class="comment">//可能为空，编译器决定 如果不为空 是函数在导出表中的索引</span></span><br><span class="line">    	BYTE    Name[<span class="number">1</span>];					<span class="comment">//函数名称，以0结尾</span></span><br><span class="line">&#125; IMAGE_IMPORT_BY_NAME, *PIMAGE_IMPORT_BY_NAME;</span><br></pre></td></tr></table></figure>
+
+<p>加载前：</p>
+<p><img src="https://i.loli.net/2020/12/10/dlayIvspiN6LQqm.png" alt="image-20201210192501792"></p>
+<p>加载后：</p>
+<p><img src="https://i.loli.net/2020/12/10/1fSquIi9wU3WJzO.png" alt="image-20201210192509954"></p>
+<br>
+
+<h2 id="绑定导入表"><a href="#绑定导入表" class="headerlink" title="绑定导入表"></a>绑定导入表</h2><p>数据目录的第12个结构是导入表</p>
+<p>未加载的FirstThunk里未必是序号或者是函数名字的RVA，还有可能是已经加载好的函数地址。windows的大多数应用程序都采用了这种方法，能让程序启动的更快。</p>
+<p>但是这种方法有弊端：</p>
+<ol>
+<li><p>dll没占到位置</p>
+</li>
+<li><p>dll被修改了</p>
+</li>
+</ol>
+<p>那计算机如何判断FirstThunk是否绑定地址呢？</p>
+<p>记得前面的TimeDateStamp时间戳吗，如果它的值为0，则表示IAT没有被绑定。如果它的值为-1（FFFFFFFF），则表示已经被绑定了。绑定的时间存在绑定导入表中的TimeDateStamp。<strong>当IMAGE_BOUND_IMPORT_DESCRIPTOR结构中的TimeDateStamp与DLL文件标准PE头中的TimeDateStamp值不相符时，或者DLL需要重新定位的时候，就会重新计算IAT中的值。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_BOUND_IMPORT_DESCRIPTOR</span> &#123;</span></span><br><span class="line">    	DWORD   TimeDateStamp;				<span class="comment">//时间戳，用来检查dll是否被更新</span></span><br><span class="line">    	WORD    OffsetModuleName;			<span class="comment">//dll的名字</span></span><br><span class="line">    	WORD    NumberOfModuleForwarderRefs;	<span class="comment">//本程序依赖另外的dll有几个</span></span><br><span class="line"><span class="comment">// Array of zero or more IMAGE_BOUND_FORWARDER_REF follows</span></span><br><span class="line">&#125; IMAGE_BOUND_IMPORT_DESCRIPTOR,  *PIMAGE_BOUND_IMPORT_DESCRIPTOR;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">IMAGE_BOUND_FORWARDER_REF</span> &#123;</span></span><br><span class="line">    	DWORD   TimeDateStamp;				<span class="comment">//时间戳，用来检查dll是否被更新</span></span><br><span class="line">    	WORD    OffsetModuleName;			<span class="comment">//dll的名字</span></span><br><span class="line">    	WORD    Reserved;					<span class="comment">//保留，没有意义</span></span><br><span class="line">&#125; IMAGE_BOUND_FORWARDER_REF, *PIMAGE_BOUND_FORWARDER_REF;</span><br></pre></td></tr></table></figure>
+
+<p>如果NumberOfModuleForwarderRefs的值为2，则在<code>_IMAGE_BOUND_IMPORT_DESCRIPTOR</code>结构后面会跟两个<code>_IMAGE_BOUND_FORWARDER_REF</code>结构。结束时会有个全0的结构。</p>
+<p>OffsetModuleName计算的方法： 第一个*(_IMAGE_BOUND_IMPORT_DESCRIPTOR )+OffsetModuleName</p>
+<br>
+
+<h2 id="IAT表"><a href="#IAT表" class="headerlink" title="IAT表"></a>IAT表</h2><p>4070bc是exe的地址，Y是dll的地址。</p>
+<p><img src="https://i.loli.net/2020/12/10/tMngayd4UbAfmLu.png" alt="image-20201210081552204"></p>
+<p>Q.为什么调用dll要这么设计，而不是直接使用地址。</p>
+<p>A.因为重定位表只能修复自己的文件，比如一个dll只能修复这个dll里的地址，一个exe只能修复这个exe里的地址。所以如果dll的位置被占了，只修复自己的地址，会导致exe无法调用该dll。而exe就不需要修改，因为一般来说，编译时exe是第一个占位置的，所以没人占他的位置。</p>
+<p><strong>这些记录dll的Y指向的地址会组成一个表，表里存着函数的真正地址</strong>，因为程序要调用很多系统dll，如果我们的dll地址发生改变，要对每一处调用修改其调用地址是很麻烦的，如果有这样的表，我们将所有的函数调用的入口地址集中在一个集中的地址中，然后通过解析这个表方便我们进行修改，这样我们只要修改这个表所指的函数地址。</p>
+<p>所以这个表不能随便移动，因为这些Y的值，在程序编译的时候就已经生成了，所以强行移动代价会很大。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/">https://kazamayc.github.io/2020/09/21/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-PE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/load.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/06/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E7%A1%AC%E7%BC%96%E7%A0%81/"><img class="prev-cover" src="/img/load.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">[视频笔记] 滴水逆向_硬编码</div></div></a></div><div class="next-post pull-right"><a href="/2020/09/19/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/"><img class="next-cover" src="/img/load.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">[视频笔记] 滴水逆向_汇编指令</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E5%85%B3C%E7%9A%84%E5%B0%8F%E7%8E%A9%E6%84%8F"><span class="toc-number">1.</span> <span class="toc-text">有关C的小玩意</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">1.1.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%EF%BC%88%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">堆（分配内存）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E8%8A%82"><span class="toc-number">2.</span> <span class="toc-text">分节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98VA%EF%BC%88%E7%AE%80%E8%BF%B0%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">虚拟内存VA（简述）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98%E5%AF%B9%E9%BD%90%E5%92%8C%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="toc-number">2.2.</span> <span class="toc-text">硬盘对齐和内存对齐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PE"><span class="toc-number">3.</span> <span class="toc-text">PE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">基础概念：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PE%E5%A4%B4%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">PE头解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOS%E5%A4%B4"><span class="toc-number">4.1.</span> <span class="toc-text">DOS头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PE%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-number">4.2.</span> <span class="toc-text">PE文件头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%82%E8%A1%A8"><span class="toc-number">4.3.</span> <span class="toc-text">节表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95"><span class="toc-number">5.</span> <span class="toc-text">数据目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E8%A1%A8"><span class="toc-number">5.1.</span> <span class="toc-text">导出表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E4%BD%8D%E8%A1%A8"><span class="toc-number">5.2.</span> <span class="toc-text">重定位表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E8%A1%A8"><span class="toc-number">5.3.</span> <span class="toc-text">导入表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E5%AF%BC%E5%85%A5%E8%A1%A8"><span class="toc-number">5.4.</span> <span class="toc-text">绑定导入表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IAT%E8%A1%A8"><span class="toc-number">5.5.</span> <span class="toc-text">IAT表</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 风间映川</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="然然可爱捏,乃琳可爱捏,向晚可爱捏,贝拉可爱捏,珈乐可爱捏,QAQ,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
