@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[文章学习] 手把手教你(x)我(√)构建解释器 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 前言链接：https:&#x2F;&#x2F;lotabout.me&#x2F;2015&#x2F;write-a-C-interpreter-0&#x2F; copy的代码在这里(看完语法分析后反而不想重写了，所以就删掉然后copy了一份) 首先，高考结束啦！(＾o＾)ﾉ 在看csapp第八章之前，打算先把之前收藏的文章跟着学一遍。一直看书太无聊了，csapp第七章大概随便就翻了翻，程序员的自我修养也没看完，感觉记忆不深，跟没学一样，">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[文章学习] 手把手教你(x)我(√)构建解释器 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 前言链接：https:&#x2F;&#x2F;lotabout.me&#x2F;2015&#x2F;write-a-C-interpreter-0&#x2F; copy的代码在这里(看完语法分析后反而不想重写了，所以就删掉然后copy了一份) 首先，高考结束啦！(＾o＾)ﾉ 在看csapp第八章之前，打算先把之前收藏的文章跟着学一遍。一直看书太无聊了，csapp第七章大概随便就翻了翻，程序员的自我修养也没看完，感觉记忆不深，跟没学一样，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[文章学习] 手把手教你(x)我(√)构建解释器">
 <meta property="og:url" content="https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2021-05-11T09:19:27.000Z">
 <meta property="article:modified_time" content="2021-06-28T07:36:43.213Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/28/vXIzpN54BKx2n9f.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

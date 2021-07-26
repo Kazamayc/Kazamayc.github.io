@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向-c++-and-win32 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="c++0x00 代码规范 将定义与实现分离，代码会有更好的可读性 使用结构体指针  0x01 this指针函数放在结构体里就会出现this指针 1.为什么要使用结构体指针 12345struct hello&amp;#123;    int a;    int b;&amp;#125;;  如果直接调用hello结构，则在内存中会占用8个字节，而使用指针只需要占用4个字节。 12345int main()&amp;#12">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向-c++-and-win32 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="c++0x00 代码规范 将定义与实现分离，代码会有更好的可读性 使用结构体指针  0x01 this指针函数放在结构体里就会出现this指针 1.为什么要使用结构体指针 12345struct hello&amp;#123;    int a;    int b;&amp;#125;;  如果直接调用hello结构，则在内存中会占用8个字节，而使用指针只需要占用4个字节。 12345int main()&amp;#12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[视频笔记] 滴水逆向-c++-and-win32">
 <meta property="og:url" content="https://kazamayc.github.io/2020/12/17/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c++-and-win32/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2020-12-17T04:16:03.000Z">
 <meta property="article:modified_time" content="2021-06-26T13:58:43.492Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/UJG1f9QchMTLdel.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/12/17/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c++-and-win32/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

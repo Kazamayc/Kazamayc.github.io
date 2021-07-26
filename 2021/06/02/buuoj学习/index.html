@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[write up] buuoj学习 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[第五空间2019 决赛]PWN5[第五空间2019 决赛]PWN5 代码核心逻辑：  程序获得一个随机数，我们的密码需要和随机数相同。我们在21行把随机数覆盖成我们要输入的密码即可。 首先判断参数在栈的位置  随机数所在地址  12345678from pwn import *#p&#x3D;process(&amp;#x27;.&#x2F;pwn&amp;#x27;)p&#x3D;remote(&amp;#x27;node3.buuoj.cn&amp;#">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[write up] buuoj学习 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[第五空间2019 决赛]PWN5[第五空间2019 决赛]PWN5 代码核心逻辑：  程序获得一个随机数，我们的密码需要和随机数相同。我们在21行把随机数覆盖成我们要输入的密码即可。 首先判断参数在栈的位置  随机数所在地址  12345678from pwn import *#p&#x3D;process(&amp;#x27;.&#x2F;pwn&amp;#x27;)p&#x3D;remote(&amp;#x27;node3.buuoj.cn&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[write up] buuoj学习">
 <meta property="og:url" content="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2021-06-02T10:24:46.000Z">
 <meta property="article:modified_time" content="2021-06-26T14:51:55.287Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/h4dbi3jYmVfNKyS.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

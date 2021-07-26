@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向_硬编码 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 硬编码   硬编码 汇编指令    E8 call   E9 jmp   6A push   12004011F8	E8 53 FE FF FF		call	00401050004011FD	33 C0				xor		eax,eax  X就是E8后面的值53 FE FF FF 公式： call（E8）后面真正要跳转的地址&#x3D;E8这条指令的下一行地址+XX&#x3D;call（E8）后面真正要跳转的">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向_硬编码 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 硬编码   硬编码 汇编指令    E8 call   E9 jmp   6A push   12004011F8	E8 53 FE FF FF		call	00401050004011FD	33 C0				xor		eax,eax  X就是E8后面的值53 FE FF FF 公式： call（E8）后面真正要跳转的地址&#x3D;E8这条指令的下一行地址+XX&#x3D;call（E8）后面真正要跳转的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[视频笔记] 滴水逆向_硬编码">
 <meta property="og:url" content="https://kazamayc.github.io/2020/10/06/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E7%A1%AC%E7%BC%96%E7%A0%81/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2020-10-06T15:18:38.000Z">
 <meta property="article:modified_time" content="2021-06-26T14:00:59.982Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/b9XMsRWBGYtVl4q.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/10/06/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E7%A1%AC%E7%BC%96%E7%A0%81/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

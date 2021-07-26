@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向_基础 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 前言本文环境为vc6.0和32位汇编 和8月份那篇有些重复，不过是当时写的笔记懒得修改了，能ctrl+f查就行   0x01 堆栈图汇编代码是这样的： 这个是没call之前的  1234参数：push 0x4push 0x3push 0x2  此时的堆栈图：  call之后  进入jmp  此时的堆栈图：  在把参数压入栈之后再把ebp栈底也也压入栈，之后把esp的值赋给ebp。 此时栈">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向_基础 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 前言本文环境为vc6.0和32位汇编 和8月份那篇有些重复，不过是当时写的笔记懒得修改了，能ctrl+f查就行   0x01 堆栈图汇编代码是这样的： 这个是没call之前的  1234参数：push 0x4push 0x3push 0x2  此时的堆栈图：  call之后  进入jmp  此时的堆栈图：  在把参数压入栈之后再把ebp栈底也也压入栈，之后把esp的值赋给ebp。 此时栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[视频笔记] 滴水逆向_基础">
 <meta property="og:url" content="https://kazamayc.github.io/2020/09/18/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c%E5%9F%BA%E7%A1%80/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2020-09-18T01:46:34.000Z">
 <meta property="article:modified_time" content="2021-06-26T13:58:55.090Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/dubmQYxB3GeEcr4.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/09/18/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

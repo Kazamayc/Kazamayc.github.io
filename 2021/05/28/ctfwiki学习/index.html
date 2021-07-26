@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[write up] ctfwiki学习 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 Basic ROP wiki下载的ret2shellcode，bss段没有可执行权限 ret2libc3用LibcSearcher搜不到libc库  ret2textret2text   gets函数存在栈溢出，在secure函数可以发现存在system(&#39;&#x2F;bin&#x2F;sh&#39;)。  然后计算gets的buf与返回地址的偏移 可以看到s的地址是FFBDD5BC  EBP的地址">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[write up] ctfwiki学习 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 Basic ROP wiki下载的ret2shellcode，bss段没有可执行权限 ret2libc3用LibcSearcher搜不到libc库  ret2textret2text   gets函数存在栈溢出，在secure函数可以发现存在system(&#39;&#x2F;bin&#x2F;sh&#39;)。  然后计算gets的buf与返回地址的偏移 可以看到s的地址是FFBDD5BC  EBP的地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[write up] ctfwiki学习">
 <meta property="og:url" content="https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2021-05-28T00:56:36.000Z">
 <meta property="article:modified_time" content="2021-06-26T13:51:12.823Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/VpLf2TbvqocwDN9.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

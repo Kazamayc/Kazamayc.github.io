@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[实验] c语言and汇编 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 前言下文是简单的c语言转换汇编，然后加了一点自己的理解。有疑惑优先写代码，反汇编看完再说。只是简单的参考，以相应环境为准。这里我用的是vc6.0的版本。   0x01类型转换只存在有符号1234567891011121314151617181920211:        int a &#x3D; 0xFFFFFFFF;0040D418   mov         dword ptr [ebp-4]">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[实验] c语言and汇编 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 前言下文是简单的c语言转换汇编，然后加了一点自己的理解。有疑惑优先写代码，反汇编看完再说。只是简单的参考，以相应环境为准。这里我用的是vc6.0的版本。   0x01类型转换只存在有符号1234567891011121314151617181920211:        int a &#x3D; 0xFFFFFFFF;0040D418   mov         dword ptr [ebp-4]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[实验] c语言and汇编">
 <meta property="og:url" content="https://kazamayc.github.io/2020/09/01/c%E8%AF%AD%E8%A8%80and%E6%B1%87%E7%BC%96/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2020-09-01T02:18:19.000Z">
 <meta property="article:modified_time" content="2021-06-26T13:51:53.142Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/Y6Es7cOzBXPLegU.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/09/01/c%E8%AF%AD%E8%A8%80and%E6%B1%87%E7%BC%96/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',

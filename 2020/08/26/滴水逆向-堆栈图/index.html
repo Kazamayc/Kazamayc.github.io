@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向-堆栈图 | Kazamaycのblog</title><meta name="keywords" content="风间映川"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x01 前言这个还是蛮重要的，所以单独开了一个写一下过程   0x02 开始push &#x3D; esp-4 -&gt; 把值放入esp pop &#x3D; 把值放入寄存器 -&gt; esp+4 汇编代码是这样的： 这个是没call之前的  提前push的值都是调用函数的参数 1234参数：push 0x4push 0x3push 0x2  此时的堆栈图：   call之后  进入jmp  此时的堆栈图：">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[视频笔记] 滴水逆向-堆栈图 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x01 前言这个还是蛮重要的，所以单独开了一个写一下过程   0x02 开始push &#x3D; esp-4 -&gt; 把值放入esp pop &#x3D; 把值放入寄存器 -&gt; esp+4 汇编代码是这样的： 这个是没call之前的  提前push的值都是调用函数的参数 1234参数：push 0x4push 0x3push 0x2  此时的堆栈图：   call之后  进入jmp  此时的堆栈图：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[视频笔记] 滴水逆向-堆栈图">
 <meta property="og:url" content="https://kazamayc.github.io/2020/08/26/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E5%A0%86%E6%A0%88%E5%9B%BE/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:published_time" content="2020-08-26T14:26:49.000Z">
 <meta property="article:modified_time" content="2021-06-26T14:00:25.979Z">
 <meta property="article:author" content="风间映川">
-<meta property="article:tag" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/06/26/mpiMxt7eKLo3bI2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2020/08/26/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-%E5%A0%86%E6%A0%88%E5%9B%BE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
