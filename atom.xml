@@ -34,18 +34,42 @@
   </entry>
   
   <entry>
+    <title>栈溢出查漏补缺</title>
+    <link href="https://kazamayc.github.io/2021/10/13/%E6%A0%88%E6%BA%A2%E5%87%BA%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/"/>
+    <id>https://kazamayc.github.io/2021/10/13/%E6%A0%88%E6%BA%A2%E5%87%BA%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/</id>
+    <published>2021-10-13T08:41:15.000Z</published>
+    <updated>2021-10-13T09:14:23.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;感觉自己对栈溢出还存在某些不理解的地方，这篇文章用来存放问题和解答。&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="2021年10月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B410%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>堆学习2 by Freedom-zy</title>
     <link href="https://kazamayc.github.io/2021/10/12/%E5%A0%86%E5%AD%A6%E4%B9%A02/"/>
     <id>https://kazamayc.github.io/2021/10/12/%E5%A0%86%E5%AD%A6%E4%B9%A02/</id>
     <published>2021-10-12T11:41:14.000Z</published>
-    <updated>2021-10-12T11:59:12.402Z</updated>
+    <updated>2021-10-13T09:15:24.614Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;0x00&quot;&gt;&lt;a href=&quot;#0x00&quot; class=&quot;headerlink&quot; title=&quot;0x00&quot;&gt;&lt;/a&gt;0x00&lt;/h1&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;h1 id=&quot;0x00-堆&quot;&gt;&lt;a href=&quot;#0x00-堆&quot; class=&quot;headerlink&quot; title=&quot;0x00 堆&quot;&gt;&lt;/a&gt;0x00 堆&lt;/h1&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -61,7 +85,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2021-10-12T11:57:48.742Z</updated>
+    <updated>2021-10-13T08:39:15.297Z</updated>
     
     
       
@@ -201,7 +225,7 @@
     <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2021-09-29T01:16:44.955Z</updated>
+    <updated>2021-10-13T03:28:15.388Z</updated>
     
     
       
@@ -441,30 +465,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;c&quot;&gt;&lt;a href=&quot;#c&quot; class=&quot;headerlink&quot; title=&quot;c++&quot;&gt;&lt;/a&gt;c++&lt;/h1&gt;&lt;h2 id=&quot;0x00-代码规范&quot;&gt;&lt;a href=&quot;#0x00-代码规范&quot; class=&quot;headerlink&quot; title=&quot;0x00</summary>
-        
-      
-    
-    
-    
-    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[实验] PE解析</title>
-    <link href="https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/"/>
-    <id>https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/</id>
-    <published>2020-12-06T03:06:42.000Z</published>
-    <updated>2021-06-26T13:55:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;本文使用的头文件有&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
         
       
     
