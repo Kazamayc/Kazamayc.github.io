@@ -23,25 +23,6 @@
     
     
     <entry>
-      <title>栈溢出查漏补缺</title>
-      <link href="/2021/10/13/%E6%A0%88%E6%BA%A2%E5%87%BA%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/"/>
-      <url>/2021/10/13/%E6%A0%88%E6%BA%A2%E5%87%BA%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA/</url>
-      
-        <content type="html"><![CDATA[<h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><p>感觉自己对栈溢出还存在某些不理解的地方，这篇文章用来存放问题和解答。</p><h1 id="0x01-32位栈溢出ROP"><a href="#0x01-32位栈溢出ROP" class="headerlink" title="0x01 32位栈溢出ROP"></a>0x01 32位栈溢出ROP</h1><p>一直对于32位的ROP略有疑惑</p><p>栈图如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">函数所用的局部变量</span><br><span class="line">原ebp</span><br><span class="line">return addr</span><br><span class="line">原来函数的参数</span><br><span class="line">原来函数的参数</span><br></pre></td></tr></table></figure><p>进行ROP之后</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">aaaa</span><br><span class="line">aaaa</span><br><span class="line">后门函数的addr</span><br><span class="line">main addr</span><br><span class="line">后门函数的参数</span><br><span class="line">后门函数的参数</span><br><span class="line">后门函数的参数</span><br></pre></td></tr></table></figure><p>我的疑惑是能不能在同一个payload中无限调用ROP呢，可如果无限调用，其它地址该放到哪去呢。因为调用main函数之后，后门函数的参数不被清理，所以最多只能再调用一个main函数。</p><p>虽然可以通过返回溢出点来无限构造，但是这个疑惑仍然困扰了我很长时间orz.</p><p>现在把它写下来大概算是理解了。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 2021年10月 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>堆学习2 by Freedom-zy</title>
       <link href="/2021/10/12/%E5%A0%86%E5%AD%A6%E4%B9%A02/"/>
       <url>/2021/10/12/%E5%A0%86%E5%AD%A6%E4%B9%A02/</url>
