@@ -34,11 +34,34 @@
   </entry>
   
   <entry>
+    <title>[环境搭建] pwn的环境从头搭建</title>
+    <link href="https://kazamayc.github.io/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/"/>
+    <id>https://kazamayc.github.io/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</id>
+    <published>2021-10-26T02:27:14.000Z</published>
+    <updated>2021-10-26T03:37:04.343Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-概述&quot;&gt;&lt;a href=&quot;#0x00-概述&quot; class=&quot;headerlink&quot; title=&quot;0x00 概述&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2021年10月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B410%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>堆学习3  by how2heap</title>
     <link href="https://kazamayc.github.io/2021/10/25/%E5%A0%86%E5%AD%A6%E4%B9%A03/"/>
     <id>https://kazamayc.github.io/2021/10/25/%E5%A0%86%E5%AD%A6%E4%B9%A03/</id>
     <published>2021-10-25T00:31:44.000Z</published>
-    <updated>2021-10-25T11:14:00.873Z</updated>
+    <updated>2021-10-25T13:30:40.181Z</updated>
     
     
       
@@ -84,7 +107,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A01/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A01/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2021-10-25T00:31:29.982Z</updated>
+    <updated>2021-10-26T03:33:25.243Z</updated>
     
     
       
@@ -173,30 +196,6 @@
   </entry>
   
   <entry>
-    <title>[工具使用] docker</title>
-    <link href="https://kazamayc.github.io/2021/07/04/docker/"/>
-    <id>https://kazamayc.github.io/2021/07/04/docker/</id>
-    <published>2021-07-04T08:21:56.000Z</published>
-    <updated>2021-09-07T11:44:46.242Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;自用&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="2021年7月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B47%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[实验] 南京大学PA学习</title>
     <link href="https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/</id>
@@ -232,29 +231,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;1-第五空间2019-决赛-PWN5&quot;&gt;&lt;a href=&quot;#1-第五空间2019-决赛-PWN5&quot; class=&quot;headerlink&quot; title=&quot;1.[第五空间2019 决赛]PWN5&quot;&gt;&lt;/a&gt;1.[第五空间2019 决赛]PWN5&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[工具使用] pwn的工具使用</title>
-    <link href="https://kazamayc.github.io/2021/06/01/pwn%E7%9A%84%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    <id>https://kazamayc.github.io/2021/06/01/pwn%E7%9A%84%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</id>
-    <published>2021-06-01T03:36:28.000Z</published>
-    <updated>2021-06-28T07:36:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;pwndbg&quot;&gt;&lt;a href=&quot;#pwndbg&quot; class=&quot;headerlink&quot; title=&quot;pwndbg&quot;&gt;&lt;/a&gt;pwndbg&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -464,6 +440,30 @@
         
         
     <summary type="html">&lt;h1 id=&quot;c&quot;&gt;&lt;a href=&quot;#c&quot; class=&quot;headerlink&quot; title=&quot;c++&quot;&gt;&lt;/a&gt;c++&lt;/h1&gt;&lt;h2 id=&quot;0x00-代码规范&quot;&gt;&lt;a href=&quot;#0x00-代码规范&quot; class=&quot;headerlink&quot; title=&quot;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] PE解析</title>
+    <link href="https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/"/>
+    <id>https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/</id>
+    <published>2020-12-06T03:06:42.000Z</published>
+    <updated>2021-06-26T13:55:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;本文使用的头文件有&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
         
       
     
