@@ -23,6 +23,25 @@
     
     
     <entry>
+      <title>ptmalloc2.23分析</title>
+      <link href="/2021/11/01/ptmalloc2-23%E5%88%86%E6%9E%90/"/>
+      <url>/2021/11/01/ptmalloc2-23%E5%88%86%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 2021年11月 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[环境搭建] pwn的环境从头搭建</title>
       <link href="/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/"/>
       <url>/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
