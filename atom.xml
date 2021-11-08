@@ -38,8 +38,16 @@
     <link href="https://kazamayc.github.io/2021/11/01/ptmalloc2-23%E5%88%86%E6%9E%90/"/>
     <id>https://kazamayc.github.io/2021/11/01/ptmalloc2-23%E5%88%86%E6%9E%90/</id>
     <published>2021-11-01T02:34:14.000Z</published>
-    <updated>2021-11-01T02:34:45.060Z</updated>
+    <updated>2021-11-08T11:42:48.278Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-malloc&quot;&gt;&lt;a href=&quot;#0x00-malloc&quot; class=&quot;headerlink&quot; title=&quot;0x00 malloc&quot;&gt;&lt;/a&gt;0x00 malloc&lt;/h1&gt;&lt;p&gt;堆初始化是在用户第一次申请内存时执行</summary>
+        
+      
     
     
     
@@ -99,7 +107,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2021-11-08T03:31:31.208Z</updated>
+    <updated>2021-11-08T11:45:38.926Z</updated>
     
     
       
