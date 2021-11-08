@@ -6,7 +6,7 @@
   <link href="https://kazamayc.github.io/atom.xml" rel="self"/>
   
   <link href="https://kazamayc.github.io/"/>
-  <updated>2021-11-03T14:21:51.936Z</updated>
+  <updated>2021-11-07T15:22:32.740Z</updated>
   <id>https://kazamayc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"/>
     <id>https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/</id>
     <published>9999-05-20T16:13:14.000Z</published>
-    <updated>2021-11-03T14:21:51.936Z</updated>
+    <updated>2021-11-07T15:22:32.740Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -72,11 +72,11 @@
   </entry>
   
   <entry>
-    <title>堆学习3  by how2heap</title>
-    <link href="https://kazamayc.github.io/2021/10/25/%E5%A0%86%E5%AD%A6%E4%B9%A03/"/>
-    <id>https://kazamayc.github.io/2021/10/25/%E5%A0%86%E5%AD%A6%E4%B9%A03/</id>
+    <title>how2heap</title>
+    <link href="https://kazamayc.github.io/2021/10/25/how2heap/"/>
+    <id>https://kazamayc.github.io/2021/10/25/how2heap/</id>
     <published>2021-10-25T00:31:44.000Z</published>
-    <updated>2021-10-29T01:33:58.235Z</updated>
+    <updated>2021-11-08T03:32:38.119Z</updated>
     
     
       
@@ -95,34 +95,11 @@
   </entry>
   
   <entry>
-    <title>堆学习2 by Freedom-zy</title>
-    <link href="https://kazamayc.github.io/2021/10/12/%E5%A0%86%E5%AD%A6%E4%B9%A02/"/>
-    <id>https://kazamayc.github.io/2021/10/12/%E5%A0%86%E5%AD%A6%E4%B9%A02/</id>
-    <published>2021-10-12T11:41:14.000Z</published>
-    <updated>2021-10-25T10:47:06.944Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-堆&quot;&gt;&lt;a href=&quot;#0x00-堆&quot; class=&quot;headerlink&quot; title=&quot;0x00 堆&quot;&gt;&lt;/a&gt;0x00 堆&lt;/h1&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="2021年10月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B410%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>堆学习1 by wiki</title>
-    <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A01/"/>
-    <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A01/</id>
+    <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2021-10-29T00:41:02.969Z</updated>
+    <updated>2021-11-08T03:31:31.208Z</updated>
     
     
       
@@ -455,6 +432,30 @@
         
         
     <summary type="html">&lt;h1 id=&quot;c&quot;&gt;&lt;a href=&quot;#c&quot; class=&quot;headerlink&quot; title=&quot;c++&quot;&gt;&lt;/a&gt;c++&lt;/h1&gt;&lt;h2 id=&quot;0x00-代码规范&quot;&gt;&lt;a href=&quot;#0x00-代码规范&quot; class=&quot;headerlink&quot; title=&quot;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] PE解析</title>
+    <link href="https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/"/>
+    <id>https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/</id>
+    <published>2020-12-06T03:06:42.000Z</published>
+    <updated>2021-06-26T13:55:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;本文使用的头文件有&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
         
       
     
