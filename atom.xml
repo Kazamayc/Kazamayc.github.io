@@ -34,6 +34,29 @@
   </entry>
   
   <entry>
+    <title>2021-深育杯-wp</title>
+    <link href="https://kazamayc.github.io/2021/11/14/2021-%E6%B7%B1%E8%82%B2%E6%9D%AF-wp/"/>
+    <id>https://kazamayc.github.io/2021/11/14/2021-%E6%B7%B1%E8%82%B2%E6%9D%AF-wp/</id>
+    <published>2021-11-14T13:42:43.000Z</published>
+    <updated>2021-11-14T14:04:49.361Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;findflag&quot;&gt;&lt;a href=&quot;#findflag&quot; class=&quot;headerlink&quot; title=&quot;findflag&quot;&gt;&lt;/a&gt;findflag&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="2021年11月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B411%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ptmalloc2.23分析</title>
     <link href="https://kazamayc.github.io/2021/11/01/ptmalloc2-23%E5%88%86%E6%9E%90/"/>
     <id>https://kazamayc.github.io/2021/11/01/ptmalloc2-23%E5%88%86%E6%9E%90/</id>
@@ -269,7 +292,7 @@
     <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
     <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
     <published>2021-05-27T12:41:55.000Z</published>
-    <updated>2021-10-19T15:51:55.151Z</updated>
+    <updated>2021-11-14T14:01:46.239Z</updated>
     
     
       
@@ -440,30 +463,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;c&quot;&gt;&lt;a href=&quot;#c&quot; class=&quot;headerlink&quot; title=&quot;c++&quot;&gt;&lt;/a&gt;c++&lt;/h1&gt;&lt;h2 id=&quot;0x00-代码规范&quot;&gt;&lt;a href=&quot;#0x00-代码规范&quot; class=&quot;headerlink&quot; title=&quot;0x00</summary>
-        
-      
-    
-    
-    
-    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[实验] PE解析</title>
-    <link href="https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/"/>
-    <id>https://kazamayc.github.io/2020/12/06/PE%E8%A7%A3%E6%9E%90/</id>
-    <published>2020-12-06T03:06:42.000Z</published>
-    <updated>2021-06-26T13:55:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;本文使用的头文件有&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
         
       
     
