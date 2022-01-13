@@ -6,7 +6,7 @@
   <link href="https://kazamayc.github.io/atom.xml" rel="self"/>
   
   <link href="https://kazamayc.github.io/"/>
-  <updated>2021-12-24T07:21:43.527Z</updated>
+  <updated>2022-01-07T01:06:31.097Z</updated>
   <id>https://kazamayc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"/>
     <id>https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/</id>
     <published>9999-05-20T16:13:14.000Z</published>
-    <updated>2021-12-24T07:21:43.527Z</updated>
+    <updated>2022-01-07T01:06:31.097Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -29,6 +29,29 @@
     
     
     <category term="日记" scheme="https://kazamayc.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mips架构栈溢出</title>
+    <link href="https://kazamayc.github.io/2022/01/13/mips%E6%9E%B6%E6%9E%84%E6%A0%88%E6%BA%A2%E5%87%BA/"/>
+    <id>https://kazamayc.github.io/2022/01/13/mips%E6%9E%B6%E6%9E%84%E6%A0%88%E6%BA%A2%E5%87%BA/</id>
+    <published>2022-01-13T10:24:16.000Z</published>
+    <updated>2022-01-13T10:25:01.586Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MIPS汇编基础&quot;&gt;&lt;a href=&quot;#MIPS汇编基础&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2022年1月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B41%E6%9C%88/"/>
     
     
   </entry>
@@ -446,29 +469,6 @@
     
     
     <category term="2021年2月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B42%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[视频笔记] 滴水逆向-c++-and-win32</title>
-    <link href="https://kazamayc.github.io/2020/12/17/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c++-and-win32/"/>
-    <id>https://kazamayc.github.io/2020/12/17/%E6%BB%B4%E6%B0%B4%E9%80%86%E5%90%91-c++-and-win32/</id>
-    <published>2020-12-17T04:16:03.000Z</published>
-    <updated>2021-06-26T13:58:44.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;c&quot;&gt;&lt;a href=&quot;#c&quot; class=&quot;headerlink&quot; title=&quot;c++&quot;&gt;&lt;/a&gt;c++&lt;/h1&gt;&lt;h2 id=&quot;0x00-代码规范&quot;&gt;&lt;a href=&quot;#0x00-代码规范&quot; class=&quot;headerlink&quot; title=&quot;0x00</summary>
-        
-      
-    
-    
-    
-    <category term="2020年12月" scheme="https://kazamayc.github.io/categories/2020%E5%B9%B412%E6%9C%88/"/>
     
     
   </entry>
