@@ -34,6 +34,30 @@
   </entry>
   
   <entry>
+    <title>glibc内存管理</title>
+    <link href="https://kazamayc.github.io/2022/01/27/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    <id>https://kazamayc.github.io/2022/01/27/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</id>
+    <published>2022-01-27T14:10:45.000Z</published>
+    <updated>2022-01-27T17:03:08.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;虽然感觉notion确实蛮好用的，但自己还是更喜欢写blog。&lt;/p&gt;
+&lt;h1 id=&quot;1-x86平台linux进程内存布局&quot;&gt;&lt;a href=&quot;#1-x86平台linux进程内存布局&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2022年1月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B41%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Dlink-DIR815漏洞分析</title>
     <link href="https://kazamayc.github.io/2022/01/19/Dlink-DIR815%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"/>
     <id>https://kazamayc.github.io/2022/01/19/Dlink-DIR815%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/</id>
@@ -107,7 +131,7 @@
     <link href="https://kazamayc.github.io/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/"/>
     <id>https://kazamayc.github.io/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</id>
     <published>2021-10-26T02:27:14.000Z</published>
-    <updated>2021-11-03T14:20:09.596Z</updated>
+    <updated>2022-01-21T03:46:50.466Z</updated>
     
     
       
@@ -200,7 +224,7 @@
     <link href="https://kazamayc.github.io/2021/09/08/plt-got/"/>
     <id>https://kazamayc.github.io/2021/09/08/plt-got/</id>
     <published>2021-09-08T12:14:01.000Z</published>
-    <updated>2021-09-23T08:41:51.865Z</updated>
+    <updated>2022-01-27T17:31:52.356Z</updated>
     
     
       
@@ -439,30 +463,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x01-bomb-lab&quot;&gt;&lt;a href=&quot;#0x01-bomb-lab&quot; class=&quot;headerlink&quot; title=&quot;0x01 bomb lab&quot;&gt;&lt;/a&gt;0x01 bomb</summary>
-        
-      
-    
-    
-    
-    <category term="2021年2月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B42%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[读书笔记] csapp</title>
-    <link href="https://kazamayc.github.io/2021/01/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-csapp/"/>
-    <id>https://kazamayc.github.io/2021/01/31/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-csapp/</id>
-    <published>2021-01-31T08:02:01.000Z</published>
-    <updated>2021-12-27T10:50:29.714Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-概述&quot;&gt;&lt;a href=&quot;#0x00-概述&quot; class=&quot;headerlink&quot; title=&quot;0x00 概述&quot;&gt;&lt;/a&gt;0x00 概述&lt;/h1&gt;&lt;p&gt;暂时没想到写啥(x&lt;/p&gt;
-&lt;h1 id=&quot;0x01-计算机系统漫游&quot;&gt;&lt;a</summary>
         
       
     
