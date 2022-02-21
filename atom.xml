@@ -6,7 +6,7 @@
   <link href="https://kazamayc.github.io/atom.xml" rel="self"/>
   
   <link href="https://kazamayc.github.io/"/>
-  <updated>2022-01-07T01:06:31.097Z</updated>
+  <updated>2022-02-20T16:07:01.517Z</updated>
   <id>https://kazamayc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"/>
     <id>https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/</id>
     <published>9999-05-20T16:13:14.000Z</published>
-    <updated>2022-01-07T01:06:31.097Z</updated>
+    <updated>2022-02-20T16:07:01.517Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -34,25 +34,24 @@
   </entry>
   
   <entry>
-    <title>glibc内存管理</title>
-    <link href="https://kazamayc.github.io/2022/01/27/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
-    <id>https://kazamayc.github.io/2022/01/27/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</id>
-    <published>2022-01-27T14:10:45.000Z</published>
-    <updated>2022-01-31T05:47:22.005Z</updated>
+    <title>malloclab</title>
+    <link href="https://kazamayc.github.io/2022/02/18/malloclab/"/>
+    <id>https://kazamayc.github.io/2022/02/18/malloclab/</id>
+    <published>2022-02-18T09:02:04.000Z</published>
+    <updated>2022-02-21T11:49:03.170Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;虽然感觉notion确实蛮好用的，但自己还是更喜欢写blog。&lt;/p&gt;
-&lt;h1 id=&quot;1-x86平台linux进程内存布局&quot;&gt;&lt;a href=&quot;#1-x86平台linux进程内存布局&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;0x00-Overview&quot;&gt;&lt;a href=&quot;#0x00-Overview&quot; class=&quot;headerlink&quot; title=&quot;0x00 Overview&quot;&gt;&lt;/a&gt;0x00 Overview&lt;/h1&gt;&lt;p&gt;可以看一下要求：&lt;a</summary>
         
       
     
     
     
-    <category term="2022年1月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B41%E6%9C%88/"/>
+    <category term="2022年2月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B42%E6%9C%88/"/>
     
     
   </entry>
@@ -293,7 +292,7 @@
     <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2022-02-10T01:04:27.011Z</updated>
+    <updated>2022-02-11T16:41:25.761Z</updated>
     
     
       
@@ -339,7 +338,7 @@
     <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
     <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
     <published>2021-05-27T12:41:55.000Z</published>
-    <updated>2022-01-31T10:03:42.583Z</updated>
+    <updated>2022-02-14T03:07:17.509Z</updated>
     
     
       
@@ -455,7 +454,7 @@
     <link href="https://kazamayc.github.io/2021/02/05/csapp-lab/"/>
     <id>https://kazamayc.github.io/2021/02/05/csapp-lab/</id>
     <published>2021-02-04T16:36:28.000Z</published>
-    <updated>2021-12-27T11:31:52.432Z</updated>
+    <updated>2022-02-18T09:02:26.496Z</updated>
     
     
       
