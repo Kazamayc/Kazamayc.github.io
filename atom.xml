@@ -38,7 +38,7 @@
     <link href="https://kazamayc.github.io/2022/02/24/glibc2-23%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>https://kazamayc.github.io/2022/02/24/glibc2-23%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
     <published>2022-02-24T13:18:04.000Z</published>
-    <updated>2022-02-24T14:18:05.503Z</updated>
+    <updated>2022-02-25T05:18:17.322Z</updated>
     
     
       
@@ -46,7 +46,7 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-概述&quot;&gt;&lt;a href=&quot;#0x00-概述&quot; class=&quot;headerlink&quot; title=&quot;0x00 概述&quot;&gt;&lt;/a&gt;0x00 概述&lt;/h1&gt;&lt;p&gt;终究逃不了看源码，还不如早看&lt;/p&gt;
-&lt;h1 id=&quot;0x01-libc-malloc&quot;&gt;&lt;a</summary>
+&lt;h1 id=&quot;0x01-malloc-state&quot;&gt;&lt;a</summary>
         
       
     
@@ -177,7 +177,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2022-02-24T13:11:30.073Z</updated>
+    <updated>2022-02-24T15:57:45.092Z</updated>
     
     
       
