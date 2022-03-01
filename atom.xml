@@ -38,7 +38,7 @@
     <link href="https://kazamayc.github.io/2022/02/24/glibc2-23%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>https://kazamayc.github.io/2022/02/24/glibc2-23%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
     <published>2022-02-24T13:18:04.000Z</published>
-    <updated>2022-02-25T05:18:17.322Z</updated>
+    <updated>2022-02-26T10:06:03.822Z</updated>
     
     
       
@@ -154,14 +154,14 @@
     <link href="https://kazamayc.github.io/2021/10/25/how2heap/"/>
     <id>https://kazamayc.github.io/2021/10/25/how2heap/</id>
     <published>2021-10-25T00:31:44.000Z</published>
-    <updated>2022-02-22T12:22:28.170Z</updated>
+    <updated>2022-03-01T07:24:37.113Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;first-fit&quot;&gt;&lt;a href=&quot;#first-fit&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;first-fit&quot;&gt;&lt;a href=&quot;#first-fit&quot; class=&quot;headerlink&quot; title=&quot;first_fit&quot;&gt;&lt;/a&gt;first_fit&lt;/h1&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -177,7 +177,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2022-02-24T15:57:45.092Z</updated>
+    <updated>2022-03-01T07:53:53.111Z</updated>
     
     
       
@@ -293,7 +293,7 @@
     <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2022-02-11T16:41:25.761Z</updated>
+    <updated>2022-02-28T13:38:29.524Z</updated>
     
     
       
@@ -339,7 +339,7 @@
     <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
     <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
     <published>2021-05-27T12:41:55.000Z</published>
-    <updated>2022-02-14T03:07:17.509Z</updated>
+    <updated>2022-02-28T09:17:14.837Z</updated>
     
     
       
@@ -362,15 +362,14 @@
     <link href="https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/"/>
     <id>https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/</id>
     <published>2021-05-23T10:43:18.000Z</published>
-    <updated>2021-06-26T13:55:00.000Z</updated>
+    <updated>2022-02-28T09:31:14.451Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;strong&gt;x86平台32位Linux系统调用号&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+    <summary type="html">&lt;h1 id=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;a href=&quot;#x86平台32位Linux系统调用号&quot; class=&quot;headerlink&quot; title=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;/a&gt;x86平台32位Linux系统调用号&lt;/h1&gt;&lt;figure</summary>
         
       
     
