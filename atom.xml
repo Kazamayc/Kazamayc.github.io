@@ -6,7 +6,7 @@
   <link href="https://kazamayc.github.io/atom.xml" rel="self"/>
   
   <link href="https://kazamayc.github.io/"/>
-  <updated>2022-03-28T15:30:44.632Z</updated>
+  <updated>2022-04-06T15:54:25.808Z</updated>
   <id>https://kazamayc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"/>
     <id>https://kazamayc.github.io/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/</id>
     <published>9999-05-20T16:13:14.000Z</published>
-    <updated>2022-03-28T15:30:44.632Z</updated>
+    <updated>2022-04-06T15:54:25.808Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -29,6 +29,77 @@
     
     
     <category term="日记" scheme="https://kazamayc.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>tinyhttpd</title>
+    <link href="https://kazamayc.github.io/2022/04/04/tinyhttpd/"/>
+    <id>https://kazamayc.github.io/2022/04/04/tinyhttpd/</id>
+    <published>2022-04-04T15:20:05.000Z</published>
+    <updated>2022-04-06T15:46:37.578Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;想看这个很久了，这两天把堆刷完了，正好有时间看一下&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2022年4月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B44%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>cppprimer学习</title>
+    <link href="https://kazamayc.github.io/2022/04/03/cppprimer%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2022/04/03/cppprimer%E5%AD%A6%E4%B9%A0/</id>
+    <published>2022-04-03T11:09:26.000Z</published>
+    <updated>2022-04-04T15:04:15.038Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-右值引用&quot;&gt;&lt;a href=&quot;#0x00-右值引用&quot; class=&quot;headerlink&quot; title=&quot;0x00 右值引用&quot;&gt;&lt;/a&gt;0x00 右值引用&lt;/h1&gt;&lt;p&gt;右值引用：给变量重新起个别的名字，地址之类的是不变的&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="2022年4月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B44%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一些有意思的操作</title>
+    <link href="https://kazamayc.github.io/2022/03/31/%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+    <id>https://kazamayc.github.io/2022/03/31/%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%93%8D%E4%BD%9C/</id>
+    <published>2022-03-31T04:43:56.000Z</published>
+    <updated>2022-03-31T14:13:10.877Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-python搭建http服务器&quot;&gt;&lt;a href=&quot;#0x00-python搭建http服务器&quot; class=&quot;headerlink&quot; title=&quot;0x00 python搭建http服务器&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2022年3月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B43%E6%9C%88/"/>
     
     
   </entry>
@@ -154,7 +225,7 @@
     <link href="https://kazamayc.github.io/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/"/>
     <id>https://kazamayc.github.io/2021/10/26/%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</id>
     <published>2021-10-26T02:27:14.000Z</published>
-    <updated>2022-01-21T03:46:50.466Z</updated>
+    <updated>2022-03-31T01:52:45.442Z</updated>
     
     
       
@@ -177,7 +248,7 @@
     <link href="https://kazamayc.github.io/2021/10/25/how2heap/"/>
     <id>https://kazamayc.github.io/2021/10/25/how2heap/</id>
     <published>2021-10-25T00:31:44.000Z</published>
-    <updated>2022-03-28T15:30:55.020Z</updated>
+    <updated>2022-03-29T08:30:12.340Z</updated>
     
     
       
@@ -200,7 +271,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2022-03-28T15:24:06.072Z</updated>
+    <updated>2022-03-30T02:13:43.544Z</updated>
     
     
       
@@ -316,7 +387,7 @@
     <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2022-03-28T03:19:16.084Z</updated>
+    <updated>2022-03-30T04:22:51.166Z</updated>
     
     
       
@@ -399,75 +470,6 @@
     
     
     <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[文章学习] Makefile</title>
-    <link href="https://kazamayc.github.io/2021/05/15/Makefile/"/>
-    <id>https://kazamayc.github.io/2021/05/15/Makefile/</id>
-    <published>2021-05-15T14:27:26.000Z</published>
-    <updated>2021-07-31T08:37:45.010Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;学习链接：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[文章学习] 手把手教你(x)我(√)构建解释器</title>
-    <link href="https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/"/>
-    <id>https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/</id>
-    <published>2021-05-11T09:19:27.000Z</published>
-    <updated>2021-06-28T07:36:44.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;链接：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[读书笔记] 程序员的自我修养</title>
-    <link href="https://kazamayc.github.io/2021/03/08/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
-    <id>https://kazamayc.github.io/2021/03/08/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</id>
-    <published>2021-03-07T16:55:35.000Z</published>
-    <updated>2021-09-08T12:37:57.971Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-序&quot;&gt;&lt;a href=&quot;#0x00-序&quot; class=&quot;headerlink&quot; title=&quot;0x00 序&quot;&gt;&lt;/a&gt;0x00</summary>
-        
-      
-    
-    
-    
-    <category term="2021年3月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B43%E6%9C%88/"/>
     
     
   </entry>
