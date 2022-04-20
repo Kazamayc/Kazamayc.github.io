@@ -34,11 +34,35 @@
   </entry>
   
   <entry>
+    <title>unix环境高级编程</title>
+    <link href="https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
+    <id>https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/</id>
+    <published>2022-04-18T04:41:49.000Z</published>
+    <updated>2022-04-20T15:39:31.775Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;感谢天问群友晓晓的攻略！&lt;/p&gt;
+&lt;h1 id=&quot;0x00-环境搭建&quot;&gt;&lt;a href=&quot;#0x00-环境搭建&quot; class=&quot;headerlink&quot; title=&quot;0x00 环境搭建&quot;&gt;&lt;/a&gt;0x00 环境搭建&lt;/h1&gt;&lt;p&gt;先去官网下载源码&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2022年4月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B44%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>tinyhttpd</title>
     <link href="https://kazamayc.github.io/2022/04/04/tinyhttpd/"/>
     <id>https://kazamayc.github.io/2022/04/04/tinyhttpd/</id>
     <published>2022-04-04T15:20:05.000Z</published>
-    <updated>2022-04-11T07:26:50.659Z</updated>
+    <updated>2022-04-18T04:33:59.952Z</updated>
     
     
       
@@ -109,7 +133,7 @@
     <link href="https://kazamayc.github.io/2022/03/06/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE/"/>
     <id>https://kazamayc.github.io/2022/03/06/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE/</id>
     <published>2022-03-06T06:19:20.000Z</published>
-    <updated>2022-04-13T14:56:05.445Z</updated>
+    <updated>2022-04-18T14:00:40.463Z</updated>
     
     
       
@@ -271,7 +295,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2022-04-12T08:32:52.489Z</updated>
+    <updated>2022-04-18T07:56:08.810Z</updated>
     
     
       
@@ -387,7 +411,7 @@
     <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2022-04-13T14:50:16.180Z</updated>
+    <updated>2022-04-14T13:18:00.365Z</updated>
     
     
       
@@ -433,7 +457,7 @@
     <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
     <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
     <published>2021-05-27T12:41:55.000Z</published>
-    <updated>2022-03-24T14:17:03.211Z</updated>
+    <updated>2022-04-14T10:28:59.311Z</updated>
     
     
       
@@ -441,29 +465,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>linux系统调用表</title>
-    <link href="https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/"/>
-    <id>https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/</id>
-    <published>2021-05-23T10:43:18.000Z</published>
-    <updated>2022-02-28T09:31:14.451Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;a href=&quot;#x86平台32位Linux系统调用号&quot; class=&quot;headerlink&quot; title=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;/a&gt;x86平台32位Linux系统调用号&lt;/h1&gt;&lt;figure</summary>
         
       
     
