@@ -34,21 +34,6 @@
   </entry>
   
   <entry>
-    <title>调洞日记</title>
-    <link href="https://kazamayc.github.io/2022/05/13/%E8%B0%83%E6%B4%9E%E6%97%A5%E8%AE%B0/"/>
-    <id>https://kazamayc.github.io/2022/05/13/%E8%B0%83%E6%B4%9E%E6%97%A5%E8%AE%B0/</id>
-    <published>2022-05-13T10:47:24.000Z</published>
-    <updated>2022-05-15T15:18:10.190Z</updated>
-    
-    
-    
-    
-    <category term="2022年5月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>unix环境高级编程</title>
     <link href="https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
     <id>https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/</id>
@@ -402,7 +387,7 @@
     <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2022-05-22T07:47:09.861Z</updated>
+    <updated>2022-05-22T07:51:32.806Z</updated>
     
     
       
@@ -456,6 +441,29 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux系统调用表</title>
+    <link href="https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/"/>
+    <id>https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/</id>
+    <published>2021-05-23T10:43:18.000Z</published>
+    <updated>2022-02-28T09:31:14.451Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;a href=&quot;#x86平台32位Linux系统调用号&quot; class=&quot;headerlink&quot; title=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;/a&gt;x86平台32位Linux系统调用号&lt;/h1&gt;&lt;figure</summary>
         
       
     
