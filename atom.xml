@@ -57,23 +57,6 @@
   </entry>
   
   <entry>
-    <title>iot漏洞模式整理</title>
-    <link href="https://kazamayc.github.io/2022/07/05/iot%E6%BC%8F%E6%B4%9E%E6%A8%A1%E5%BC%8F%E6%95%B4%E7%90%86/"/>
-    <id>https://kazamayc.github.io/2022/07/05/iot%E6%BC%8F%E6%B4%9E%E6%A8%A1%E5%BC%8F%E6%95%B4%E7%90%86/</id>
-    <published>2022-07-04T17:04:30.000Z</published>
-    <updated>2022-07-11T10:11:19.759Z</updated>
-    
-    
-    <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
-    
-    
-    
-    <category term="2022年7月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B47%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>unix环境高级编程</title>
     <link href="https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
     <id>https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/</id>
@@ -458,6 +441,29 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-Basic-ROP&quot;&gt;&lt;a href=&quot;#0x00-Basic-ROP&quot; class=&quot;headerlink&quot; title=&quot;0x00 Basic ROP&quot;&gt;&lt;/a&gt;0x00 Basic</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[学习笔记] pwn</title>
+    <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
+    <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
+    <published>2021-05-27T12:41:55.000Z</published>
+    <updated>2022-04-14T10:28:59.311Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
         
       
     
