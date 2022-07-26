@@ -34,11 +34,34 @@
   </entry>
   
   <entry>
+    <title>goahead学习</title>
+    <link href="https://kazamayc.github.io/2022/07/25/goahead%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2022/07/25/goahead%E5%AD%A6%E4%B9%A0/</id>
+    <published>2022-07-25T09:32:06.000Z</published>
+    <updated>2022-07-26T08:00:30.262Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-http协议&quot;&gt;&lt;a href=&quot;#0x00-http协议&quot; class=&quot;headerlink&quot; title=&quot;0x00 http协议&quot;&gt;&lt;/a&gt;0x00 http协议&lt;/h1&gt;&lt;h2 id=&quot;http-0-9&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2022年7月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B47%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>[学习笔记]html/css/js学习</title>
     <link href="https://kazamayc.github.io/2022/07/21/html-css-js%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2022/07/21/html-css-js%E5%AD%A6%E4%B9%A0/</id>
     <published>2022-07-21T14:38:25.000Z</published>
-    <updated>2022-07-21T18:52:41.032Z</updated>
+    <updated>2022-07-25T09:34:07.748Z</updated>
     
     
       
@@ -155,7 +178,7 @@
     <link href="https://kazamayc.github.io/2022/02/24/glibc2-23%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>https://kazamayc.github.io/2022/02/24/glibc2-23%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
     <published>2022-02-24T13:18:04.000Z</published>
-    <updated>2022-03-01T10:04:53.995Z</updated>
+    <updated>2022-07-25T07:11:34.693Z</updated>
     
     
       
@@ -441,29 +464,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-Basic-ROP&quot;&gt;&lt;a href=&quot;#0x00-Basic-ROP&quot; class=&quot;headerlink&quot; title=&quot;0x00 Basic ROP&quot;&gt;&lt;/a&gt;0x00 Basic</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[学习笔记] pwn</title>
-    <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
-    <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
-    <published>2021-05-27T12:41:55.000Z</published>
-    <updated>2022-04-14T10:28:59.311Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
         
       
     
