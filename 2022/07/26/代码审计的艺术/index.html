@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>代码审计的艺术 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码审计的艺术">
+<meta property="og:url" content="https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/index.html">
+<meta property="og:site_name" content="Kazamaycのblog">
+<meta property="og:description" content="这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg">
+<meta property="article:published_time" content="2022-07-26T11:30:06.000Z">
+<meta property="article:modified_time" content="2022-07-29T04:33:50.985Z">
+<meta property="article:author" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '代码审计的艺术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-29 12:33:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">代码审计的艺术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-26T11:30:06.000Z" title="发表于 2022-07-26 19:30:06">2022-07-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-29T04:33:50.985Z" title="更新于 2022-07-29 12:33:50">2022-07-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2022%E5%B9%B47%E6%9C%88/">2022年7月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">9</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="代码审计的艺术"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码不正确，请重新输入！" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="72db7d2d10e25af7525158aa46b084fd0d4cc1529592810f91bfe007e390b004">372bd0eb2502c1b6bcc6e04468ff921098f76db9f75fc9c1138668c869f52d4c4a180c26f6012779ece896ef6988c41b2446a4b44372ae2550c28f52571f00d68989ec4396e6964e440522ba138b1f6c46805ec4d53fcbdf943cce9d61d2e3fb6933b639db072877c418cab98b2679c8751a8bed804ce5565d8a88589217ad16cee1dd71f848a42529ed781c23a6cb301bc76dbf8d47b6da36fae6f485dfed4c4110bef54c41e4883ad8ee5210126183423fc66f123e4555ee3c585a9452c9ec97a6d51c6839305fca58c11b032b1da7049067230cb8511efe1596c8333373b04bb0d74b1a95f10a9746b89f56e4191d5d00655ff8873750a9c23b4e0ea7039c0bc2f35e78bdb12c31942d4f8d377fa5414fffaeeff6032e6c4078b48d53304bfbdd41d22570143532d29c1453b9987a5f70d607ca1418513e3cd7ccb1182a7bca3b081badb68baeb23b261294bf527dd77aad5dad5d7fae7423d2874b1877be80ac05c4ccebd7cd1a58d92e2d69f5b2a4183543ac1b5b2138665964adfafae44bb1307e09e9987a18e8a412e8ca14fec54227ad1913427c13f90e175a21f8a7247d4f9d0b6a92a7aea1f799ea494e536fe72220a221b9a0426f6fea1ef52ca4c2cf5b89690958e2e8ac7ef5e7265a22299a26e54ccc18308b45b9e6043a9045eb65a488637607eb367c04ebb1a6209551f528b0a5d7734da647190409ee9a80823d11ca9fba9040ddc639a70fe6ffb1034fc3810af8ffe75556b23f71b06bc749eacacd254304ebaf2286faea38700d2c9408f155048c14fa6c62a55c6610dbc192e29357985d77edbc51407eca34178aac2fc8d5d48dc38fbb89ee7733aa7d10d2d300564ac546e361e2633a049908d4048e17a200a8c2962feeda8e5c4e486ba2a55ade77373e25e9f5752b513cc926005759f574ff47571d445be0b45cb41808eb9d68dd66169c63f53555047549847beabf25e181a8441f057db01988f90be13f5084dfd420ed7ff834598a66cab741b80288c2116ddcda34ebfe280284becc998aecd1902152d6157bdbad5451feb03753f5a0a32c37ee1d8445ab64ce6ed8277ca566b24b6f4f590fbbb07a854c11979a2ae1eecc7bcb1da42f98b8fa8a9eaee992c43a408567c5ec4decd152cf9e74039d0d7df34804aeb99d882850aa49a6b5df07d2c0d320e297a89845e7f12f227523a1543bf03e58f2b3872dfe69060f0e473e4ef521cff70efa21edadb04691fd96642b08e0b85fadd9a303c8c98250e94c72d3a5153ae4b9107d54685be815aaf9e703512be397904a6077e82f4593c3e527d3abefde12fd8cbe11110cc22cc483214549fa7f91593495c24a6147d852e12e9668de373c5389fd89ccfa05f80dce77e5da572821651ee82af49cf52be6ffd34703c5934d1d3e349be0017783d656604394184a6de93840c3cdc0f337718db9a18ef68124837e541f09fd8b52edf4d92557ff0882e92a2d9881967bad8b1090e07512972de4e2e08688daeac8f2b4ab8540076e9da50fc6482feeb8f0a35db39f9d995938a6ba897de5f403eee0f7e4cf3145ccbc4d922fd1ef98c6baa5baa325e09f864ce2aa2dbd200af1070eeb464f07c6cb238b34735025eac4adb6b1bd10bdefa5eeb71183784c890c19047d83a27801c0e5ae3f26cdbcb74ef61fb12563310654f50d00cd026c83a6a671c647ef5069b5f0cf32de01e393a2eec3f9d80ba45d81a22a49b5f2daff4b09c20c0b14af7fe6ce056173f56e312870a0e154376d0aa5c9318022105473b5fcc5f781b0a11486fa8b9343af305a93fcafd13c85016762d1be7b2e71f336dc36fe957ab45f9f6029890992365f0522e72ea2c83a6768cd3e5bd47c43a29ce7b656728ce6a12907e516b3e2a9a292608dbc78831cc119fb32ae6eaae6846651a442b2520ff0e3160ff6ced8cbc8a9f8d5ddf789e2db3bcc1664e21a424fd3dd5ce7550b36c54d4f3648a5835ae40846fda2ce9d73c6fb2eb28c55a65f0b2d2138f3abe2f9c8d0d740f86cef5cc03dfc3f73736468e19c9afad83fd82c3529b51c0b10e3cdd272b25253c8350abc88d14df97f6d490c5f491647cd9d43beb45ece962920792dd2fdc0d0691d543a0c8f6be8672870c2944aec92e66f9b5055f3fcad51620b3b5598b0a42c2b48ce29d5ca08972339afd3a4088e0f74806b153805e9cc4f4a4350ac74686697c711a7224b662486a2fd50a08624a6b2a8912ffad5090dd72dae94da7db80bc23f8634fc29e2700acf5bb2c062305982af218b42abddbd937ceaae1371ce4ad771ec43d6f991970c5e8b138a936e951cc3ec89b27342ee37f8ed40614eb9eaca70c214a46b92589ee87fd48feec12700914710fead5c89a6570a5d737e8287dd5897444f299597331aed0a41f84a94fd3bf61b6c0ead70bed2460c593df38210e2546f6d198140310e89f81c31d0ddb2b654daf96a08232be7900babd1cb314f2b1b74f8d13bf0f2222dd9fb236be0ac0f8acd4935e2f5e4f486b3400a34fff087c1b6b8643fe274e52348a50dc240e1a7c0e726479d5dc8f2500617795b0b2fc710d7562951e6966112dd43a1c5774296b2c8dde2ba28b372205a56e8901794577c0b19b6c9327c344c3e96167df55c187192d45ee15ee9f1a4986d18e2b6052d41d7940f7add307da545d1b90f265b687b66228c53cb4fc1fdb2691e530490cd6b1dc8df03787f9d1cff9ddf47582ee4ff6b774a18174ec3bb600de59ea5c91461e456c66a3fc58ce82ec4bebfce3b75781d325e005c2be7a783bce4656b5c4ea2921db84cb80ea7d7e5a0b70515e0c7343511ef3d7b7ac81b3cb40ff93b90c62cf1669583d621a73e4ef55784839b5667d89ec25193052fbd168f9d3c3fde362a49db27f1e547c6244828baee08a4133e6a0c18a3e203568d2990b0db13524150913538d3e40d7ab9e7bb39d2561f4d3740ddeeccc388dcbe95b1b31f328c135c3ec32ccb917d7388624a7e82dbdb7d2d26822925535990f579256b0a4d39ac30d28dc6d088706d5c41b8d06f2610032230717e8b7ff08353dac0babd3ac4aedbdb2f50932bd0f2890f0902447244afe39580e02db04448ff9aeebc04e837c42b084dcadf5aff4f16a9fd82fd70d0b614364fd666b3ada382954691a26e46a3b556f49c1fbdbb36bbcd950e7aa8765d66551abe3a59ccd3290fb4fb9f440a8e494a8c4b5a9f95b568b8d26b28b99a9bd0924c1a1cbc0ca20b04b72d4e6ff560117e57e74868c250d0e69535923458fe22afc5faff9798501bde8d7f778751f9ee62ee03d7064e34b5e241600886fc7b89a6c572ac5287a3baa4a2212dbdb42e16e534216d18a704d71bfea50a561bf5d5c53962be4e5a574196abcb0996dda951d58edd86e81d5f3406a2435acf1fdd7d78e0dd54477f95a4eb62c6704c4469b1bf050845f4621056a15c744c13ea89c524f5bb6301921dc7be5471bbca9ecbb98071b1159e9459f43c639de791e9b9c46ad57fd096de88c391d822451ce491cff373b262fea289c58204a80b3b0515a6a4bf75763cb95042e63cc92c63fe0f4848eccdf457c464705cd0905ba121f45f2cd6b050be67317d9cd780e30b3dd83be4d6e0e1927bb95b7b95b38571cde04c3271d1f6a0c9e4022cab158f3f7f755a4a4b4d85a7195e934338d74783587be439e0efc1a35c0ac51bca8562f7d44b57a6ac5a93e293b2aa6689e38ad7ea993d477fd461a989b9d8077221c1708fbb42e0fb0efe5465349d78018cd36735c2c04fcbebb06cefc3a80a4b73b03c5f5235facd051fc3d7db8c12b87d2ae531e10336761589fb9de9f5d1a4b02342336e8930fbaf9b7fd86d7d734f6f74edc488dcec4a289b28d67f6c0de1aa7669837d96871a678acaf918796c7b1376f2834549e280d2b10b5e5cef492c72d4ce2683e17e412863592b53161bfaef43e6050db98a131b6c3a2095a1c6ce230be3b4d92d2328a4c3c247ddcf13aa69cf534df53c89fb7598cc3dc2ab6ee0744dc1358cdd005d684555bfc2c72037ebc98998d3a30ae1ab7f61c8e5ce943883a61f41fa54b0a25951860159da1bc695677a857d82ddea09f11c6ad26b4351c3c55ffc403392f8c3f6d1cbe715f1f9806094c0f7e8</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">输入密码，查看文章。</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/">https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Kazamayc.github.io" target="_blank">Kazamaycのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/"><img class="prev-cover" src="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">挖洞思路以及近期计划</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/25/goahead%E5%AD%A6%E4%B9%A0/"><img class="next-cover" src="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">goahead学习</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA"><span class="toc-text">0x00 整数溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA"><span class="toc-text">如何计算整数溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">类型转换</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 风间映川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/css/background.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="🥵🥵🥵,QAQ,=w=,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

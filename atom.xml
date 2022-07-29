@@ -34,6 +34,40 @@
   </entry>
   
   <entry>
+    <title>挖洞思路以及近期计划</title>
+    <link href="https://kazamayc.github.io/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/"/>
+    <id>https://kazamayc.github.io/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/</id>
+    <published>2022-07-28T12:44:03.000Z</published>
+    <updated>2022-07-28T13:00:47.941Z</updated>
+    
+    
+    <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
+    
+    
+    
+    <category term="2022年7月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B47%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>代码审计的艺术</title>
+    <link href="https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/"/>
+    <id>https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
+    <published>2022-07-26T11:30:06.000Z</published>
+    <updated>2022-07-29T04:33:50.985Z</updated>
+    
+    
+    <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
+    
+    
+    
+    <category term="2022年7月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B47%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>goahead学习</title>
     <link href="https://kazamayc.github.io/2022/07/25/goahead%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2022/07/25/goahead%E5%AD%A6%E4%B9%A0/</id>
@@ -424,52 +458,6 @@
     
     
     <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[write up] buuoj学习</title>
-    <link href="https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://kazamayc.github.io/2021/06/02/buuoj%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-06-02T10:24:46.000Z</published>
-    <updated>2022-05-22T07:51:32.806Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-第五空间2019-决赛-PWN5&quot;&gt;&lt;a href=&quot;#1-第五空间2019-决赛-PWN5&quot; class=&quot;headerlink&quot; title=&quot;1.[第五空间2019 决赛]PWN5&quot;&gt;&lt;/a&gt;1.[第五空间2019 决赛]PWN5&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[write up] ctfwiki学习</title>
-    <link href="https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-05-28T00:56:36.000Z</published>
-    <updated>2021-06-26T13:51:14.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-Basic-ROP&quot;&gt;&lt;a href=&quot;#0x00-Basic-ROP&quot; class=&quot;headerlink&quot; title=&quot;0x00 Basic ROP&quot;&gt;&lt;/a&gt;0x00 Basic</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
     
     
   </entry>
