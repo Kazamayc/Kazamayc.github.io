@@ -34,11 +34,26 @@
   </entry>
   
   <entry>
+    <title>[学习笔记]hws2020学习</title>
+    <link href="https://kazamayc.github.io/2022/08/04/hws2020%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2022/08/04/hws2020%E5%AD%A6%E4%B9%A0/</id>
+    <published>2022-08-04T13:00:41.000Z</published>
+    <updated>2022-08-04T13:23:03.672Z</updated>
+    
+    
+    
+    
+    <category term="2022年8月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B48%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>挖洞思路以及近期计划</title>
     <link href="https://kazamayc.github.io/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/"/>
     <id>https://kazamayc.github.io/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/</id>
     <published>2022-07-28T12:44:03.000Z</published>
-    <updated>2022-07-28T13:00:47.941Z</updated>
+    <updated>2022-07-29T10:05:34.225Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -55,7 +70,7 @@
     <link href="https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/"/>
     <id>https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
     <published>2022-07-26T11:30:06.000Z</published>
-    <updated>2022-07-29T04:33:50.985Z</updated>
+    <updated>2022-08-04T13:22:09.488Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -313,29 +328,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-概述&quot;&gt;&lt;a href=&quot;#0x00-概述&quot; class=&quot;headerlink&quot; title=&quot;0x00 概述&quot;&gt;&lt;/a&gt;0x00</summary>
-        
-      
-    
-    
-    
-    <category term="2021年10月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B410%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>how2heap</title>
-    <link href="https://kazamayc.github.io/2021/10/25/how2heap/"/>
-    <id>https://kazamayc.github.io/2021/10/25/how2heap/</id>
-    <published>2021-10-25T00:31:44.000Z</published>
-    <updated>2022-03-29T08:30:12.340Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;first-fit&quot;&gt;&lt;a href=&quot;#first-fit&quot; class=&quot;headerlink&quot; title=&quot;first_fit&quot;&gt;&lt;/a&gt;first_fit&lt;/h1&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
