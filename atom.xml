@@ -34,9 +34,32 @@
   </entry>
   
   <entry>
+    <title>[学习笔记]re基础</title>
+    <link href="https://kazamayc.github.io/2022/08/06/re%E5%9F%BA%E7%A1%80/"/>
+    <id>https://kazamayc.github.io/2022/08/06/re%E5%9F%BA%E7%A1%80/</id>
+    <published>2022-08-06T00:09:19.000Z</published>
+    <updated>2022-08-06T00:21:55.277Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-壳&quot;&gt;&lt;a href=&quot;#0x00-壳&quot; class=&quot;headerlink&quot; title=&quot;0x00 壳&quot;&gt;&lt;/a&gt;0x00 壳&lt;/h1&gt;&lt;h2 id=&quot;什么是壳&quot;&gt;&lt;a href=&quot;#什么是壳&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2022年8月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B48%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>[学习笔记]爆破random</title>
-    <link href="https://kazamayc.github.io/2022/08/04/hws2020%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://kazamayc.github.io/2022/08/04/hws2020%E5%AD%A6%E4%B9%A0/</id>
+    <link href="https://kazamayc.github.io/2022/08/04/random%E7%88%86%E7%A0%B4/"/>
+    <id>https://kazamayc.github.io/2022/08/04/random%E7%88%86%E7%A0%B4/</id>
     <published>2022-08-04T13:00:41.000Z</published>
     <updated>2022-08-06T00:02:11.102Z</updated>
     
@@ -435,29 +458,6 @@
     
     
     <category term="2021年9月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B49%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[实验] 南京大学PA学习</title>
-    <link href="https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-06-10T11:24:07.000Z</published>
-    <updated>2021-08-26T09:23:45.357Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;PA0-世界诞生的前夜&quot;&gt;&lt;a href=&quot;#PA0-世界诞生的前夜&quot; class=&quot;headerlink&quot; title=&quot;PA0-世界诞生的前夜&quot;&gt;&lt;/a&gt;PA0-世界诞生的前夜&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
     
     
   </entry>
