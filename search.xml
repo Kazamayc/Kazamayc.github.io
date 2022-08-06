@@ -23,6 +23,25 @@
     
     
     <entry>
+      <title>[学习笔记]iotsec_learn</title>
+      <link href="/2022/08/06/iotsec-learn/"/>
+      <url>/2022/08/06/iotsec-learn/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><ul><li>物理感知层（固件提取、硬件攻击）</li><li>通信层（流量监听、中间人攻击）</li><li>管理控制层/应用层（web、rtsp、ssh）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 2022年8月 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[学习笔记]re基础</title>
       <link href="/2022/08/06/re%E5%9F%BA%E7%A1%80/"/>
       <url>/2022/08/06/re%E5%9F%BA%E7%A1%80/</url>
