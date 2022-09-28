@@ -38,37 +38,14 @@
     <link href="https://kazamayc.github.io/2022/08/06/iotsec-learn/"/>
     <id>https://kazamayc.github.io/2022/08/06/iotsec-learn/</id>
     <published>2022-08-06T00:34:48.000Z</published>
-    <updated>2022-08-06T17:35:37.283Z</updated>
+    <updated>2022-09-28T11:48:42.466Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;0x00&quot;&gt;&lt;a href=&quot;#0x00&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="2022年8月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B48%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[学习笔记]re基础</title>
-    <link href="https://kazamayc.github.io/2022/08/06/re%E5%9F%BA%E7%A1%80/"/>
-    <id>https://kazamayc.github.io/2022/08/06/re%E5%9F%BA%E7%A1%80/</id>
-    <published>2022-08-06T00:09:19.000Z</published>
-    <updated>2022-08-06T00:27:17.341Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-壳&quot;&gt;&lt;a href=&quot;#0x00-壳&quot; class=&quot;headerlink&quot; title=&quot;0x00 壳&quot;&gt;&lt;/a&gt;0x00 壳&lt;/h1&gt;&lt;h2 id=&quot;什么是壳&quot;&gt;&lt;a href=&quot;#什么是壳&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;0x00-思路&quot;&gt;&lt;a href=&quot;#0x00-思路&quot; class=&quot;headerlink&quot; title=&quot;0x00 思路&quot;&gt;&lt;/a&gt;0x00 思路&lt;/h1&gt;&lt;h2 id=&quot;攻击面&quot;&gt;&lt;a href=&quot;#攻击面&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -107,7 +84,7 @@
     <link href="https://kazamayc.github.io/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/"/>
     <id>https://kazamayc.github.io/2022/07/28/%E6%8C%96%E6%B4%9E%E6%80%9D%E8%B7%AF/</id>
     <published>2022-07-28T12:44:03.000Z</published>
-    <updated>2022-08-05T01:08:32.644Z</updated>
+    <updated>2022-08-07T14:24:38.617Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -124,7 +101,7 @@
     <link href="https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/"/>
     <id>https://kazamayc.github.io/2022/07/26/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
     <published>2022-07-26T11:30:06.000Z</published>
-    <updated>2022-08-04T13:22:09.488Z</updated>
+    <updated>2022-08-07T14:24:33.403Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
@@ -187,7 +164,7 @@
     <link href="https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/"/>
     <id>https://kazamayc.github.io/2022/04/18/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/</id>
     <published>2022-04-18T04:41:49.000Z</published>
-    <updated>2022-05-10T08:09:54.169Z</updated>
+    <updated>2022-08-26T03:21:04.419Z</updated>
     
     
       
@@ -219,30 +196,6 @@
         
     <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;想看这个很久了，这两天把堆刷完了，正好有时间看一下&lt;/p&gt;
 &lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2022年4月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B44%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>cppprimer学习</title>
-    <link href="https://kazamayc.github.io/2022/04/03/cppprimer%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://kazamayc.github.io/2022/04/03/cppprimer%E5%AD%A6%E4%B9%A0/</id>
-    <published>2022-04-03T11:09:26.000Z</published>
-    <updated>2022-04-04T15:04:15.038Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-右值引用&quot;&gt;&lt;a href=&quot;#0x00-右值引用&quot; class=&quot;headerlink&quot; title=&quot;0x00 右值引用&quot;&gt;&lt;/a&gt;0x00 右值引用&lt;/h1&gt;&lt;p&gt;右值引用：给变量重新起个别的名字，地址之类的是不变的&lt;/p&gt;
-&lt;figure</summary>
         
       
     
@@ -397,7 +350,7 @@
     <link href="https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/10/09/%E5%A0%86%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-10-09T06:01:21.000Z</published>
-    <updated>2022-05-22T07:36:53.032Z</updated>
+    <updated>2022-08-17T01:47:32.579Z</updated>
     
     
       
@@ -458,6 +411,52 @@
     
     
     <category term="2021年9月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B49%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>pwnable.tw-wirteup</title>
+    <link href="https://kazamayc.github.io/2021/09/06/pwnable-tw-wirteup/"/>
+    <id>https://kazamayc.github.io/2021/09/06/pwnable-tw-wirteup/</id>
+    <published>2021-09-06T11:01:11.000Z</published>
+    <updated>2021-09-27T11:56:56.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;start&quot;&gt;&lt;a href=&quot;#start&quot; class=&quot;headerlink&quot; title=&quot;start&quot;&gt;&lt;/a&gt;start&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="2021年9月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B49%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] 南京大学PA学习</title>
+    <link href="https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-06-10T11:24:07.000Z</published>
+    <updated>2021-08-26T09:23:45.357Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;PA0-世界诞生的前夜&quot;&gt;&lt;a href=&quot;#PA0-世界诞生的前夜&quot; class=&quot;headerlink&quot; title=&quot;PA0-世界诞生的前夜&quot;&gt;&lt;/a&gt;PA0-世界诞生的前夜&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
     
     
   </entry>

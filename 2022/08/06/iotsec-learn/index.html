@@ -1,17 +1,17 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[学习笔记]iotsec_learn | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 物理感知层（固件提取、硬件攻击） 通信层（流量监听、中间人攻击） 管理控制层&#x2F;应用层（web、rtsp、ssh）">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[学习笔记]iotsec_learn | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 思路攻击面设备对输入进行处理的流程 输入意味着有接口 处理意味着有逻辑 安全风险 物理感知层（固件提取、硬件攻击） 通信层（流量监听、中间人攻击） 管理控制层&#x2F;应用层（web、rtsp、ssh）  IOT设备信息收集 端口扫描（外部嗅探：nmap&#x2F;内部调试：netstat -anltu） 流量抓取、分析（外部嗅探：开热点直接抓包&#x2F;内部调试：看电路板分析） 功能点评估  web逻辑漏洞未授">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[学习笔记]iotsec_learn">
 <meta property="og:url" content="https://kazamayc.github.io/2022/08/06/iotsec-learn/index.html">
 <meta property="og:site_name" content="Kazamaycのblog">
-<meta property="og:description" content="0x00 物理感知层（固件提取、硬件攻击） 通信层（流量监听、中间人攻击） 管理控制层&#x2F;应用层（web、rtsp、ssh）">
+<meta property="og:description" content="0x00 思路攻击面设备对输入进行处理的流程 输入意味着有接口 处理意味着有逻辑 安全风险 物理感知层（固件提取、硬件攻击） 通信层（流量监听、中间人攻击） 管理控制层&#x2F;应用层（web、rtsp、ssh）  IOT设备信息收集 端口扫描（外部嗅探：nmap&#x2F;内部调试：netstat -anltu） 流量抓取、分析（外部嗅探：开热点直接抓包&#x2F;内部调试：看电路板分析） 功能点评估  web逻辑漏洞未授">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/26/XOCnb9c1oQLY4uB.jpg">
 <meta property="article:published_time" content="2022-08-06T00:34:48.000Z">
-<meta property="article:modified_time" content="2022-08-06T17:35:37.283Z">
+<meta property="article:modified_time" content="2022-09-28T11:48:42.466Z">
 <meta property="article:author" content="风间映川">
 <meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2022/08/06/iotsec-learn/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2021/06/26/XOCnb9c1oQLY4uB.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2022/08/06/iotsec-learn/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-08-07 01:35:37'
+  postUpdate: '2022-09-28 19:48:42'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -141,9 +141,191 @@
         }
       }
     })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[学习笔记]iotsec_learn</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-06T00:34:48.000Z" title="发表于 2022-08-06 08:34:48">2022-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-06T17:35:37.283Z" title="更新于 2022-08-07 01:35:37">2022-08-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2022%E5%B9%B48%E6%9C%88/">2022年8月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">37</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[学习笔记]iotsec_learn"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h1><ul>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/06/26/XOCnb9c1oQLY4uB.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[学习笔记]iotsec_learn</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-06T00:34:48.000Z" title="发表于 2022-08-06 08:34:48">2022-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-28T11:48:42.466Z" title="更新于 2022-09-28 19:48:42">2022-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2022%E5%B9%B48%E6%9C%88/">2022年8月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[学习笔记]iotsec_learn"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="0x00-思路"><a href="#0x00-思路" class="headerlink" title="0x00 思路"></a>0x00 思路</h1><h2 id="攻击面"><a href="#攻击面" class="headerlink" title="攻击面"></a>攻击面</h2><p>设备对输入进行处理的流程</p>
+<p>输入意味着有接口</p>
+<p>处理意味着有逻辑</p>
+<h2 id="安全风险"><a href="#安全风险" class="headerlink" title="安全风险"></a>安全风险</h2><ul>
 <li>物理感知层（固件提取、硬件攻击）</li>
 <li>通信层（流量监听、中间人攻击）</li>
 <li>管理控制层/应用层（web、rtsp、ssh）</li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2022/08/06/iotsec-learn/">https://kazamayc.github.io/2022/08/06/iotsec-learn/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Kazamayc.github.io" target="_blank">Kazamaycのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"><img class="prev-cover" src="https://i.loli.net/2021/06/26/XIxHFsy4EwM1AT3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">[桜の日記] 樱花抄</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/06/re%E5%9F%BA%E7%A1%80/"><img class="next-cover" src="https://i.loli.net/2021/06/26/XOCnb9c1oQLY4uB.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">[学习笔记]re基础</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00"><span class="toc-text">0x00</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 风间映川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/css/background.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="🥵🥵🥵,QAQ,=w=,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<h2 id="IOT设备信息收集"><a href="#IOT设备信息收集" class="headerlink" title="IOT设备信息收集"></a>IOT设备信息收集</h2><ul>
+<li>端口扫描（外部嗅探：nmap/内部调试：netstat -anltu）</li>
+<li>流量抓取、分析（外部嗅探：开热点直接抓包/内部调试：看电路板分析）</li>
+<li>功能点评估</li>
+</ul>
+<h2 id="web逻辑漏洞"><a href="#web逻辑漏洞" class="headerlink" title="web逻辑漏洞"></a>web逻辑漏洞</h2><h3 id="未授权访问"><a href="#未授权访问" class="headerlink" title="未授权访问"></a>未授权访问</h3><ul>
+<li>敏感路径，例如直接访问view.html、system.html可以直接绕过</li>
+<li>cookie伪造</li>
+<li>…</li>
+</ul>
+<ol>
+<li>D-link 850l认证绕过</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/08/08/VwBPL4hOU1xrgis.png"></p>
+<ol start="2">
+<li>D-Link DCS-2530L摄像头可访问未认证的敏感路径</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/08/08/zWen3oZxlv8wyfQ.png" alt="image-20220808061059747"></p>
+<ol start="3">
+<li>tenda未授权绕过</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/08/08/sh9kjB3a4TXAqNz.png" alt="image-20220808062816467"></p>
+<p><img src="https://s2.loli.net/2022/08/08/XU9csuHkRqm1a3g.png" alt="image-20220808063046339"></p>
+<ol start="4">
+<li>RTSP（视频实时流传输协议）服务未授权访问：该协议是用来控制声音和影像的多媒体串流协议，常开放在554端口</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/08/08/kFrwTjNHx2QeLso.png" alt="image-20220808063412307"></p>
+<ol start="5">
+<li>通过爆破url的order_id和id可以获得所有用户的密码</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/08/11/3SQpKFoLiW6dbkE.png" alt="image-20220811090542889"></p>
+<h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><ol>
+<li>burpsuite fuzz</li>
+<li>cookie常见溢出，注入，命令执行</li>
+</ol>
+<h3 id="拒绝服务"><a href="#拒绝服务" class="headerlink" title="拒绝服务"></a>拒绝服务</h3><p>固件代码逻辑验证不足造成指针异常，让程序非正常崩溃</p>
+<p><img src="https://s2.loli.net/2022/08/11/Fl6uKLzgwRpo3m4.png"></p>
+<h3 id="后门漏洞"><a href="#后门漏洞" class="headerlink" title="后门漏洞"></a>后门漏洞</h3><ul>
+<li>服务访问后门（web服务/rtsp服务）</li>
+<li>调试后门（软/硬件）</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/08/11/GmelaRVJ6y1E9DI.png"></p>
+<h3 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h3><ul>
+<li>存在路径穿越，没有对<code>../../进行过滤</code></li>
+<li>符号链接漏洞</li>
+</ul>
+<h2 id="常见挖掘方法"><a href="#常见挖掘方法" class="headerlink" title="常见挖掘方法"></a>常见挖掘方法</h2><ul>
+<li>固件逆向分析-分析输入点<ul>
+<li>寻找二进制中统一的cgi输入接口函数<ul>
+<li>例如getenv(“HTTP_HOST”)、get_cgi(“device”)、websGetvar(wp,”device_id”,””)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>固件逆向分析-敏感函数/代码段回溯<ul>
+<li>寻找类似于system等函数的参数是否可控</li>
+<li>可以借助ida脚本（有些可能不是system函数，而是把system函数进行了封装，所以需要去回溯其他的函数）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出所有引用system的函数地址</span></span><br><span class="line"><span class="keyword">import</span> ida</span><br><span class="line"><span class="keyword">import</span> idc</span><br><span class="line">system_list=<span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">for</span> loc,name <span class="keyword">in</span> Names():</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;system&quot;</span> == name:</span><br><span class="line">        <span class="keyword">for</span> addr <span class="keyword">in</span> XrefsTo(loc):</span><br><span class="line">            system_list.add(addr.frm)</span><br><span class="line"><span class="built_in">print</span>(system_list)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>fuzz（通信协议/固件）<ul>
+<li>端口fuzz<ul>
+<li>cat /dev/urandom | nc 192.168.0.1 9898</li>
+<li>cat /dev/random | nc 192.168.0.1 9898</li>
+</ul>
+</li>
+<li>burpsuite</li>
+<li>协议fuzz(boofuzz/peach)</li>
+</ul>
+</li>
+</ul>
+<h1 id="0x01-常用漏洞组件中的漏洞频发点"><a href="#0x01-常用漏洞组件中的漏洞频发点" class="headerlink" title="0x01 常用漏洞组件中的漏洞频发点"></a>0x01 常用漏洞组件中的漏洞频发点</h1><p>常见web管理服务：</p>
+<h2 id="lighttpd"><a href="#lighttpd" class="headerlink" title="lighttpd"></a>lighttpd</h2><p>历史漏洞：</p>
+<ul>
+<li>CVE-2018-18878</li>
+<li>CVE-2015-1548</li>
+</ul>
+<p>漏洞频发点：</p>
+<ul>
+<li>CGI in C/C++ /bash/…</li>
+<li>Php</li>
+<li>Asp</li>
+</ul>
+<h2 id="thttpd-mini-httpd"><a href="#thttpd-mini-httpd" class="headerlink" title="thttpd/mini_httpd"></a>thttpd/mini_httpd</h2><p>漏洞频发点：</p>
+<ul>
+<li><strong>thttpd对header内容没有检查</strong></li>
+<li>CGI in C/C++ /bash/…</li>
+<li>Php</li>
+</ul>
+<h2 id="GoAhead"><a href="#GoAhead" class="headerlink" title="GoAhead"></a>GoAhead</h2><p>历史漏洞：</p>
+<ul>
+<li>CVE-2019-5096</li>
+<li><strong>CVE-2017-17562</strong></li>
+</ul>
+<p>二次开发过程中漏洞频发点</p>
+<ul>
+<li><strong>goform Handler</strong></li>
+<li>asp Handler</li>
+<li><strong>security handler</strong></li>
+<li>CGI in C/C++ /bash/…</li>
+</ul>
+<h2 id="uhttpd（openwrt社区默认的服务器）"><a href="#uhttpd（openwrt社区默认的服务器）" class="headerlink" title="uhttpd（openwrt社区默认的服务器）"></a>uhttpd（openwrt社区默认的服务器）</h2><p>历史漏洞：</p>
+<ul>
+<li><strong>CVE-2019-19945</strong></li>
+<li>CVE-2018-19630</li>
+</ul>
+<p>主流组件漏洞：</p>
+<ul>
+<li>LuCI<ul>
+<li>CVE-2019-17367</li>
+<li><strong>CVE-2019-12272</strong></li>
+</ul>
+</li>
+<li>UCI<ul>
+<li>CVE-2020-28951</li>
+</ul>
+</li>
+</ul>
+<p>漏洞频发点：</p>
+<ul>
+<li>CGI in C/C++ /bash/…</li>
+<li>Lua</li>
+<li>PHP</li>
+</ul>
+<h2 id="Boa"><a href="#Boa" class="headerlink" title="Boa"></a>Boa</h2><h2 id="各厂商自研"><a href="#各厂商自研" class="headerlink" title="各厂商自研"></a>各厂商自研</h2><p>MoxaHttp</p>
+<p>ZTE Mini Web</p>
+<h1 id="0x02-常用组件的漏洞频发点"><a href="#0x02-常用组件的漏洞频发点" class="headerlink" title="0x02 常用组件的漏洞频发点"></a>0x02 常用组件的漏洞频发点</h1><h2 id="UPNP服务"><a href="#UPNP服务" class="headerlink" title="UPNP服务"></a>UPNP服务</h2><ul>
+<li>Miniupnp/MiniDLNA<ul>
+<li>CVE-2020-28926</li>
+<li>CVE-2019-12106</li>
+<li>CallStranger</li>
+</ul>
+</li>
+<li>Libupnp（Broadcom upnp）<ul>
+<li>CVE-2020-13848</li>
+<li>CVE-2016-8863</li>
+</ul>
+</li>
+<li>各厂自研</li>
+</ul>
+<h2 id="RTSP服务"><a href="#RTSP服务" class="headerlink" title="RTSP服务"></a>RTSP服务</h2><ul>
+<li>Live555</li>
+<li>HiChipSDK（闭源）</li>
+<li>各厂自研(D-Link大部分使用的都是自己的产品)</li>
+</ul>
+<h2 id="其他服务"><a href="#其他服务" class="headerlink" title="其他服务"></a>其他服务</h2><ul>
+<li>TDDP</li>
+<li>CDP</li>
+<li>mywifi</li>
+</ul>
+<h1 id="0x03-小技巧"><a href="#0x03-小技巧" class="headerlink" title="0x03 小技巧"></a>0x03 小技巧</h1><ol>
+<li>可以通过搜索FFFF来查找固件有多少个文件</li>
+<li>squashfs的文件头部是hsqs，如果是sqsh可能是文件被倒过来了</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverseBS</span>(<span class="params">src</span>):</span></span><br><span class="line">    dst=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(src),<span class="number">4</span>):</span><br><span class="line">        dst += src[i: i+<span class="number">4</span>][::-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> dst</span><br><span class="line">raw=<span class="built_in">open</span>(<span class="string">&quot;camera.bin&quot;</span>,<span class="string">&quot;r&quot;</span>).read()</span><br><span class="line">fs0=raw[<span class="number">0x1f0000</span>: <span class="number">0x2f3000</span>]</span><br><span class="line">fs1=raw[<span class="number">0x310000</span>: <span class="number">0x536000</span>]</span><br><span class="line"><span class="built_in">open</span>(<span class="string">&quot;0.fs&quot;</span>,<span class="string">&quot;w&quot;</span>).write(reverseBS(fs0))</span><br><span class="line"><span class="built_in">open</span>(<span class="string">&quot;1.fs&quot;</span>,<span class="string">&quot;w&quot;</span>).write(reverseBS(fs1))</span><br></pre></td></tr></table></figure>
+
+<h1 id="0x04-挖掘思路"><a href="#0x04-挖掘思路" class="headerlink" title="0x04 挖掘思路"></a>0x04 挖掘思路</h1><ol>
+<li>首先分析攻击面：</li>
+</ol>
+<ul>
+<li>设备固件：启动脚本/etc/init.d/，常见的服务二进制（boa，lighthttpd）</li>
+<li>在线设备（无shell）：端口扫描</li>
+<li>在线设备（有shell）：进程（ps），网络（netstat -pantu）</li>
+</ul>
+<ol start="2">
+<li>定位程序</li>
+</ol>
+<ul>
+<li>寻找开源组件1day</li>
+<li>字符串搜索：grep -Rn “xxx” 2&gt;/dev/null</li>
+</ul>
+<h1 id="0x05-流量调试"><a href="#0x05-流量调试" class="headerlink" title="0x05 流量调试"></a>0x05 流量调试</h1><h2 id="MQTT"><a href="#MQTT" class="headerlink" title="MQTT"></a>MQTT</h2><ol>
+<li>MQTT（消息队列遥测传输协议）是基于发布/订阅（Publish/Subscribe）模式的轻量级物联网通信协议，它可以用极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。</li>
+<li>默认端口是1883，websocket端口8083，默认消息不加密，8883端口是通过TLS加密的MQTT协议。</li>
+<li>基于TCP/IP网络连接,提供有序，无损，双向连接。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2022/08/06/iotsec-learn/">https://kazamayc.github.io/2022/08/06/iotsec-learn/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Kazamayc.github.io" target="_blank">Kazamaycのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/06/26/XOCnb9c1oQLY4uB.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"><img class="prev-cover" src="https://i.loli.net/2021/06/26/XIxHFsy4EwM1AT3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">[桜の日記] 樱花抄</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/04/random%E7%88%86%E7%A0%B4/"><img class="next-cover" src="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">[学习笔记]爆破random</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-%E6%80%9D%E8%B7%AF"><span class="toc-text">0x00 思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E9%9D%A2"><span class="toc-text">攻击面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9"><span class="toc-text">安全风险</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOT%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">IOT设备信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E"><span class="toc-text">web逻辑漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE"><span class="toc-text">未授权访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="toc-text">命令注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1"><span class="toc-text">拒绝服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E9%97%A8%E6%BC%8F%E6%B4%9E"><span class="toc-text">后门漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">任意文件读取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%8C%96%E6%8E%98%E6%96%B9%E6%B3%95"><span class="toc-text">常见挖掘方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-%E5%B8%B8%E7%94%A8%E6%BC%8F%E6%B4%9E%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%BC%8F%E6%B4%9E%E9%A2%91%E5%8F%91%E7%82%B9"><span class="toc-text">0x01 常用漏洞组件中的漏洞频发点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lighttpd"><span class="toc-text">lighttpd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thttpd-mini-httpd"><span class="toc-text">thttpd&#x2F;mini_httpd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GoAhead"><span class="toc-text">GoAhead</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uhttpd%EF%BC%88openwrt%E7%A4%BE%E5%8C%BA%E9%BB%98%E8%AE%A4%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89"><span class="toc-text">uhttpd（openwrt社区默认的服务器）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boa"><span class="toc-text">Boa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E5%8E%82%E5%95%86%E8%87%AA%E7%A0%94"><span class="toc-text">各厂商自研</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6%E7%9A%84%E6%BC%8F%E6%B4%9E%E9%A2%91%E5%8F%91%E7%82%B9"><span class="toc-text">0x02 常用组件的漏洞频发点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UPNP%E6%9C%8D%E5%8A%A1"><span class="toc-text">UPNP服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RTSP%E6%9C%8D%E5%8A%A1"><span class="toc-text">RTSP服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1"><span class="toc-text">其他服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03-%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-text">0x03 小技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x04-%E6%8C%96%E6%8E%98%E6%80%9D%E8%B7%AF"><span class="toc-text">0x04 挖掘思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x05-%E6%B5%81%E9%87%8F%E8%B0%83%E8%AF%95"><span class="toc-text">0x05 流量调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MQTT"><span class="toc-text">MQTT</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.loli.net/2021/06/26/XOCnb9c1oQLY4uB.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 风间映川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/css/background.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="🥵🥵🥵,QAQ,=w=,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
