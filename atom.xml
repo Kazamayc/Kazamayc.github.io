@@ -34,30 +34,6 @@
   </entry>
   
   <entry>
-    <title>ESP32_CTF_THU</title>
-    <link href="https://kazamayc.github.io/2023/02/23/ESP32-CTF-THU/"/>
-    <id>https://kazamayc.github.io/2023/02/23/ESP32-CTF-THU/</id>
-    <published>2023-02-23T13:16:21.000Z</published>
-    <updated>2023-02-23T13:17:27.506Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;更新中&lt;/p&gt;
-&lt;h1 id=&quot;0x00-环境搭建&quot;&gt;&lt;a href=&quot;#0x00-环境搭建&quot; class=&quot;headerlink&quot; title=&quot;0x00 环境搭建&quot;&gt;&lt;/a&gt;0x00 环境搭建&lt;/h1&gt;&lt;p&gt;项目地址：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="2023年2月" scheme="https://kazamayc.github.io/categories/2023%E5%B9%B42%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>新年快乐</title>
     <link href="https://kazamayc.github.io/2023/01/06/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/"/>
     <id>https://kazamayc.github.io/2023/01/06/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/</id>
@@ -460,6 +436,29 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linux系统调用表</title>
+    <link href="https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/"/>
+    <id>https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/</id>
+    <published>2021-05-23T10:43:18.000Z</published>
+    <updated>2022-02-28T09:31:14.451Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;a href=&quot;#x86平台32位Linux系统调用号&quot; class=&quot;headerlink&quot; title=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;/a&gt;x86平台32位Linux系统调用号&lt;/h1&gt;&lt;figure</summary>
         
       
     
