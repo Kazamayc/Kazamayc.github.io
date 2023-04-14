@@ -34,32 +34,6 @@
   </entry>
   
   <entry>
-    <title>新年快乐</title>
-    <link href="https://kazamayc.github.io/2023/01/06/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/"/>
-    <id>https://kazamayc.github.io/2023/01/06/%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/</id>
-    <published>2023-01-05T16:17:29.000Z</published>
-    <updated>2023-01-05T16:22:34.841Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;大家新年好呀&lt;/p&gt;
-&lt;p&gt;最近没写博客的原因是因为把内容都放到本地了，因为有些涉及保密的东西没办法放出来&lt;/p&gt;
-&lt;p&gt;目前的计划是想去日本留学，再读两年书，所以下半年更多的是在学语言，技术可能稍微少了一些。&lt;/p&gt;
-&lt;p&gt;今年做了很多工业界的东西，竞赛做的稍微少一些。明</summary>
-        
-      
-    
-    
-    
-    <category term="2023年1月" scheme="https://kazamayc.github.io/categories/2023%E5%B9%B41%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[学习笔记]iotsec_learn</title>
     <link href="https://kazamayc.github.io/2022/08/06/iotsec-learn/"/>
     <id>https://kazamayc.github.io/2022/08/06/iotsec-learn/</id>
@@ -332,29 +306,6 @@
   </entry>
   
   <entry>
-    <title>pwnable.tw-wirteup</title>
-    <link href="https://kazamayc.github.io/2021/09/06/pwnable-tw-wirteup/"/>
-    <id>https://kazamayc.github.io/2021/09/06/pwnable-tw-wirteup/</id>
-    <published>2021-09-06T11:01:11.000Z</published>
-    <updated>2021-09-27T11:56:56.258Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;start&quot;&gt;&lt;a href=&quot;#start&quot; class=&quot;headerlink&quot; title=&quot;start&quot;&gt;&lt;/a&gt;start&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="2021年9月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B49%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[实验] 南京大学PA学习</title>
     <link href="https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/"/>
     <id>https://kazamayc.github.io/2021/06/10/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%AD%A6PA%E5%AD%A6%E4%B9%A0/</id>
@@ -401,29 +352,6 @@
   </entry>
   
   <entry>
-    <title>[write up] ctfwiki学习</title>
-    <link href="https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://kazamayc.github.io/2021/05/28/ctfwiki%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-05-28T00:56:36.000Z</published>
-    <updated>2021-06-26T13:51:14.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-Basic-ROP&quot;&gt;&lt;a href=&quot;#0x00-Basic-ROP&quot; class=&quot;headerlink&quot; title=&quot;0x00 Basic ROP&quot;&gt;&lt;/a&gt;0x00 Basic</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[学习笔记] pwn</title>
     <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
     <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
@@ -465,6 +393,75 @@
     
     
     <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[文章学习] 手把手教你(x)我(√)构建解释器</title>
+    <link href="https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/"/>
+    <id>https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/</id>
+    <published>2021-05-11T09:19:27.000Z</published>
+    <updated>2021-06-28T07:36:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[读书笔记] 程序员的自我修养</title>
+    <link href="https://kazamayc.github.io/2021/03/08/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
+    <id>https://kazamayc.github.io/2021/03/08/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</id>
+    <published>2021-03-07T16:55:35.000Z</published>
+    <updated>2021-09-08T12:37:57.971Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-序&quot;&gt;&lt;a href=&quot;#0x00-序&quot; class=&quot;headerlink&quot; title=&quot;0x00 序&quot;&gt;&lt;/a&gt;0x00</summary>
+        
+      
+    
+    
+    
+    <category term="2021年3月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B43%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[实验] csapp_lab</title>
+    <link href="https://kazamayc.github.io/2021/02/05/csapp-lab/"/>
+    <id>https://kazamayc.github.io/2021/02/05/csapp-lab/</id>
+    <published>2021-02-04T16:36:28.000Z</published>
+    <updated>2022-05-09T13:16:02.045Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x01-bomb-lab&quot;&gt;&lt;a href=&quot;#0x01-bomb-lab&quot; class=&quot;headerlink&quot; title=&quot;0x01 bomb lab&quot;&gt;&lt;/a&gt;0x01 bomb</summary>
+        
+      
+    
+    
+    
+    <category term="2021年2月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B42%E6%9C%88/"/>
     
     
   </entry>
