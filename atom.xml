@@ -34,6 +34,53 @@
   </entry>
   
   <entry>
+    <title>Nccgroup Pwn2Own攻破Netgear R6700漏洞分析</title>
+    <link href="https://kazamayc.github.io/2023/04/12/Nccgroup%20Pwn2Own%20%E4%B8%AD%E6%94%BB%E7%A0%B4%20Netgear%20R6700%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"/>
+    <id>https://kazamayc.github.io/2023/04/12/Nccgroup%20Pwn2Own%20%E4%B8%AD%E6%94%BB%E7%A0%B4%20Netgear%20R6700%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/</id>
+    <published>2023-04-12T03:00:00.000Z</published>
+    <updated>2023-04-19T02:54:00.818Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;看见swing师傅博客看见的，直接开学&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2023年4月" scheme="https://kazamayc.github.io/categories/2023%E5%B9%B44%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Qilinglab</title>
+    <link href="https://kazamayc.github.io/2023/03/19/QilingFramework/"/>
+    <id>https://kazamayc.github.io/2023/03/19/QilingFramework/</id>
+    <published>2023-03-19T11:58:00.000Z</published>
+    <updated>2023-04-19T02:49:35.762Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-Qiling-lab&quot;&gt;&lt;a href=&quot;#0x00-Qiling-lab&quot; class=&quot;headerlink&quot; title=&quot;0x00 Qiling lab&quot;&gt;&lt;/a&gt;0x00 Qiling lab&lt;/h1&gt;&lt;p&gt;通过qiling</summary>
+        
+      
+    
+    
+    
+    <category term="2023年3月" scheme="https://kazamayc.github.io/categories/2023%E5%B9%B43%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>[学习笔记]iotsec_learn</title>
     <link href="https://kazamayc.github.io/2022/08/06/iotsec-learn/"/>
     <id>https://kazamayc.github.io/2022/08/06/iotsec-learn/</id>
@@ -46,29 +93,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-思路&quot;&gt;&lt;a href=&quot;#0x00-思路&quot; class=&quot;headerlink&quot; title=&quot;0x00 思路&quot;&gt;&lt;/a&gt;0x00 思路&lt;/h1&gt;&lt;h2 id=&quot;攻击面&quot;&gt;&lt;a href=&quot;#攻击面&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="2022年8月" scheme="https://kazamayc.github.io/categories/2022%E5%B9%B48%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[学习笔记]爆破random</title>
-    <link href="https://kazamayc.github.io/2022/08/04/random%E7%88%86%E7%A0%B4/"/>
-    <id>https://kazamayc.github.io/2022/08/04/random%E7%88%86%E7%A0%B4/</id>
-    <published>2022-08-04T13:00:41.000Z</published>
-    <updated>2022-08-06T00:02:11.102Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-random&quot;&gt;&lt;a href=&quot;#0x00-random&quot; class=&quot;headerlink&quot; title=&quot;0x00 random&quot;&gt;&lt;/a&gt;0x00</summary>
         
       
     
@@ -439,29 +463,6 @@
     
     
     <category term="2021年3月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B43%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[实验] csapp_lab</title>
-    <link href="https://kazamayc.github.io/2021/02/05/csapp-lab/"/>
-    <id>https://kazamayc.github.io/2021/02/05/csapp-lab/</id>
-    <published>2021-02-04T16:36:28.000Z</published>
-    <updated>2022-05-09T13:16:02.045Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x01-bomb-lab&quot;&gt;&lt;a href=&quot;#0x01-bomb-lab&quot; class=&quot;headerlink&quot; title=&quot;0x01 bomb lab&quot;&gt;&lt;/a&gt;0x01 bomb</summary>
-        
-      
-    
-    
-    
-    <category term="2021年2月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B42%E6%9C%88/"/>
     
     
   </entry>
