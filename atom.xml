@@ -34,6 +34,30 @@
   </entry>
   
   <entry>
+    <title>使用qiling对tenda设备fuzz</title>
+    <link href="https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/"/>
+    <id>https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/</id>
+    <published>2023-07-05T09:54:24.000Z</published>
+    <updated>2023-07-05T09:57:20.030Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;从笔记中随机抽取一篇文章发一下，现在网上应该是没有qiling的fuzz资料的，我来一个成功的例子示范。&lt;/p&gt;
+&lt;h1 id=&quot;搭建环境&quot;&gt;&lt;a href=&quot;#搭建环境&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="2023年7月" scheme="https://kazamayc.github.io/categories/2023%E5%B9%B47%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>[学习笔记] AFL入门</title>
     <link href="https://kazamayc.github.io/2023/04/20/AFL%E5%85%A5%E9%97%A8/"/>
     <id>https://kazamayc.github.io/2023/04/20/AFL%E5%85%A5%E9%97%A8/</id>
@@ -102,7 +126,7 @@
     <link href="https://kazamayc.github.io/2022/08/06/iotsec-learn/"/>
     <id>https://kazamayc.github.io/2022/08/06/iotsec-learn/</id>
     <published>2022-08-06T00:34:48.000Z</published>
-    <updated>2022-09-28T11:48:42.466Z</updated>
+    <updated>2023-04-25T08:50:53.095Z</updated>
     
     
       
@@ -428,29 +452,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;a href=&quot;#x86平台32位Linux系统调用号&quot; class=&quot;headerlink&quot; title=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;/a&gt;x86平台32位Linux系统调用号&lt;/h1&gt;&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[文章学习] 手把手教你(x)我(√)构建解释器</title>
-    <link href="https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/"/>
-    <id>https://kazamayc.github.io/2021/05/11/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0-x-%E6%88%91-%E2%88%9A-%E6%9E%84%E5%BB%BA%E7%BC%96%E8%AF%91%E5%99%A8/</id>
-    <published>2021-05-11T09:19:27.000Z</published>
-    <updated>2021-06-28T07:36:44.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;链接：&lt;a</summary>
         
       
     

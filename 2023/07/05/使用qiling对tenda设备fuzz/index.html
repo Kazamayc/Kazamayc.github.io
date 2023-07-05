@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用qiling对tenda设备fuzz | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从笔记中随机抽取一篇文章发一下，现在网上应该是没有qiling的fuzz资料的，我来一个成功的例子示范。 搭建环境启动http服务后会在这里卡住，check一下二进制程序。 123456789101112&#x2F;bin # .&#x2F;httpd init_core_dump 1816: rlim_cur &#x3D; 0, rlim_max &#x3D; -1init_core_dump 1825: open core dump">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用qiling对tenda设备fuzz">
+<meta property="og:url" content="https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/index.html">
+<meta property="og:site_name" content="Kazamaycのblog">
+<meta property="og:description" content="从笔记中随机抽取一篇文章发一下，现在网上应该是没有qiling的fuzz资料的，我来一个成功的例子示范。 搭建环境启动http服务后会在这里卡住，check一下二进制程序。 123456789101112&#x2F;bin # .&#x2F;httpd init_core_dump 1816: rlim_cur &#x3D; 0, rlim_max &#x3D; -1init_core_dump 1825: open core dump">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg">
+<meta property="article:published_time" content="2023-07-05T09:54:24.000Z">
+<meta property="article:modified_time" content="2023-07-05T09:57:20.030Z">
+<meta property="article:author" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用qiling对tenda设备fuzz',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-05 17:57:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">使用qiling对tenda设备fuzz</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-05T09:54:24.000Z" title="发表于 2023-07-05 17:54:24">2023-07-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-05T09:57:20.030Z" title="更新于 2023-07-05 17:57:20">2023-07-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2023%E5%B9%B47%E6%9C%88/">2023年7月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="使用qiling对tenda设备fuzz"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>从笔记中随机抽取一篇文章发一下，现在网上应该是没有qiling的fuzz资料的，我来一个成功的例子示范。</p>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p>启动http服务后会在这里卡住，check一下二进制程序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/bin # ./httpd </span><br><span class="line">init_core_dump 1816: rlim_cur = 0, rlim_max = -1</span><br><span class="line">init_core_dump 1825: open core dump success</span><br><span class="line">sh: can&#x27;t create /proc/sys/kernel/core_pattern: nonexistent directory</span><br><span class="line">init_core_dump 1834: rlim_cur = 5242880, rlim_max = 5242880</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Yes:</span><br><span class="line"></span><br><span class="line">      ****** WeLoveLinux****** </span><br><span class="line"></span><br><span class="line"> Welcome to ...</span><br></pre></td></tr></table></figure>
+
+<p>跟踪字符串，猜测是这里的check_network函数的问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v3 = puts(&quot;\n\nYes:\n\n      ****** WeLoveLinux****** \n\n Welcome to ...&quot;);</span><br><span class="line">sub_30A5C(v3);</span><br><span class="line">while ( check_network(v21) &lt;= 0 )</span><br><span class="line">  sleep(1u);</span><br><span class="line">v4 = sleep(1u);</span><br></pre></td></tr></table></figure>
+
+<h2 id="patch源文件"><a href="#patch源文件" class="headerlink" title="patch源文件"></a>patch源文件</h2><p>把r0寄存器改成#1即可</p>
+<p><img src="https://s2.loli.net/2023/05/05/tdpaW1PChnvkxMX.png" alt="image-20230504142452518"></p>
+<p>patch完会变成这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> Welcome to ...</span><br><span class="line">connect: No such file or directory</span><br><span class="line">Connect to server failed.</span><br><span class="line">connect cfm failed!</span><br></pre></td></tr></table></figure>
+
+<p>我们定位<code>connect cfm failed!</code>字符串，然后继续patch。</p>
+<p><img src="https://s2.loli.net/2023/05/05/K2Ssa19WfJXEp7N.png" alt="image-20230505100633694"></p>
+<p>patch完发现ip不对</p>
+<p><img src="https://s2.loli.net/2023/05/05/BmrTM8vjSRVOkId.png"></p>
+<p>我们可以找一下<code>check_network</code>这个函数，可以发现在<code>lib/libcommon.so</code>中</p>
+<p><img src="https://s2.loli.net/2023/05/05/FbiarempHhPz4ZX.png"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> __fastcall <span class="title">check_network</span><span class="params">(<span class="keyword">int</span> a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> LanIfName; <span class="comment">// r0</span></span><br><span class="line"></span><br><span class="line">  LanIfName = j_getLanIfName();</span><br><span class="line">  <span class="comment">// 调用了外部函数get_eth_name(0)，在libChipApi.so里</span></span><br><span class="line">  <span class="keyword">return</span> j_getIfIp(LanIfName, a1) &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *__fastcall <span class="title">get_eth_name</span><span class="params">(<span class="keyword">int</span> a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *v1; <span class="comment">// r3</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span> ( a1 )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">      v1 = <span class="string">&quot;br0&quot;</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      v1 = <span class="string">&quot;br1&quot;</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">	...</span><br><span class="line">    <span class="keyword">case</span> <span class="number">55</span>:</span><br><span class="line">      v1 = <span class="string">&quot;br20&quot;</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      v1 = (<span class="keyword">const</span> <span class="keyword">char</span> *)&amp;unk_66C8;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> v1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以我们需要一张网卡是br0的，不然就会出现服务启动，但是无法连接的状况。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip link add name br0 <span class="built_in">type</span> veth peer name br0-peer</span><br><span class="line">ip addr add 192.168.3.3/24 dev br0</span><br><span class="line">ip link <span class="built_in">set</span> dev br0 up</span><br><span class="line"><span class="comment"># ip这边可以在qemu-system创建时直接加一个，然后本地也要有，这个可选方案很多</span></span><br></pre></td></tr></table></figure>
+
+<p>此时ip正确了，但是看不到网站。去读启动项文件rcS可以看见<code>cp -rf /webroot_ro/* /webroot/</code>，照做即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/sh</span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin/</span><br><span class="line">export PATH</span><br><span class="line">mount -t ramfs none /var/</span><br><span class="line">mkdir -p /var/etc</span><br><span class="line">mkdir -p /var/media</span><br><span class="line">mkdir -p /var/webroot</span><br><span class="line">mkdir -p /var/etc/iproute</span><br><span class="line">mkdir -p /var/run</span><br><span class="line">cp -rf /etc_ro/* /etc/</span><br><span class="line">cp -rf /webroot_ro/* /webroot/</span><br><span class="line">mkdir -p /var/etc/upan</span><br><span class="line">mount -a</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>成功复现</p>
+<p><img src="https://s2.loli.net/2023/05/05/ln2s6PMHzkAyrqo.png"></p>
+<h2 id="qiling-patch"><a href="#qiling-patch" class="headerlink" title="qiling patch"></a>qiling patch</h2><blockquote>
+<p>诉苦：鬼知道我为了调试这个东西用了多久，最后鉴定为未来战士，现在底层写的太不完善了。为了调试这个东西真的把网上所有跟qiling相关的文章都看了一遍了，各种报错，各种出问题。</p>
+<p>最后在不断的patch中，翻遍了qiling github上所有的issue，顺便找到了一个调完的师傅，终于把这个摸明白了。（找到的时候我已经把所有的坑都踩完了QAQ）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Cross Platform and Multi Architecture Advanced Binary Emulation Framework</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. Download AC15 Firmware from https://down.tenda.com.cn/uploadfile/AC15/US_AC15V1.0BR_V15.03.05.19_multi_TD01.zip</span></span><br><span class="line"><span class="comment"># 2. unzip</span></span><br><span class="line"><span class="comment"># 3. binwalk -e US_AC15V1.0BR_V15.03.05.19_multi_TD01.bin</span></span><br><span class="line"><span class="comment"># 4. locate squashfs-root</span></span><br><span class="line"><span class="comment"># 5. rm -rf webroot &amp;&amp; mv webroot_ro webroot</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># notes: we are using rootfs in this example, so rootfs = squashfs-root</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, socket, threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> qiling <span class="keyword">import</span> Qiling</span><br><span class="line"><span class="keyword">from</span> qiling.const <span class="keyword">import</span> QL_VERBOSE</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">patcher</span>(<span class="params">ql: Qiling</span>):</span></span><br><span class="line">    br0_addr = ql.mem.search(<span class="string">&quot;br0&quot;</span>.encode() + <span class="string">b&#x27;\x00&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> addr <span class="keyword">in</span> br0_addr:</span><br><span class="line">        ql.mem.write(addr, <span class="string">b&#x27;lo\x00&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nvram_listener</span>():</span></span><br><span class="line">    server_address = <span class="string">&#x27;rootfs/var/cfm_socket&#x27;</span></span><br><span class="line">    data = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        os.unlink(server_address)</span><br><span class="line">    <span class="keyword">except</span> OSError:</span><br><span class="line">        <span class="keyword">if</span> os.path.exists(server_address):</span><br><span class="line">            <span class="keyword">raise</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Create UDS socket</span></span><br><span class="line">    sock = socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)</span><br><span class="line">    sock.bind(server_address)</span><br><span class="line">    sock.listen(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        connection, _ = sock.accept()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                data += <span class="built_in">str</span>(connection.recv(<span class="number">1024</span>))</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&quot;lan.webiplansslen&quot;</span> <span class="keyword">in</span> data:</span><br><span class="line">                    connection.send(<span class="string">&#x27;10.211.55.7&#x27;</span>.encode())</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">                data = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            connection.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myvfork</span>(<span class="params">ql: Qiling</span>):</span></span><br><span class="line">    regreturn = <span class="number">0</span></span><br><span class="line">    ql.log.info(<span class="string">&quot;vfork() = %d&quot;</span> % regreturn)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> regreturn</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_sandbox</span>(<span class="params">path, rootfs</span>):</span></span><br><span class="line">    <span class="comment">#ql = Qiling(path, rootfs, verbose=QL_VERBOSE.DEBUG)</span></span><br><span class="line">    ql = Qiling(path, rootfs,verbose=QL_VERBOSE.OFF) </span><br><span class="line">    ql.add_fs_mapper(<span class="string">&quot;/dev/urandom&quot;</span>,<span class="string">&quot;/dev/urandom&quot;</span>)</span><br><span class="line">    ql.hook_address(patcher, ql.loader.elf_entry)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># $ gdb-multiarch -q rootfs/bin/httpd </span></span><br><span class="line">    <span class="comment"># gdb&gt; set remotetimeout 100</span></span><br><span class="line">    <span class="comment"># gdb&gt; target remote localhost:9999</span></span><br><span class="line">    ql.debugger = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ql.debugger == <span class="literal">True</span>:</span><br><span class="line">        ql.os.set_syscall(<span class="string">&quot;vfork&quot;</span>, myvfork)</span><br><span class="line"></span><br><span class="line">    ql.run()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    nvram_listener_therad = threading.Thread(target=nvram_listener, daemon=<span class="literal">True</span>)</span><br><span class="line">    nvram_listener_therad.start()</span><br><span class="line"></span><br><span class="line">    my_sandbox([<span class="string">&quot;rootfs/bin/httpd&quot;</span>], <span class="string">&quot;rootfs&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行成功，其实我觉得这个东西还挺巧妙的，你从它patch的时候就能看出来（和我们手动patch不一样），但是我觉得这个多少有点给自己增加工作量，我可以用qeme+ida把固件基本上patch明白，用这个多少有点增加工作量。</p>
+<p><img src="https://s2.loli.net/2023/05/06/DtaZxRIiYSvyg13.png"></p>
+<p>打开web页面就看见程序崩溃了，原因是打开之后请求资源太多，虚拟的环境崩溃了</p>
+<p><img src="https://s2.loli.net/2023/05/06/wE5yKjipS1X8TdW.png"></p>
+<p>加一下内存也许就能跑了。</p>
+<p><img src="https://s2.loli.net/2023/05/06/elsMy68PFVuHE94.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/">https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Kazamayc.github.io" target="_blank">Kazamaycのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"><img class="prev-cover" src="https://i.loli.net/2021/06/26/XIxHFsy4EwM1AT3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">[桜の日記] 樱花抄</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/20/AFL%E5%85%A5%E9%97%A8/"><img class="next-cover" src="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">[学习笔记] AFL入门</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#patch%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-text">patch源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qiling-patch"><span class="toc-text">qiling patch</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 风间映川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/css/background.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="🥵🥵🥵,QAQ,=w=,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
