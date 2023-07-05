@@ -38,7 +38,7 @@
     <link href="https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/"/>
     <id>https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/</id>
     <published>2023-07-05T09:54:24.000Z</published>
-    <updated>2023-07-05T09:57:20.030Z</updated>
+    <updated>2023-07-05T09:59:07.290Z</updated>
     
     
       
@@ -46,6 +46,7 @@
         
         
     <summary type="html">&lt;p&gt;从笔记中随机抽取一篇文章发一下，现在网上应该是没有qiling的fuzz资料的，我来一个成功的例子示范。&lt;/p&gt;
+&lt;p&gt;环境是tenda ac15&lt;/p&gt;
 &lt;h1 id=&quot;搭建环境&quot;&gt;&lt;a href=&quot;#搭建环境&quot; class=&quot;headerlink&quot;</summary>
         
       
@@ -62,7 +63,7 @@
     <link href="https://kazamayc.github.io/2023/04/20/AFL%E5%85%A5%E9%97%A8/"/>
     <id>https://kazamayc.github.io/2023/04/20/AFL%E5%85%A5%E9%97%A8/</id>
     <published>2023-04-20T10:17:16.000Z</published>
-    <updated>2023-04-20T10:19:34.117Z</updated>
+    <updated>2023-07-05T09:58:02.365Z</updated>
     
     
     <summary type="html">这是一篇加密文章，内容可能是个人情感宣泄或者收费技术。如果你确实想看，请与我联系。</summary>
