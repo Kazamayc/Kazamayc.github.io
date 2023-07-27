@@ -34,6 +34,29 @@
   </entry>
   
   <entry>
+    <title>[论文阅读] FirmAE ACSAC2020</title>
+    <link href="https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/"/>
+    <id>https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/</id>
+    <published>2023-07-27T09:26:14.000Z</published>
+    <updated>2023-07-27T09:27:04.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-Paper&quot;&gt;&lt;a href=&quot;#0x00-Paper&quot; class=&quot;headerlink&quot; title=&quot;0x00 Paper&quot;&gt;&lt;/a&gt;0x00 Paper&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;FirmAE: Towards Large-Scale</summary>
+        
+      
+    
+    
+    
+    <category term="2023年7月" scheme="https://kazamayc.github.io/categories/2023%E5%B9%B47%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>使用qiling对tenda设备fuzz</title>
     <link href="https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/"/>
     <id>https://kazamayc.github.io/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/</id>
@@ -430,29 +453,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>linux系统调用表</title>
-    <link href="https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/"/>
-    <id>https://kazamayc.github.io/2021/05/23/linux%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E8%A1%A8/</id>
-    <published>2021-05-23T10:43:18.000Z</published>
-    <updated>2022-02-28T09:31:14.451Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;a href=&quot;#x86平台32位Linux系统调用号&quot; class=&quot;headerlink&quot; title=&quot;x86平台32位Linux系统调用号&quot;&gt;&lt;/a&gt;x86平台32位Linux系统调用号&lt;/h1&gt;&lt;figure</summary>
         
       
     

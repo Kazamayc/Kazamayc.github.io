@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[论文阅读] FirmAE ACSAC2020 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 PaperFirmAE: Towards Large-Scale Emulation of IoT Firmware for Dynamic Analysis  FirmAE通过使用heuristics as arbitration techniques的方式改进Firmadyne，提高了成功率 通过常识、经验或者数据模型，选取最佳解决方案。     Problem: discrepan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读] FirmAE ACSAC2020">
+<meta property="og:url" content="https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/index.html">
+<meta property="og:site_name" content="Kazamaycのblog">
+<meta property="og:description" content="0x00 PaperFirmAE: Towards Large-Scale Emulation of IoT Firmware for Dynamic Analysis  FirmAE通过使用heuristics as arbitration techniques的方式改进Firmadyne，提高了成功率 通过常识、经验或者数据模型，选取最佳解决方案。     Problem: discrepan">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg">
+<meta property="article:published_time" content="2023-07-27T09:26:14.000Z">
+<meta property="article:modified_time" content="2023-07-27T09:27:04.330Z">
+<meta property="article:author" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[论文阅读] FirmAE ACSAC2020',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-27 17:27:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[论文阅读] FirmAE ACSAC2020</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-27T09:26:14.000Z" title="发表于 2023-07-27 17:26:14">2023-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-27T09:27:04.330Z" title="更新于 2023-07-27 17:27:04">2023-07-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2023%E5%B9%B47%E6%9C%88/">2023年7月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[论文阅读] FirmAE ACSAC2020"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="0x00-Paper"><a href="#0x00-Paper" class="headerlink" title="0x00 Paper"></a>0x00 Paper</h1><p><strong>FirmAE: Towards Large-Scale Emulation of IoT Firmware for Dynamic Analysis</strong></p>
+<ul>
+<li>FirmAE通过使用heuristics as arbitration techniques的方式<strong>改进Firmadyne</strong>，提高了成功率<ul>
+<li>通过常识、经验或者数据模型，选取最佳解决方案。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Problem</strong>: discrepancy in the real and virtual environment</li>
+<li><strong>Advantage</strong>: </li>
+<li><strong>Disadvantage</strong>: </li>
+<li><strong>tags</strong>：固件仿真</li>
+</ul>
+<h1 id="0x01-Overview"><a href="#0x01-Overview" class="headerlink" title="0x01 Overview"></a>0x01 Overview</h1><p>在模拟固件的时候，由于物联网中设备硬件和配置的多样性，以及固件需要和厂商的iot设备配套使用，所以会依赖configuration vectors中的数据，例如NVRAM。这些数据存在硬件中，所以可能会丢失。</p>
+<p><strong>仿真失败的原因：</strong></p>
+<pre><code>1) 启动相关问题，不正确的启动顺序或者缺失文件
+2) 网络相关问题，不匹配的网络接口或配置不当
+</code></pre>
+<ol start="3">
+<li>与非易失性RAM(non-volatile RAM， NVRAM)相关问题，缺少库函数或者自定义格式(customized formats)</li>
+<li>kernel相关问题，不支持的硬件或函数</li>
+<li>其他问题：不支持的命令(unsupported commands)或者定时问题(timing issues)</li>
+</ol>
+<p>**Firmadyne: **</p>
+<ul>
+<li>Firmadyne在解压固件之后会使用预先构建好的linux内核和库进行仿真。这些内核和库是为支持NVRAM等各种硬件功能而预先构建的。</li>
+<li>Firmadyne会模拟固件两次，第一次记录模拟时的信息，第二次使用第一次的信息进行模拟。</li>
+<li>构建好的内核用hook来记录有用的信息，例如用inet_ioctl()和inet_bind()获取仿真固件的网络接口名称和ip地址。</li>
+<li>libnvram会根据硬编码的默认值，存储和返回 NVRAM 值</li>
+</ul>
+<h1 id="0x02-Design"><a href="#0x02-Design" class="headerlink" title="0x02 Design"></a>0x02 Design</h1><p>仿真的需求：</p>
+<ol>
+<li>启动过程(booting)中不会出现内核死机（kernel panic）</li>
+<li>主机的网络可达性（network reachability）</li>
+<li>可动态分析的web服务可用性（web service availability）</li>
+</ol>
+<p>我们基于Firmadyne实现了FirmAE，其总框架如下图</p>
+<p><img src="https://s2.loli.net/2023/07/26/vEgTlJU9yL4YWcC.png"></p>
+<h1 id="0x03-解决"><a href="#0x03-解决" class="headerlink" title="0x03 解决"></a>0x03 解决</h1><h2 id="Boot"><a href="#Boot" class="headerlink" title="Boot"></a>Boot</h2><ol>
+<li>在启动阶段出现问题，一般是模拟的时候没有启动固件内置的初始化程序( /sbin/init、/etc/init、/bin/init)。</li>
+</ol>
+<blockquote>
+<p>有些固件有自定义的初始化程序路径，导致内核找不到初始化程序而崩溃。这种状况经常发生于Netgear固件中，经过研究会发现netgear使用了preinit这个名称，这个名称经常被openwrt所使用，tplink的一些镜像也使用了这个名字。</p>
+</blockquote>
+<p>为了解决这个问题，Firmadyne开发了一个脚本，可以搜索并执行一个硬编码的预启动列表。我们在启动阶段的时候引入一个</p>
+<p>intervention，用于在内核中提取有用的信息。具体来说就是提取字符串进行解析。</p>
+<ol start="2">
+<li>另一种原因是由于缺少文件或目录，当内部程序访问就会崩溃而停止。</li>
+</ol>
+<p>Firmadyne试图通过在自定义的启动脚本的开头创建和安装硬编码路径（hard-code paths）（例如 proc、dev、sys或root），但是变通性太差，FirmAE通过前面的方法，提取字符串，然后解析哪个是路径相关的，然后创建文件目录。</p>
+<h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>为了网络通信，qemu要求主机创建一个tap接口进行通信。</p>
+<ol>
+<li>Firmadyne在第一次仿真的时候会通过hook收集内核日志，收集到的日志包括仿真过程中访问的网络接口的名称和 IP 地址。然后创建对应的网卡和ip</li>
+<li>一些固件在其内核日志中不存在任何可以连接的网络接口，例如eth这种。这其中有些固件使用dhcp获得ip并绑定wan口。FirmAE通过强制使用默认设置来配置网络这种干预形式来防止出现别的情况。</li>
+<li>路由器可能会设置防火墙以防止未经授权的远程访问，例如TPLink，FirmAE会检查是否有过滤存在，然后删掉替换成默认。</li>
+</ol>
+<h2 id="NVRAM"><a href="#NVRAM" class="headerlink" title="NVRAM"></a>NVRAM</h2><p>固件模拟的最大难点在于nvram。NVRAM是嵌入式设备中广泛用于存储配置数据的外设之一，嵌入式设备的内部程序通常会在其中存储/获取必要的信息。Firmadyne实现了一个定制的NVRAM库来模拟与NVRAM相关的功能。</p>
+<ol>
+<li>通过设置LD_PRELOAD环境变量，拦截与NVRAM相关的函数，例如nvram_get()和nvram_set()。Firmadyne 实现了一个自定义 NVRAM 库，以模拟 NVRAM 相关功能。具体来说，调用 nvram_set() 时，键值对会存储在文件中，之后调用 nvram_get() 时会获取该键值对。在调用 nvram_set() 之前调用 nvram_get()，Firmadyne 会使用给定固件中的默认文件初始化键值对，这些文件通常用于设备的出厂重置功能。Firmadyne 有一个默认文件的硬编码路径列表，用于提取键值对。</li>
+<li>如果固件不存在nvram，Firmadyne会给没初始化的值返回NULL，为了减少未初始化的值。FirmAE不返回NULL值，而是返回一个指向空字符串的指针，这样缓解了崩溃。</li>
+</ol>
+<h2 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h2><p>嵌入式设备中的很多程序通过内核设备驱动程序与外设协作，通常使用ioctl命令行与外设通信。Firmadyne实现了一些虚拟内核模块，支持/dev/nvram和/dev/acos_nat_cli</p>
+<ol>
+<li>hook函数调用</li>
+<li>选择合适的内核版本，兼容性（编译时设置了 CONFIG_COMPAT_BRK 选项，该选项排除了在堆内存中随机化brk 区域）</li>
+</ol>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><ol>
+<li>在目标固件的文件系统中搜索广泛使用的web服务器，例如httpd、lighttpd、boa或goahead，以及它们相应的配置文件，并执行。</li>
+<li>长时间没响应的固件需要被强行停止，Firmadyne设置的是60秒，改成240秒后多了60个固件被成功仿真。</li>
+<li>FirmAE会上传一份busybox到固件里，使基本命令得以使用，提高仿真成功率。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/">https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Kazamayc.github.io" target="_blank">Kazamaycのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"><img class="prev-cover" src="https://i.loli.net/2021/06/26/XIxHFsy4EwM1AT3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">[桜の日記] 樱花抄</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/"><img class="next-cover" src="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用qiling对tenda设备fuzz</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-Paper"><span class="toc-text">0x00 Paper</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-Overview"><span class="toc-text">0x01 Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-Design"><span class="toc-text">0x02 Design</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03-%E8%A7%A3%E5%86%B3"><span class="toc-text">0x03 解决</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Boot"><span class="toc-text">Boot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Network"><span class="toc-text">Network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NVRAM"><span class="toc-text">NVRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kernel"><span class="toc-text">Kernel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other"><span class="toc-text">Other</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 风间映川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/css/background.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="🥵🥵🥵,QAQ,=w=,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

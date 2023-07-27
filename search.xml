@@ -23,6 +23,25 @@
     
     
     <entry>
+      <title>[论文阅读] FirmAE ACSAC2020</title>
+      <link href="/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/"/>
+      <url>/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/</url>
+      
+        <content type="html"><![CDATA[<h1 id="0x00-Paper"><a href="#0x00-Paper" class="headerlink" title="0x00 Paper"></a>0x00 Paper</h1><p><strong>FirmAE: Towards Large-Scale Emulation of IoT Firmware for Dynamic Analysis</strong></p><ul><li>FirmAE通过使用heuristics as arbitration techniques的方式<strong>改进Firmadyne</strong>，提高了成功率<ul><li>通过常识、经验或者数据模型，选取最佳解决方案。</li></ul></li></ul><ul><li><strong>Problem</strong>: discrepancy in the real and virtual environment</li><li><strong>Advantage</strong>: </li><li><strong>Disadvantage</strong>: </li><li><strong>tags</strong>：固件仿真</li></ul><h1 id="0x01-Overview"><a href="#0x01-Overview" class="headerlink" title="0x01 Overview"></a>0x01 Overview</h1><p>在模拟固件的时候，由于物联网中设备硬件和配置的多样性，以及固件需要和厂商的iot设备配套使用，所以会依赖configuration vectors中的数据，例如NVRAM。这些数据存在硬件中，所以可能会丢失。</p><p><strong>仿真失败的原因：</strong></p><pre><code>1) 启动相关问题，不正确的启动顺序或者缺失文件2) 网络相关问题，不匹配的网络接口或配置不当</code></pre><ol start="3"><li>与非易失性RAM(non-volatile RAM， NVRAM)相关问题，缺少库函数或者自定义格式(customized formats)</li><li>kernel相关问题，不支持的硬件或函数</li><li>其他问题：不支持的命令(unsupported commands)或者定时问题(timing issues)</li></ol><p>**Firmadyne: **</p><ul><li>Firmadyne在解压固件之后会使用预先构建好的linux内核和库进行仿真。这些内核和库是为支持NVRAM等各种硬件功能而预先构建的。</li><li>Firmadyne会模拟固件两次，第一次记录模拟时的信息，第二次使用第一次的信息进行模拟。</li><li>构建好的内核用hook来记录有用的信息，例如用inet_ioctl()和inet_bind()获取仿真固件的网络接口名称和ip地址。</li><li>libnvram会根据硬编码的默认值，存储和返回 NVRAM 值</li></ul><h1 id="0x02-Design"><a href="#0x02-Design" class="headerlink" title="0x02 Design"></a>0x02 Design</h1><p>仿真的需求：</p><ol><li>启动过程(booting)中不会出现内核死机（kernel panic）</li><li>主机的网络可达性（network reachability）</li><li>可动态分析的web服务可用性（web service availability）</li></ol><p>我们基于Firmadyne实现了FirmAE，其总框架如下图</p><p><img src="https://s2.loli.net/2023/07/26/vEgTlJU9yL4YWcC.png"></p><h1 id="0x03-解决"><a href="#0x03-解决" class="headerlink" title="0x03 解决"></a>0x03 解决</h1><h2 id="Boot"><a href="#Boot" class="headerlink" title="Boot"></a>Boot</h2><ol><li>在启动阶段出现问题，一般是模拟的时候没有启动固件内置的初始化程序( /sbin/init、/etc/init、/bin/init)。</li></ol><blockquote><p>有些固件有自定义的初始化程序路径，导致内核找不到初始化程序而崩溃。这种状况经常发生于Netgear固件中，经过研究会发现netgear使用了preinit这个名称，这个名称经常被openwrt所使用，tplink的一些镜像也使用了这个名字。</p></blockquote><p>为了解决这个问题，Firmadyne开发了一个脚本，可以搜索并执行一个硬编码的预启动列表。我们在启动阶段的时候引入一个</p><p>intervention，用于在内核中提取有用的信息。具体来说就是提取字符串进行解析。</p><ol start="2"><li>另一种原因是由于缺少文件或目录，当内部程序访问就会崩溃而停止。</li></ol><p>Firmadyne试图通过在自定义的启动脚本的开头创建和安装硬编码路径（hard-code paths）（例如 proc、dev、sys或root），但是变通性太差，FirmAE通过前面的方法，提取字符串，然后解析哪个是路径相关的，然后创建文件目录。</p><h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>为了网络通信，qemu要求主机创建一个tap接口进行通信。</p><ol><li>Firmadyne在第一次仿真的时候会通过hook收集内核日志，收集到的日志包括仿真过程中访问的网络接口的名称和 IP 地址。然后创建对应的网卡和ip</li><li>一些固件在其内核日志中不存在任何可以连接的网络接口，例如eth这种。这其中有些固件使用dhcp获得ip并绑定wan口。FirmAE通过强制使用默认设置来配置网络这种干预形式来防止出现别的情况。</li><li>路由器可能会设置防火墙以防止未经授权的远程访问，例如TPLink，FirmAE会检查是否有过滤存在，然后删掉替换成默认。</li></ol><h2 id="NVRAM"><a href="#NVRAM" class="headerlink" title="NVRAM"></a>NVRAM</h2><p>固件模拟的最大难点在于nvram。NVRAM是嵌入式设备中广泛用于存储配置数据的外设之一，嵌入式设备的内部程序通常会在其中存储/获取必要的信息。Firmadyne实现了一个定制的NVRAM库来模拟与NVRAM相关的功能。</p><ol><li>通过设置LD_PRELOAD环境变量，拦截与NVRAM相关的函数，例如nvram_get()和nvram_set()。Firmadyne 实现了一个自定义 NVRAM 库，以模拟 NVRAM 相关功能。具体来说，调用 nvram_set() 时，键值对会存储在文件中，之后调用 nvram_get() 时会获取该键值对。在调用 nvram_set() 之前调用 nvram_get()，Firmadyne 会使用给定固件中的默认文件初始化键值对，这些文件通常用于设备的出厂重置功能。Firmadyne 有一个默认文件的硬编码路径列表，用于提取键值对。</li><li>如果固件不存在nvram，Firmadyne会给没初始化的值返回NULL，为了减少未初始化的值。FirmAE不返回NULL值，而是返回一个指向空字符串的指针，这样缓解了崩溃。</li></ol><h2 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h2><p>嵌入式设备中的很多程序通过内核设备驱动程序与外设协作，通常使用ioctl命令行与外设通信。Firmadyne实现了一些虚拟内核模块，支持/dev/nvram和/dev/acos_nat_cli</p><ol><li>hook函数调用</li><li>选择合适的内核版本，兼容性（编译时设置了 CONFIG_COMPAT_BRK 选项，该选项排除了在堆内存中随机化brk 区域）</li></ol><h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><ol><li>在目标固件的文件系统中搜索广泛使用的web服务器，例如httpd、lighttpd、boa或goahead，以及它们相应的配置文件，并执行。</li><li>长时间没响应的固件需要被强行停止，Firmadyne设置的是60秒，改成240秒后多了60个固件被成功仿真。</li><li>FirmAE会上传一份busybox到固件里，使基本命令得以使用，提高仿真成功率。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 2023年7月 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用qiling对tenda设备fuzz</title>
       <link href="/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/"/>
       <url>/2023/07/05/%E4%BD%BF%E7%94%A8qiling%E5%AF%B9tenda%E8%AE%BE%E5%A4%87fuzz/</url>
