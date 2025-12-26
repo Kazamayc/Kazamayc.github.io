@@ -34,6 +34,29 @@
   </entry>
   
   <entry>
+    <title>[硬件安全]物理学基础</title>
+    <link href="https://kazamayc.github.io/2025/12/26/[%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8]%E7%89%A9%E7%90%86%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>https://kazamayc.github.io/2025/12/26/[%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8]%E7%89%A9%E7%90%86%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
+    <published>2025-12-26T03:46:14.000Z</published>
+    <updated>2025-12-26T03:46:33.445Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;0x00-有关电的基础知识&quot;&gt;&lt;a href=&quot;#0x00-有关电的基础知识&quot; class=&quot;headerlink&quot; title=&quot;0x00 有关电的基础知识&quot;&gt;&lt;/a&gt;0x00 有关电的基础知识&lt;/h1&gt;&lt;h2 id=&quot;电子和电荷&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="2025年12月" scheme="https://kazamayc.github.io/categories/2025%E5%B9%B412%E6%9C%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>[论文阅读] FirmAE ACSAC2020</title>
     <link href="https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/"/>
     <id>https://kazamayc.github.io/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/</id>
@@ -436,29 +459,6 @@
     
     
     <category term="2021年6月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B46%E6%9C%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[学习笔记] pwn</title>
-    <link href="https://kazamayc.github.io/2021/05/27/pwn/"/>
-    <id>https://kazamayc.github.io/2021/05/27/pwn/</id>
-    <published>2021-05-27T12:41:55.000Z</published>
-    <updated>2022-08-05T22:58:11.062Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;0x00-PWN工具&quot;&gt;&lt;a href=&quot;#0x00-PWN工具&quot; class=&quot;headerlink&quot; title=&quot;0x00 PWN工具&quot;&gt;&lt;/a&gt;0x00 PWN工具&lt;/h1&gt;&lt;h2 id=&quot;pwntools&quot;&gt;&lt;a href=&quot;#pwntools&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="2021年5月" scheme="https://kazamayc.github.io/categories/2021%E5%B9%B45%E6%9C%88/"/>
     
     
   </entry>

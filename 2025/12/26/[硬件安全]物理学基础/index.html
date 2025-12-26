@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>[硬件安全]物理学基础 | Kazamaycのblog</title><meta name="keywords" content="风间映川,kazamayc,pwn,ctf,kazama,二进制"><meta name="author" content="风间映川"><meta name="copyright" content="风间映川"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="0x00 有关电的基础知识电子和电荷电子是负电，电荷有正有负。 电流是指 正电荷在导体中定向移动，电荷的流动形成了电流。 在物质结构中，会跑的是带负电的电子，带正电的原子核不会跑。 所以其本质是电子在移动。 正负极在电路中，“正极”和“负极”就是两个不同电势（电压）端点，它们之间存在电位差，电荷（主要是电子）才会从电势高的一端流向电势低的一端，形成电流。  正极（+）：在电路中电势较高的一端。 负">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[硬件安全]物理学基础">
+<meta property="og:url" content="https://kazamayc.github.io/2025/12/26/[%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8]%E7%89%A9%E7%90%86%E5%AD%A6%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Kazamaycのblog">
+<meta property="og:description" content="0x00 有关电的基础知识电子和电荷电子是负电，电荷有正有负。 电流是指 正电荷在导体中定向移动，电荷的流动形成了电流。 在物质结构中，会跑的是带负电的电子，带正电的原子核不会跑。 所以其本质是电子在移动。 正负极在电路中，“正极”和“负极”就是两个不同电势（电压）端点，它们之间存在电位差，电荷（主要是电子）才会从电势高的一端流向电势低的一端，形成电流。  正极（+）：在电路中电势较高的一端。 负">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg">
+<meta property="article:published_time" content="2025-12-26T03:46:14.000Z">
+<meta property="article:modified_time" content="2025-12-26T03:46:33.445Z">
+<meta property="article:author" content="风间映川">
+<meta property="article:tag" content="风间映川,kazamayc,pwn,ctf,kazama,二进制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kazamayc.github.io/2025/12/26/[%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8]%E7%89%A9%E7%90%86%E5%AD%A6%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '[硬件安全]物理学基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-26 11:46:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kazamaycのblog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kazamaycのblog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">[硬件安全]物理学基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-26T03:46:14.000Z" title="发表于 2025-12-26 11:46:14">2025-12-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-26T03:46:33.445Z" title="更新于 2025-12-26 11:46:33">2025-12-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2025%E5%B9%B412%E6%9C%88/">2025年12月</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="[硬件安全]物理学基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="0x00-有关电的基础知识"><a href="#0x00-有关电的基础知识" class="headerlink" title="0x00 有关电的基础知识"></a>0x00 有关电的基础知识</h1><h2 id="电子和电荷"><a href="#电子和电荷" class="headerlink" title="电子和电荷"></a>电子和电荷</h2><p>电子是负电，电荷有正有负。</p>
+<p>电流是指 正电荷在导体中定向移动，电荷的流动形成了电流。</p>
+<p>在物质结构中，会跑的是带负电的电子，带正电的原子核不会跑。</p>
+<p>所以其本质是电子在移动。</p>
+<h2 id="正负极"><a href="#正负极" class="headerlink" title="正负极"></a>正负极</h2><p>在电路中，“正极”和“负极”就是两个不同电势（电压）端点，它们之间存在电位差，电荷（主要是电子）才会从电势高的一端流向电势低的一端，形成电流。</p>
+<ul>
+<li><strong>正极（+）</strong>：在电路中电势较高的一端。</li>
+<li><strong>负极（–）</strong>：电势较低或基准点的一端。</li>
+</ul>
+<p><strong>电流的本质</strong>：电流是电子在导线内部连续移动产生的流量，只有在一个完整的闭合回路中才能持续流动。</p>
+<ul>
+<li><strong>正极／负极</strong> 只决定“推动”电荷的电压差高低；</li>
+<li><strong>电流</strong> 是电荷流动的量度，在单一路径上保持不变；</li>
+<li>电路里电荷既不能凭空多，也不能凭空少，所以正负极之间的任何一段导线上流过的电流都相同。</li>
+</ul>
+<p>不允许正负极接反的原因，是因为电路中的电流有方向性。如果正负极接反，电流会反向流动，导致电流绕过原本设计好的保护和限流路径，可能经过一些不该承受电流的元件，造成短路、过载或器件烧毁。（可以考虑一下大部分设备都会串联、并联，电流方向反了肯定会出问题）</p>
+<h2 id="欧姆定律"><a href="#欧姆定律" class="headerlink" title="欧姆定律"></a>欧姆定律</h2><p>电压是电流推动电子流动的力量，通常表示为V，单位是伏特（V）（电压是两个点之间的电势差，它实际的差值是固定的）。</p>
+<p>电流是电子在一个闭合回路中移动的量，通常表示为I，单位是安培（A）1安 = 1000毫安。</p>
+<p>电阻是电流在通过一种介质时受到的阻碍，通常表示为R，单位是欧姆（Ω）。</p>
+<p><strong>欧姆定律</strong> 电阻等于电压除以电流，它的公式为R=V/I。</p>
+<h2 id="万用表"><a href="#万用表" class="headerlink" title="万用表"></a>万用表</h2><p>由于测量电路也必须达成电流回路，所以万用表在com（公共端）中把内部测量电路的负极全部连接到了一起。</p>
+<p>可以把万用表简化成一个以 COM 为负极端、红笔端为正极端的电路元件</p>
+<p><strong>反接正负极后果：</strong></p>
+<p>万用表在电压档测量电压时，如果你接反了正负极，不会烧坏万用表也不会影响安全，只会显示负数。</p>
+<p>只取很小的电流（几微安）去感知两端的电压差；</p>
+<p>当万用表误接到电流档并跨接在电源正负极之间时，整个回路的总电阻骤降到仅剩下万用表内部那条分流电阻。本来应该有用电器的电阻。</p>
+<p>万用表中分流器的设计就是让电流几乎不受阻碍地流过，以便精确测量。它的阻值可能只有几毫欧（0.001Ω）到几欧（1Ω）。</p>
+<p>如果电源是 12V，表内分流电阻 0.01Ω，则<br>$$<br>I=12V/0.01Ω=1200A<br>$$<br>这远远超过普通万用表（几安培到十几安培）和其保险丝／分流器的承受能力。</p>
+<p>电压档可测的原因是因为，万用表在电压档的时候，内部电阻及其大，几乎不取电流。</p>
+<h2 id="线"><a href="#线" class="headerlink" title="线"></a>线</h2><p>火线：带电导线，提供交流或直流电源的高电位一端。</p>
+<p>零线：与火线配对，电路回路的低电位一端。</p>
+<p>地线：专为安全保护而设，将设备外壳或机架直接连到大地；不承载工作电流，只有在故障时或作屏蔽时才有电流流过。当设备外壳意外带电时，电流会通过地线流入大地，触发断路器跳闸，保护人身与设备安全。</p>
+<p>三相线（L1、L2、L3）：共有三根同等地位的火线。</p>
+<h1 id="0x01-电阻"><a href="#0x01-电阻" class="headerlink" title="0x01 电阻"></a>0x01 电阻</h1><p>直插电阻的阻值计算</p>
+<p><code>红+红+黑+金=22*1 误差5%</code></p>
+<p><img src="https://s2.loli.net/2025/05/13/iChq2FXveIAmlSZ.png" alt="image-20250513160443236.png"></p>
+<p><img src="https://s2.loli.net/2025/05/22/nNlJE3D9zQU46vC.png" alt="image-20250522103546628.png"></p>
+<h2 id="电阻本身功耗P"><a href="#电阻本身功耗P" class="headerlink" title="电阻本身功耗P"></a>电阻本身功耗P</h2><p>电阻在使用的时候会有<strong>功耗</strong>的，设计电路的时候电阻的功率不能超过电阻的额定功率，不然可能过热会烧掉。</p>
+<p>P是电阻的功率 计算公式：<code>P=I*V(功率=电压*电流)</code>和<code>P=I²*R(功率=电流的平方*电阻)</code>和<code>P=V²/R(功率=电压的平方/电阻)</code></p>
+<p>需要重新学习本章</p>
+<h2 id="电阻限制电流I"><a href="#电阻限制电流I" class="headerlink" title="电阻限制电流I"></a>电阻限制电流I</h2><p>电阻可以限制电荷的移动，利用这种特性可以给电路做一个限制电流。</p>
+<p>因为有可能会出现供电电压大于负载工作电压的情况，可以用电阻限电流。</p>
+<p><img src="https://s2.loli.net/2025/05/13/WiChG3V6YDFgla1.png"></p>
+<p>8V的电源电压，led灯2V电压，5mA的电流，因为电流在一条单一路径不会变，所以整条线都是5mA。</p>
+<p>求电阻的值是多少才不会烧。</p>
+<p>直接8V会烧掉，8/5=1.6kR的电阻才可以挡住。因为电压远远大于所需要的2V。</p>
+<p>如果加入一个2V的led灯，电阻的值就变成(8-2)/5=1.2kR</p>
+<p>同时要求<code>P=0.005A*6V=0.03W</code>，也就是必须1.2kR的电阻并且电阻功率满足0.03W=30mW才可以。</p>
+<h2 id="供电电源小知识"><a href="#供电电源小知识" class="headerlink" title="供电电源小知识"></a>供电电源小知识</h2><p>电流是负载自己决定的，电流上的旋钮调到2A，就是允许最多用到2A，电流的上限/保护阈值。</p>
+<p>如果内部短路或者接反可能会导致设备想拉大电流，电源此时起到一个限流的作用。</p>
+<h2 id="电阻的分流"><a href="#电阻的分流" class="headerlink" title="电阻的分流"></a>电阻的分流</h2><h1 id="0x02-电容"><a href="#0x02-电容" class="headerlink" title="0x02 电容"></a>0x02 电容</h1><p><strong>电容</strong>是两个不连通的导体加上中间的绝缘材料</p>
+<p>特性：电容两端的电压不能突变，只要电容不充电或者放电，两端的电压就不变。</p>
+<p>电容两端电压只会缓慢上升。想改变电容两端相对电压，必须对其进行充电或者放电。</p>
+<p>虽然相对电压不会突变，但是电容的电压可以同时突变。</p>
+<blockquote>
+<p>重温一下电压知识：电压是高电势到低电势的差，电流是从正极到负极流动的。</p>
+</blockquote>
+<p>可以把电容比做一个水的容器，电流比作水管里的水，电会一点一点填满电容，所以不会突变（水突然满）。电阻只能是一根窄窄的水管，所以电阻两端的电压都是一样的。</p>
+<p>电源的电压是固定的，所以能一直有电流流出来。电容的电压差需要靠着电流不断注入才能缓缓上升。可以把电容理解为一个气球，电源开始向气球灌电，此时气球下面的水管感受不到水压，因为气球正在存水，气球有弹性，越往里灌它就越鼓，里面的压力（对应电容两端的电压）也就越大。鼓得越大，气球内部反推水的力量也越强，灌进去的流速（电路里的电流）就越慢。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">风间映川</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kazamayc.github.io/2025/12/26/[%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8]%E7%89%A9%E7%90%86%E5%AD%A6%E5%9F%BA%E7%A1%80/">https://kazamayc.github.io/2025/12/26/[%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8]%E7%89%A9%E7%90%86%E5%AD%A6%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Kazamayc.github.io" target="_blank">Kazamaycのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/9999/05/21/%E6%A8%B1%E8%8A%B1%E6%8A%84/"><img class="prev-cover" src="https://i.loli.net/2021/06/26/XIxHFsy4EwM1AT3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">[桜の日記] 樱花抄</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/27/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-FirmAE-ACSAC2020/"><img class="next-cover" src="https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">[论文阅读] FirmAE ACSAC2020</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-%E6%9C%89%E5%85%B3%E7%94%B5%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">0x00 有关电的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%92%8C%E7%94%B5%E8%8D%B7"><span class="toc-text">电子和电荷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E8%B4%9F%E6%9E%81"><span class="toc-text">正负极</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B"><span class="toc-text">欧姆定律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E7%94%A8%E8%A1%A8"><span class="toc-text">万用表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF"><span class="toc-text">线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-%E7%94%B5%E9%98%BB"><span class="toc-text">0x01 电阻</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E6%9C%AC%E8%BA%AB%E5%8A%9F%E8%80%97P"><span class="toc-text">电阻本身功耗P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E9%99%90%E5%88%B6%E7%94%B5%E6%B5%81I"><span class="toc-text">电阻限制电流I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9B%E7%94%B5%E7%94%B5%E6%BA%90%E5%B0%8F%E7%9F%A5%E8%AF%86"><span class="toc-text">供电电源小知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E7%9A%84%E5%88%86%E6%B5%81"><span class="toc-text">电阻的分流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-%E7%94%B5%E5%AE%B9"><span class="toc-text">0x02 电容</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/01/19/Xc6ZYLr5GiCxaWv.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 风间映川</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="/css/background.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="🥵🥵🥵,QAQ,=w=,orz" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
